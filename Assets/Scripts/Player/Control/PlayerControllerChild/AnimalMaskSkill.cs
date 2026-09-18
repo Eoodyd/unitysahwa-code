@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class AnimalMaskSkill : PlayerSkill
 {
-    #region ¿ÜºÎ
+    #region ï¿½Üºï¿½
     [SerializeField] private SkillHUD skillHUD;
 
-    //½ºÅ³ ±â´É
+    //ï¿½ï¿½Å³ ï¿½ï¿½ï¿½
     [SerializeField] private PlayerCameraEffect playerCameraEffect;
     [SerializeField] private PlayerSkillMove playerSkillMove;
     [SerializeField] private PlayerState playerState;
@@ -21,7 +21,7 @@ public class AnimalMaskSkill : PlayerSkill
 
     #endregion
 
-    #region »ç¿ë°¡´É ¿©ºÎ
+    #region ï¿½ï¿½ë°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public bool canUseFirstAttack { get; private set; }
     public bool canUseSecondAttack { get; private set; }
     public bool canUseThirdAttack { get; private set; }
@@ -30,12 +30,12 @@ public class AnimalMaskSkill : PlayerSkill
     public bool canUseDash { get;  private set;}
     #endregion
 
-    #region ½ºÅ³ ¼öÇàÁß ¿©ºÎ
+    #region ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bool isPerformingLeapStrike;
     private bool isPerformingRoar;
     private bool isPerformingDash;
 
-    //¾Ö´Ï ¼öÇà
+    //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bool isPerformingFirstAttackAnim;
     private bool isPerformingSecondAttackAnim;
     private bool isPerformingThirdAttackAnim;
@@ -44,7 +44,7 @@ public class AnimalMaskSkill : PlayerSkill
     private bool isPerformingDashAnim;
     #endregion
 
-    #region ½ÃÀü½Ã°£
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
     private float firstAttackStartTime;
     private float secondAttackStartTime;
     private float thirdAttackStartTime;
@@ -53,7 +53,7 @@ public class AnimalMaskSkill : PlayerSkill
     private float dashStartTime;
     #endregion
 
-    #region ½ºÅ³ ÄÚ·çÆ¾
+    #region ï¿½ï¿½Å³ ï¿½Ú·ï¿½Æ¾
     public Coroutine coFirstAttack { get; private set; }
     public Coroutine coSecondAttack { get; private set; }
     public Coroutine coThirdAttack { get; private set; }
@@ -62,14 +62,12 @@ public class AnimalMaskSkill : PlayerSkill
     public Coroutine coDash { get; private set; }
     #endregion
 
-    #region ¹«±â Çü»ó
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private GameObject rightHandWeapon;
     [SerializeField] private GameObject leftHandWeapon;
     
     private MeshRenderer rightHandWeaponMesh;
     private MeshRenderer leftHandWeaponMesh;
-
-    //[SerializeField] private GameObject[] weaponShapes;
     #endregion
 
     #region NoarmalAttack
@@ -91,7 +89,7 @@ public class AnimalMaskSkill : PlayerSkill
     [SerializeField] private GameObject leapStrikeEffectPosition;
     [SerializeField] private GameObject[] leapStrikeEffect;
 
-    //Position SO µ¥ÀÌÅÍ·Î ³Ö¾î³õ°í ½Ç½Ã°£À¸·Î º¯°æÇÏ´Â°Ô ÆíÇÒµí. Å×½ºÆ®ÇÒ¶§´Â 
+    //Position SO ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ ï¿½Ç½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½ ï¿½ï¿½ï¿½Òµï¿½. ï¿½×½ï¿½Æ®ï¿½Ò¶ï¿½ï¿½ï¿½ 
     [SerializeField] private GameObject leapStrikeTrailPosition;
     [SerializeField] private GameObject[] leapStrikeTrail;
     #endregion
@@ -125,8 +123,7 @@ public class AnimalMaskSkill : PlayerSkill
         InitializeHitBox();
         InitializeState();
 
-        //½ºÅ³±â´É 
-        //playerTimeScale.Initialize();
+        //ï¿½ï¿½Å³ï¿½ï¿½ï¿½
         playerSkillMove.Initialize();
         playerEffect.Initialize();
         playerState.Initialize();
@@ -156,23 +153,23 @@ public class AnimalMaskSkill : PlayerSkill
         leapStrikeHitBox.SetActive(false);
         roarHitBox.SetActive(false);
 
-        //µµ¾à°ø°Ý ÇØ´ç
-        //·Î¾î ÇØ´ç
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½
+        //ï¿½Î¾ï¿½ ï¿½Ø´ï¿½
     }
 
     public void InitializeState()
     {
-        #region ±âº»°ø°Ý
+        #region ï¿½âº»ï¿½ï¿½ï¿½ï¿½
         isPerformingFirstAttackAnim = false;
         isPerformingSecondAttackAnim = false;
         isPerformingThirdAttackAnim = false;
 
-        canUseFirstAttack = true; //ÆòÅ¸´Â ÄðÅ¸ÀÓ ¾øÀ½
-        canUseSecondAttack = false; //ÆòÅ¸1 ÇÔ¼ö¿¡¼­ true·Î ¹Ù²ñ
-        canUseThirdAttack = false; //ÆòÅ¸2 ÇÔ¼ö¿¡¼­ true·Î ¹Ù²ñ
+        canUseFirstAttack = true; //ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        canUseSecondAttack = false; //ï¿½ï¿½Å¸1 ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ trueï¿½ï¿½ ï¿½Ù²ï¿½
+        canUseThirdAttack = false; //ï¿½ï¿½Å¸2 ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ trueï¿½ï¿½ ï¿½Ù²ï¿½
         #endregion
 
-        #region ½ºÅ³
+        #region ï¿½ï¿½Å³
         isPerformingLeapStrike = false;
         isPerformingRoar = false;
         isPerformingDash = false;
@@ -217,7 +214,7 @@ public class AnimalMaskSkill : PlayerSkill
         coDash = null;
         #endregion
 
-        #region °ÔÀÓ¿ÀºêÁ§Æ®
+        #region ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
         leapStrikeHitBox.SetActive(false);
 
         for (int i = 0; i < firstAttackEffect.Length; i++)
@@ -274,16 +271,6 @@ public class AnimalMaskSkill : PlayerSkill
         }
     }
 
-    //public void ActivateWeaponShape()
-    //{
-    //    //ÀÚµ¿À¸·Î ²¨Áö´Â ÀÌÆåÆ®
-    //    for (int i = 0; i < weaponShapes.Length; i++)
-    //    {
-    //        weaponShapes[i].SetActive(true);
-    //    }
-    //}
-
-
     #region Normal Attack
     public void NormalAttack()
     {
@@ -300,7 +287,7 @@ public class AnimalMaskSkill : PlayerSkill
         canUseFirstAttack = false;
         firstAttackStartTime = Time.time;
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -309,7 +296,6 @@ public class AnimalMaskSkill : PlayerSkill
         bool activeCameraShakeOnce = false;
         #endregion
 
-        //playerSkillInput.ProcessInputDirectly(animalData.firstNormalAttackInput, firstAttackStartTime);
         playerSkillInput.ProcessInput(animalData.firstNormalAttackInput, firstAttackStartTime);
         while (playerState.playerCurrentSubState == PlayerSubStateType.ANIMAL_FIRSTNORMALATTACK)
         {
@@ -349,12 +335,12 @@ public class AnimalMaskSkill : PlayerSkill
             #region Restriction
             playerState.RestrictPlayer(animalData.firstNormalAttackRestrict, firstAttackStartTime);
 
-            //DoNotActÀÇ duration±îÁö ³¡³­ »óÈ²¿¡¼­ ¿òÁ÷ÀÌ¸é ½ºÅ³ ÁßÁö 
+            //DoNotActï¿½ï¿½ durationï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ 
             if (isPerformingFirstAttackAnim && (Time.time >= firstAttackStartTime + animalData.firstNormalAttackRestrict.actRestrictWaitTime))
             {
                 canUseSecondAttack = true;
 
-                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .4f) // ¿òÁ÷ÀÌ¸é ÃÊ±âÈ­
+                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .4f) // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
                 {
                     InitializeSkill();
                     yield break;
@@ -413,7 +399,7 @@ public class AnimalMaskSkill : PlayerSkill
         canUseSecondAttack = false;
         secondAttackStartTime = Time.time;
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -463,12 +449,12 @@ public class AnimalMaskSkill : PlayerSkill
             #region Restrict
             playerState.RestrictPlayer(animalData.secondNormalAttackRestrict, secondAttackStartTime);
 
-            //DoNotActÀÇ duration±îÁö ³¡³­ »óÈ²¿¡¼­ ¿òÁ÷ÀÌ¸é ½ºÅ³ ÁßÁö
+            //DoNotActï¿½ï¿½ durationï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
             if (isPerformingSecondAttackAnim && Time.time >= secondAttackStartTime + animalData.secondNormalAttackRestrict.actRestrictWaitTime)
             {
                 canUseThirdAttack = true;
 
-                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ¿òÁ÷ÀÌ¸é ÃÊ±âÈ­
+                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
                 {
                     InitializeSkill();
                     yield break;
@@ -535,7 +521,7 @@ public class AnimalMaskSkill : PlayerSkill
         canUseThirdAttack = false;
         thirdAttackStartTime = Time.time;
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -585,10 +571,10 @@ public class AnimalMaskSkill : PlayerSkill
             #region Restrict
             playerState.RestrictPlayer(animalData.thirdNormalAttackRestrict, thirdAttackStartTime);
 
-            //DoNotActÀÇ duration±îÁö ³¡³­ »óÈ²¿¡¼­ ¿òÁ÷ÀÌ¸é ½ºÅ³ ÁßÁö
+            //DoNotActï¿½ï¿½ durationï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
             if (isPerformingThirdAttackAnim && Time.time >= thirdAttackStartTime + animalData.thirdNormalAttackRestrict.actRestrictWaitTime)
             {
-                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ¿òÁ÷ÀÌ¸é ÃÊ±âÈ­
+                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
                 {
                     InitializeSkill();
                     yield break;
@@ -675,7 +661,7 @@ public class AnimalMaskSkill : PlayerSkill
         maskChange.CurrentAnimator.CrossFade(playerAnimation.Animal_LeapStrike, 0.1f);
 
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -688,13 +674,13 @@ public class AnimalMaskSkill : PlayerSkill
 
         while (isPerformingLeapStrike)
         {
-            //´ÙÀ½¿¡´Â ¾Ö´Ï¸ÞÀÌ¼Ç ÇÏ³ª¸¸ »ç¿ëÇÏ´Â ¹æÇâÀ¸·Î
-            #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
             var animationHash = animatorStateInfo.shortNameHash;
             if (animationHash == playerAnimation.Animal_LeapStrike)
             {
-                isPerformingLeapStrikeAnim = true; //¾Ö´Ï ½ÇÇàÁß
+                isPerformingLeapStrikeAnim = true; //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
             else if (animationHash == playerAnimation.Animal_Die)
             {
@@ -712,7 +698,7 @@ public class AnimalMaskSkill : PlayerSkill
             #endregion
 
 
-            #region ¹°¸® ÀÌµ¿
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             if (!activeMoveOnce)
             {
                 for (int i = 0; i < animalData.leapStrikeSkillMove.Length; i++)
@@ -727,14 +713,14 @@ public class AnimalMaskSkill : PlayerSkill
             playerState.RestrictPlayer(animalData.leapStrikeRestrict, leapStrikeStartTime);
             #endregion
 
-            #region ÀÌÆåÆ®
+            #region ï¿½ï¿½ï¿½ï¿½Æ®
             if (!activeEffectOnce)
             {
-                //Æ®·¹ÀÏ
+                //Æ®ï¿½ï¿½ï¿½ï¿½
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (animalData.leapStrikeTrailEffect, leapStrikeTrail, leapStrikeTrailPosition));
 
-                //½½·¡½¬
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (animalData.leapStrikeSlashEffect, leapStrikeEffect, leapStrikeEffectPosition));
 
@@ -742,7 +728,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¹«±â Çü»ó
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (Time.time >= leapStrikeStartTime + animalData.leapStrikeWeaponWaitTime + animalData.leapStrikeWeaponDuration)
             {
                 rightHandWeaponMesh.enabled = false;
@@ -753,12 +739,11 @@ public class AnimalMaskSkill : PlayerSkill
             {
                 rightHandWeaponMesh.enabled = true;
                 leftHandWeaponMesh.enabled = true;
-                //ActivateWeaponShape();
             }
             #endregion
 
-            #region È÷Æ®¹Ú½º
-            //Invoke È°¿ë. ¿¹¾à°É¾î³õ°í Ãë¼ÒÇÏ·Á¸é Initialize ¿¡´Ù°¡ bool°ªÀ¸·Î Invoke Á¦¾îÇÏµµ·Ï ¸¸µé±â
+            #region ï¿½ï¿½Æ®ï¿½Ú½ï¿½
+            //Invoke È°ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Initialize ï¿½ï¿½ï¿½Ù°ï¿½ boolï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Invoke ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
             if (!activeHitBoxOnce)
             {
@@ -776,7 +761,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¼Ò¸®
+            #region ï¿½Ò¸ï¿½
             if (!activeSoundOnce)
             {
                 playerSound.SetPlayerSound(animalData.leapStrikeJumpSound, player.transform.position,leapStrikeStartTime);
@@ -787,7 +772,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+            #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
             if (!activeCameraShakeOnce)
             {
                 if (Time.time >= leapStrikeStartTime + animalData.leapStrikeCameraShake.waitTime)
@@ -798,7 +783,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Å¸ÀÓ ½ºÄÉÀÏ
+            #region Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (!activeTimeScaleOnce)
             {
                 gameTimeScale.StartCoroutine(gameTimeScale.CoSetTimeScale(animalData.leapStrikeGameTimeScale));
@@ -852,7 +837,7 @@ public class AnimalMaskSkill : PlayerSkill
 
         maskChange.CurrentAnimator.CrossFade(playerAnimation.Animal_Roar, 0.1f);
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -865,12 +850,12 @@ public class AnimalMaskSkill : PlayerSkill
 
         while (isPerformingRoar)
         {
-            #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+            #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
             var animationHash = animatorStateInfo.shortNameHash;
             if (animationHash == playerAnimation.Animal_Roar)
             {
-                isPerformingRoarAnim = true; //¾Ö´Ï ½ÇÇàÁß
+                isPerformingRoarAnim = true; //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
             else if (animationHash == playerAnimation.Animal_Die)
             {
@@ -891,27 +876,27 @@ public class AnimalMaskSkill : PlayerSkill
             playerState.RestrictPlayer(animalData.roarRestrict, roarStartTime);
             #endregion
 
-            #region ÀÌÆåÆ®
+            #region ï¿½ï¿½ï¿½ï¿½Æ®
             if (!activeEffectOnce)
             {
-                //Æ®·¹ÀÏ
+                //Æ®ï¿½ï¿½ï¿½ï¿½
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (animalData.roarTrailEffect, roarTrailEffect, rightHandWeapon));
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (animalData.roarTrailEffect, roarTrailEffect, leftHandWeapon));
 
-                //Â÷Â¡
+                //ï¿½ï¿½Â¡
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (animalData.roarChargeEffect, roarChargeEffect, roarEffectPosition));
 
-                //Â÷Â¡
+                //ï¿½ï¿½Â¡
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (animalData.roardisChargeEffect, roarDisChargeEffect, roarEffectPosition));
                 activeEffectOnce = true;
             }
             #endregion
 
-            #region ¹«±â Çü»ó
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (Time.time >= roarStartTime + animalData.roarWeaponWaitTime + animalData.roarWeaponDuration)
             {
                 rightHandWeaponMesh.enabled = false;
@@ -924,7 +909,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region È÷Æ®¹Ú½º
+            #region ï¿½ï¿½Æ®ï¿½Ú½ï¿½
             if (Time.time >= roarStartTime + animalData.roarHitBoxWaitTime)
             {
                 if (!activeHitBoxOnce)
@@ -935,13 +920,13 @@ public class AnimalMaskSkill : PlayerSkill
                     roarHitBox.transform.position = roarEffectPosition.transform.position;
                     roarHitBox.transform.localScale = animalData.roarHitBoxScale;
 
-                    //Invoke¿¡ ½Ã°£À» 0À¸·Î µÎ¸é ´ÙÀ½¹ø Updata ÇÔ¼ö »çÀÌÅ¬¿¡ ½ÇÇàµÊ
+                    //Invokeï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Updata ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
                     InvokeRepeating("RoarHitBoxOn", 0.01f, animalData.roarHitInterval);
                 }
             }
             #endregion
 
-            #region ¼Ò¸®
+            #region ï¿½Ò¸ï¿½
             if (!activeSoundOnce)
             {
                 playerSound.SetPlayerSound(animalData.roarChargeSound, player.transform.position, roarStartTime);
@@ -952,7 +937,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+            #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
             if (!activeCameraShakeOnce && (Time.time >= roarStartTime + animalData.roarCameraShake.waitTime))
             {
                 playerCameraEffect.ShakeCamera(animalData.roarCameraShake);
@@ -960,7 +945,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Å¸ÀÓ ½ºÄÉÀÏ
+            #region Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (!activeTimeScaleOnce)
             {
                 gameTimeScale.StartCoroutine(gameTimeScale.CoSetTimeScale(animalData.roarGameTimeScale));
@@ -974,8 +959,6 @@ public class AnimalMaskSkill : PlayerSkill
     public void roarCooldown()
     {
         if (canUseRoar) return;
-
-        //skillHUD.SkillIconCooldown(SkillCooldown.ROAR, Time.time - roarStartTime);
 
         if (Time.time > roarStartTime + animalData.roarStat.cooldown)
         {
@@ -1036,14 +1019,9 @@ public class AnimalMaskSkill : PlayerSkill
             isFrontDash = true;
             maskChange.CurrentAnimator.CrossFade(playerAnimation.Animal_FrontDash, 0.1f);
             playerSkillInput.ProcessInput(commonData.dashInput, dashStartTime);
-
-            //if (playerMovement.Movement != Vector3.zero) //Å°¸¦ ´©¸¥¹æÇâÀ¸·Î 
-            //{
-            //    maskChange.CurrentMask.transform.forward = playerMovement.Movement;
-            //}
         }
 
-        #region º¯¼ö
+        #region ï¿½ï¿½ï¿½ï¿½
         bool activeSoundOnce = false;
 
         bool activeMoveOnce = false;
@@ -1053,13 +1031,13 @@ public class AnimalMaskSkill : PlayerSkill
 
         while (isPerformingDash)
         {
-            #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+            #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
             var animationHash = animatorStateInfo.shortNameHash;
 
             if ((animationHash == playerAnimation.Animal_FrontDash) || (animationHash == playerAnimation.Animal_BackDash))
             {
-                isPerformingDashAnim = true; //¾Ö´Ï ½ÇÇàÁß
+                isPerformingDashAnim = true; //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
             else if ((animationHash == playerAnimation.Animal_Hit) || (animationHash == playerAnimation.Animal_Die))
             {
@@ -1076,7 +1054,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¹°¸® ÀÌµ¿
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             if (!isFrontDash)
             {
                 if (!activeMoveOnce)
@@ -1101,7 +1079,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Á¦ÇÑ
+            #region ï¿½ï¿½ï¿½ï¿½
             if (!activeRestrictOnce)
             {
                 if (isFrontDash)
@@ -1118,7 +1096,7 @@ public class AnimalMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¼Ò¸®
+            #region ï¿½Ò¸ï¿½
             if (!activeSoundOnce)
             {
                 if (isFrontDash)

@@ -17,59 +17,14 @@ public class CalliSystem : MonoBehaviour
 
     private void Awake()
     {
-        // ÀûÀÇ Á¾·ù¿¡ µû¶ó maxPaintOver¸¦ ¼³Á¤. »ç½Ç»ó EnemyData¿¡¼­ Á¤ÇØÁü
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ maxPaintOverï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½Ç»ï¿½ EnemyDataï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Enemy enemy = GetComponent<Enemy>();
         maxPaintOver = 3;
-        //if (enemy != null)
-        //{
-        //    switch (enemy.enemyData)
-        //    {
-        //        case EnemyDataMelee meleeData:
-        //            maxPaintOver = 3;
-        //            break;
-        //        case EnemyDataRange rangeData:
-        //            maxPaintOver = 5;
-        //            break;
-        //        case EnemyDataHybird hybridData:
-        //            maxPaintOver = 5;
-        //            break;
-        //        case EnemyDataBuffer bufferData:
-        //            maxPaintOver = 5;
-        //            break;
-        //    }
-        //}
-        /* ¼öÁ¤Àü
-        Enemy enemy = GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            switch (enemy.enemyType)
-            {
-                case EnemyType.Normal:
-                    maxPaintOver = 5;
-                    break;
-                case EnemyType.Elite:
-                    maxPaintOver = 10;
-                    break;
-                case EnemyType.Epic:
-                    maxPaintOver = 20;
-                    break;
-                case EnemyType.MiddleBoss:
-                    maxPaintOver = 30;
-                    break;
-                case EnemyType.MainBoss:
-                    maxPaintOver = 30;
-                    break;
-            }
-        }
-         */
-        
     }
 
     public void Painting(char color, float value)
     {
-        //Debug.Log("ÀÌÀü »ö : " + (paint.Count > 0 ? paint[paint.Count - 1].ToString() : "¾øÀ½") + " / ÀÌÈÄ »ö : " + color);
-
-        // °°Àº »öÀÌ µé¾î¿Ã °æ¿ì paint¿¡ Ãß°¡¸¸ ÇÔ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ paintï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (paint.Count > 0 && paint[paint.Count - 1] == color)
         {
             for (var i = 0; i < value; i++)
@@ -79,10 +34,10 @@ public class CalliSystem : MonoBehaviour
         }
         else
         {
-            // ´Ù¸¥ »öÀÌ µé¾î¿Ã °æ¿ì µ¡Ä¥ ½ºÅÃÀ» °è»êÇÔ
+            // ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
             float previousValue = paint.Count > 0 ? paint[paint.Count - 1] : 0;
 
-            // ÀÌÀü »ö°ú ´Ù¸¥ »öÀÌ ¿¬¼ÓÀ¸·Î µé¾î¿Ã ¶§¸¸ paintOver Áõ°¡
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ paintOver ï¿½ï¿½ï¿½ï¿½
             if (paint.Count > 0 && lastColor != ' ' && lastColor != color)
             {
                 paintOver += value;
@@ -94,7 +49,7 @@ public class CalliSystem : MonoBehaviour
                 paint.Add(color);
                 if (paint.Count > maxPaintOver)
                 {
-                    paint.RemoveAt(0); // Å¥Ã³·³ FIFO ¹æ½ÄÀ¸·Î Á¦°Å
+                    paint.RemoveAt(0); // Å¥Ã³ï¿½ï¿½ FIFO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 }
             }
         }
@@ -121,7 +76,7 @@ public class CalliSystem : MonoBehaviour
         }
     }
 
-    public float StackRatio() // (½×ÀÎ ½ºÅÃ / ÃÖ´ë ½ºÅÃ)
+    public float StackRatio() // (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ / ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½)
     {
         return (float)paintOver / maxPaintOver;
     }

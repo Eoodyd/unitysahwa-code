@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
 {
     public static CameraController instance;
 
-    #region ¿ÜºÎ
+    #region ï¿½Üºï¿½
     [SerializeField] private PlayerController playerController;
     [SerializeField] private SaveManager saveManager;
 
@@ -34,12 +34,12 @@ public class CameraController : MonoBehaviour
     [SerializeField] private PlayerState playerState;
     [SerializeField] private MenuUI menuUI;
 
-    //µ¥ÀÌÅÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private PlayerCommonData commonData;
     private CameraData cameraData;
     #endregion
         
-    #region °øÅë
+    #region ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private Camera mainCamera;
     public Camera MainCamera
     {
@@ -83,16 +83,16 @@ public class CameraController : MonoBehaviour
     [SerializeField] private VariableJoystick joystick;
     #endregion
 
-    #region ÁÖ¸ñ
-    public Collider visibleTarget { get; private set; } //º¸ÀÌ´Â Å¸°Ù
-    public bool isTargetDetected { get; private set; } //ÁÖº¯¿¡ °¨ÁöµÇ´Â Å¸°Ù
-    public bool isTargetWithMaxStack { get; private set; } //ÁÖº¯¿¡ À×Å© Ç®½ºÅÃÀÇ Å¸°ÙÀÌ ÀÖ´ÂÁö
+    #region ï¿½Ö¸ï¿½
+    public Collider visibleTarget { get; private set; } //ï¿½ï¿½ï¿½Ì´ï¿½ Å¸ï¿½ï¿½
+    public bool isTargetDetected { get; private set; } //ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ Å¸ï¿½ï¿½
+    public bool isTargetWithMaxStack { get; private set; } //ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½Å© Ç®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½
 
-    //ÇöÀç Å¸°Ù
+    //ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
     private Collider currentTarget;
     public Collider CurrentTarget { get { return currentTarget; } }
     
-    //Ä«¸Þ¶ó°¡ ¹Ù¶óº¸´Â Å¸°ÙÀÇ À§Ä¡
+    //Ä«ï¿½Þ¶ï¿½ ï¿½Ù¶óº¸´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
     private Transform headTransform;
     private Transform targetTransform;
 
@@ -108,7 +108,7 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        #region ½Ì±ÛÅæ
+        #region ï¿½Ì±ï¿½ï¿½ï¿½
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
         #endregion
@@ -130,7 +130,7 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        //Å¸°Ù Ç×½Ã Å½»ö
+        //Å¸ï¿½ï¿½ ï¿½×½ï¿½ Å½ï¿½ï¿½
         DetectTargetAlways();
         CheckCurrentTargetState();
         ControlTargetMarker();
@@ -140,7 +140,7 @@ public class CameraController : MonoBehaviour
 
     private void CameraInitialSet()
     {
-        #region ¿ÜºÎ
+        #region ï¿½Üºï¿½
         maskChange = playerController.maskChange;
         player = playerController.player;
         
@@ -148,7 +148,7 @@ public class CameraController : MonoBehaviour
         cameraData = CameraData.Instance;
         #endregion
 
-        #region Ä«¸Þ¶ó
+        #region Ä«ï¿½Þ¶ï¿½
         lockOnCameraTransposer = lockOnCamera.GetCinemachineComponent<CinemachineTransposer>();
         lockOnCameraGroupComposer = lockOnCamera.GetCinemachineComponent<CinemachineGroupComposer>();
 
@@ -156,12 +156,12 @@ public class CameraController : MonoBehaviour
         lockOnCamera.gameObject.SetActive(false);
         #endregion
 
-        #region ¶ô¿Â ¸¶Ä¿
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿
         targetMarker.gameObject.SetActive(true);
         targetMarker.color = cameraData.detectedTargetMarkerColor;
         #endregion
 
-        //¸¶¿ì½º
+        //ï¿½ï¿½ï¿½ì½º
         if (menuUI.MainMenu.activeSelf)
         {
             defaultCamera.m_XAxis.m_MaxSpeed = 0;
@@ -173,7 +173,7 @@ public class CameraController : MonoBehaviour
             defaultCamera.m_YAxis.m_MaxSpeed = saveManager.mouseSpeedWithYAxis;
         }
 
-        //Ä«¸Þ¶ó ÃÊ±â¿¡ ¼öÄ¡°ª Á¶Á¤
+        //Ä«ï¿½Þ¶ï¿½ ï¿½Ê±â¿¡ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StartCoroutine(HoldDefaultCameraValue());
     }
     private void AdjustResolution()
@@ -198,45 +198,17 @@ public class CameraController : MonoBehaviour
         float adjustedHeight = Mathf.Sqrt(targetPixelCount / deviceAspectRatio);
         float adjustedWidth = adjustedHeight * deviceAspectRatio;
 
-        // Ensure the resolution is a multiple of 2 for better GPU performance
-        //adjustedWidth = Mathf.RoundToInt(adjustedWidth / 2f) * 2;
-        //adjustedHeight = Mathf.RoundToInt(adjustedHeight / 2f) * 2;
-
         // Log the adjusted resolution for debugging
         Debug.Log($"Adjusted Resolution: {adjustedWidth}x{adjustedHeight}");
 
         // Set the screen resolution (fullscreen mode)
         Screen.SetResolution((int)adjustedWidth, (int)adjustedHeight, true);
-
-        // Adjust render scale for Universal Render Pipeline (URP)
-        //if (GraphicsSettings.currentRenderPipeline is UniversalRenderPipelineAsset urpAsset)
-        //{
-        //    float renderScale = Mathf.Clamp((float)adjustedWidth / targetWidth, 0.5f, 1.0f);
-        //    urpAsset.renderScale = renderScale;
-        //    Debug.Log($"Render Scale set to: {renderScale}");
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("Render scale adjustment skipped: Not using Universal Render Pipeline.");
-        //}
-
-        // Update all CanvasScaler components in the scene
-        //CanvasScaler[] canvasScalers = FindObjectsOfType<CanvasScaler>();
-        //if (canvasScalers.Length == 0)
-        //{
-        //    Debug.LogWarning("No CanvasScaler found. Ensure your UI uses CanvasScaler for proper scaling.");
-        //}
-        //foreach (CanvasScaler canvasScaler in canvasScalers)
-        //{
-        //    canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        //    canvasScaler.referenceResolution = new Vector2(targetWidth, targetHeight);
-        //}
     }
     public void SetPCPlatform(bool isSet)
     {
         if (isSet)
         {
-            //µðÆúÆ® Ä«¸Þ¶ó È¸Àüµé¾î°¡µµ·Ï
+            //ï¿½ï¿½ï¿½ï¿½Æ® Ä«ï¿½Þ¶ï¿½ È¸ï¿½ï¿½ï¿½ï¿½î°¡ï¿½ï¿½ï¿½ï¿½
             defaultCamera.m_YAxis.m_InputAxisName = "Mouse Y";
             defaultCamera.m_XAxis.m_InputAxisName = "Mouse X";
         }
@@ -401,7 +373,7 @@ public class CameraController : MonoBehaviour
         defaultCamera.GetRig(2).GetCinemachineComponent<CinemachineComposer>().m_TrackedObjectOffset.y = 1.4f;
     }
 
-    #region ÁÖ¸ñ
+    #region ï¿½Ö¸ï¿½
     private void DetectTargetAlways()
     {
         visibleTarget = null;
@@ -414,7 +386,7 @@ public class CameraController : MonoBehaviour
         Collider[] colliders
             = Physics.OverlapSphere(maskChange.CurrentMask.transform.position, CameraData.Instance.detectRange, CameraData.Instance.enemyLayer);
 
-        //ÁÖº¯¿¡ ÀûÀÌ¾ø°Å³ª ÇÃ·¹ÀÌ¾î »ç¸Á½Ã ¹ÝÈ¯
+        //ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½Å³ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         if (colliders.Length == 0 || colliders == null)
         {
             headTransform = null;
@@ -427,8 +399,8 @@ public class CameraController : MonoBehaviour
             isTargetDetected = true;
         }
 
-        #region Á¶°Ç¿¡ ¸Â´Â Å¸°Ù ¼±º°
-        //Á¶°Ç1: ½Ã¾ß°¢ / idDead / °Å¸®
+        #region ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½Â´ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //ï¿½ï¿½ï¿½ï¿½1: ï¿½Ã¾ß°ï¿½ / idDead / ï¿½Å¸ï¿½
         float smallestAngle = Mathf.Infinity;
        
         float smallestDistance = cameraData.distanceWithCloseTarget;
@@ -438,8 +410,8 @@ public class CameraController : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject.GetComponent<Enemy>() == null) continue; //ÀûÀÌ ¾øÀ¸¸é ÆÐ½º
-            if (colliders[i].gameObject.GetComponent<Enemy>().isDead) continue; //ÀûÀÌ Á×À¸¸é ÆÐ½º
+            if (colliders[i].gameObject.GetComponent<Enemy>() == null) continue; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½
+            if (colliders[i].gameObject.GetComponent<Enemy>().isDead) continue; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½
 
             Vector3 directionTowardTarget = colliders[i].transform.position - MainCamera.transform.position;
             directionTowardTarget.y = 0;
@@ -453,9 +425,9 @@ public class CameraController : MonoBehaviour
             characterPosition.y = 0;
             float distanceWithTarget = Vector3.Distance(characterPosition, targetPosition);
 
-            //ÀÏÁ¤ °¢µµ¸¦ ¹þ¾î³ª¸é ÆÐ½º
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½Ð½ï¿½
             if (angleWithTarget > cameraData.maximumAngleWithTarget) continue;
-            //ÀÏÁ¤ °Å¸®¸¦ ¹þ¾î³ª¸é ÆÐ½º
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½Ð½ï¿½
             if (distanceWithTarget > cameraData.maximumDistanceWithTarget ) continue;
 
             #region Activate HUD
@@ -476,7 +448,7 @@ public class CameraController : MonoBehaviour
             }
             #endregion
 
-            //°¢µµ°¡ °¡Àå ÀÛÀº ¿ÀºêÁ§Æ® ¼±º°
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             if (distanceWithTarget < smallestDistance)
             {
                 smallestDistance = distanceWithTarget;
@@ -485,17 +457,17 @@ public class CameraController : MonoBehaviour
                 isEnemyInRange = true;
             }
 
-            //°¡±î¿î ÀûÀÌ ÀÖ´Ù¸é ¿ì¼±½ÃÇÔ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½
             if (isEnemyInRange) continue;
 
             if (angleWithTarget < smallestAngle)
             {
-                //°¢µµ°¡ °¡Àå ÀÛÀº ¿ÀºêÁ§Æ® ¼±º°
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
                 smallestAngle = angleWithTarget;
                 visibleTarget = colliders[i];
             }
 
-            //ÇöÀçÅ¸°ÙÀÌ ¾ø´Ù¸é Å½ÁöµÈ Å¸°Ù ¸Ó¸®À§Ä¡ ÀúÀå(¸¶Ä¿Ç¥½Ã¸¦ À§ÇÔ) 
+            //ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ Å½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ó¸ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ä¿Ç¥ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½) 
             if (currentTarget == null)
             {
                 headTransform = visibleTarget.transform.Find("HeadPosition");
@@ -506,27 +478,27 @@ public class CameraController : MonoBehaviour
    
     private void CheckOutlineTarget()
     {
-        //visibleTargetÀÌ ¾øÀ¸¸é outline Á¦°Å
+        //visibleTargetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ outline ï¿½ï¿½ï¿½ï¿½
         if (visibleTarget == null)
         {
             ClearOutline(); 
             return;
         }
 
-        //visibleTargetÀÌ ÀÖ°í outlineTargetÀÌ ¾øÀ¸¸é outline ±×¸®±â
+        //visibleTargetï¿½ï¿½ ï¿½Ö°ï¿½ outlineTargetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ outline ï¿½×¸ï¿½ï¿½ï¿½
         else if((visibleTarget != null) && (outlineTarget == null))
         {
             DrawOutlineOnTarget();
             return;
         }
 
-        //visibleTargetÀÌ ÀÖ°í outlineTargetÀÌ¶û °°À¸¸é ¹ÝÈ¯
+        //visibleTargetï¿½ï¿½ ï¿½Ö°ï¿½ outlineTargetï¿½Ì¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         else if ((visibleTarget != null) && (visibleTarget.gameObject == outlineTarget.transform.parent.gameObject))
         {
             return;
         }
 
-        //visibleTargetÀÌ ÀÖ°í outlineTargetÀÌ¶û ´Ù¸£¸é outline Á¦°Å
+        //visibleTargetï¿½ï¿½ ï¿½Ö°ï¿½ outlineTargetï¿½Ì¶ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ outline ï¿½ï¿½ï¿½ï¿½
         else if ((visibleTarget != null) && (visibleTarget.gameObject != outlineTarget.transform.parent.gameObject))
         {
             ClearOutline();
@@ -535,7 +507,7 @@ public class CameraController : MonoBehaviour
     }
     private void DrawOutlineOnTarget()
     {
-        //Å½ÁöµÈ Å¸°ÙÀÌ ÀÖ°í Å½Áö¹üÀ§ ³»¿¡ ÀÖ´Ù¸é 
+        //Å½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ 
         if (visibleTarget.GetComponent<BrokenObject>() || visibleTarget.GetComponent<WisuSuppressionController>())
         {
             for (int i = 0; i < visibleTarget.transform.childCount; i++)
@@ -544,14 +516,14 @@ public class CameraController : MonoBehaviour
 
                 if (childObject.gameObject.CompareTag("OutlineTarget"))
                 {
-                    //outlineTarget¿¡ targetÀúÀå
+                    //outlineTargetï¿½ï¿½ targetï¿½ï¿½ï¿½ï¿½
                     outlineTarget = childObject.gameObject;
 
-                    //targetÀÌ °¡Áø materials ÀÏ´Ü ÀúÀå
+                    //targetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ materials ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
                     var targetMeshRenderer = outlineTarget.GetComponent<MeshRenderer>();
                     targetMaterials = targetMeshRenderer.materials;
 
-                    //outlineMaterial ÇÏ³ª Ãß°¡ÇØÁÖ±â
+                    //outlineMaterial ï¿½Ï³ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
                     Material[] newMaterials = new Material[targetMaterials.Length + 1];
                     for (int j = 0; j < targetMaterials.Length; j++)
                     {
@@ -582,16 +554,16 @@ public class CameraController : MonoBehaviour
     }
     private void CheckCurrentTargetState()
     {
-        //¶ô¿Â ±â´É È°¼º »óÅÂ
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (isLockOnTarget)
         {
-            //ÀûÀÌ Á×¾úÀ» ¶§ ÁÖ¸ñ ÀÚµ¿ ÀÌµ¿
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¸ï¿½ ï¿½Úµï¿½ ï¿½Ìµï¿½
             if (currentTarget == null || 
                 currentTarget.IsDestroyed() || 
                 (currentTarget.gameObject.TryGetComponent<Enemy>(out Enemy enemy) && enemy.isDead) ||
                 (enemy.hpBarCount <= 0))
             {
-                //ÁÖº¯¿¡ ÀûÀÌ ÀÖÀ¸¸é ÀÚµ¿ Å¸°Ù
+                //ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ Å¸ï¿½ï¿½
                 if (visibleTarget)
                 {
                     targetGroup.RemoveMember(targetTransform);
@@ -649,7 +621,7 @@ public class CameraController : MonoBehaviour
             {
                 return;
             }
-            //currentTargetÀÌ ÀÖÀ» ¶§ ¸¶Ä¿ÀÇ ¿òÁ÷ÀÓ, Åõ¸íµµ
+            //currentTargetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             targetMarker.gameObject.SetActive(true);
 
             Vector3 targetPosition;
@@ -706,7 +678,7 @@ public class CameraController : MonoBehaviour
     }
     public void LockOnTarget()
     {
-        //¶ô¿Â »óÅÂ¿¡¼­ ÇÑ¹ø ´õ ±â´É½ÇÇà½Ã ±â´É ºñÈ°¼ºÈ­
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         if (isLockOnTarget)
         {
             DeactivateLockOn();
@@ -714,7 +686,7 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        //detectedTarget°¡ ÀÖÀ¸¸é currentTargetÀ¸·Î
+        //detectedTargetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ currentTargetï¿½ï¿½ï¿½ï¿½
         if (visibleTarget)
         {
             isLockOnTarget = true;
@@ -725,7 +697,7 @@ public class CameraController : MonoBehaviour
 
             targetTransform = currentTarget.transform.Find("HeadPosition");
 
-            //(¼öÁ¤»çÇ×)¶ô¿Â½Ã Å¸°Ù¸¶Ä¿È°¼ºÈ­ >> Áö¼Ó ¾÷µ¥ÀÌÆ®
+            //(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½Â½ï¿½ Å¸ï¿½Ù¸ï¿½Ä¿È°ï¿½ï¿½È­ >> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
             targetMarker.gameObject.transform.localScale = cameraData.targetMarkerScale;
 
 

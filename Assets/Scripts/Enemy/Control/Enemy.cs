@@ -631,15 +631,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
         enemyState = eState.Tracking;
     }
-
-    //protected IEnumerator HitStop(float waitTime)
-    //{
-    //    navAgent.isStopped = true;
-    //    navAgent.velocity = Vector3.zero;
-    //    yield return new WaitForSeconds(waitTime);
-    //    enemyState = eState.Tracking;
-    //    navAgent.isStopped = false;
-    //}
     #endregion
 
     #region 디졸브

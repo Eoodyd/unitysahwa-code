@@ -8,8 +8,8 @@ using UnityEngine;
 
 public partial class CheatData: ScriptableObject
 {
-    [Header("ÀÔ·ÂÅ° ½±°Ô Ã£´Â ¹æ¹ý: ¿øÇÏ´Â ÀÔ·ÂÅ°ÀÇ Ã¹±ÛÀÚ°¡ ³ª¿Ã¶§±îÁö Ã¹±ÛÀÚ °è¼Ó ÀÔ·ÂÇÏ¸éµÇ¿ä. \n¿¹¸¦ µé¾î 'Space' ¶ó°í ÇÑ´Ù¸é S °è¼Ó ´©¸£´Ù º¸¸é Space°¡ º¸¿©¿ä \n¼ýÀÚÅ°´Â alpha0,1,2... ÀÔ´Ï´Ù")]
-    [Header("ÇÁ·¹ÀÓ È®ÀÎ")]
+    [Header("ï¿½Ô·ï¿½Å° ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô·ï¿½Å°ï¿½ï¿½ Ã¹ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¸ï¿½Ç¿ï¿½. \nï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 'Space' ï¿½ï¿½ï¿½ ï¿½Ñ´Ù¸ï¿½ S ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Spaceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ \nï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ alpha0,1,2... ï¿½Ô´Ï´ï¿½")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½")]
     public int frameTextSize = 25;
     public Color frameTextColor = Color.green;
     public KeyCode showFrame;
@@ -18,54 +18,50 @@ public partial class CheatData: ScriptableObject
     public KeyCode frame60;
     public KeyCode frame144;
 
-    //[Header("UI,HUD º¸ÀÌ±â")]
-    //public KeyCode showUI;
-    //public KeyCode showHUD;
-    
-    [Header("À§ÀÇ ±â´É°ú´Â º°°³·Î ÀÛµ¿-----------------------------------------------------------------")]
-    [Header("Ä¡Æ® È°¼ºÈ­")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½-----------------------------------------------------------------")]
+    [Header("Ä¡Æ® È°ï¿½ï¿½È­")]
     public KeyCode activateCheatMode;
 
-    [Header("ÀúÀå, ºÒ·¯¿À±â(Ã¹¹øÂ° ½½·Ô¿¡ Àû¿ë)")]
+    [Header("ï¿½ï¿½ï¿½ï¿½, ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½(Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½)")]
     public KeyCode saveData;
     public KeyCode loadData;
     
-    [Header("°ÔÀÓ¼Óµµ(0ÀÌ¸é ÀÏ½ÃÁ¤Áö)")]
+    [Header("ï¿½ï¿½ï¿½Ó¼Óµï¿½(0ï¿½Ì¸ï¿½ ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½)")]
     public KeyCode setGameTimeRate;
     public float timeScaleValue;
 
-    [Header("µ¥¹ÌÁö¸Æ½º, Ç®½ºÅÃ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½, Ç®ï¿½ï¿½ï¿½ï¿½")]
     public KeyCode damageMax;
     public KeyCode paintOverlapMax;
 
-    [Header("ÀÌµ¿¼Óµµ")]
+    [Header("ï¿½Ìµï¿½ï¿½Óµï¿½")]
     public KeyCode moveSpeedUp;
     public float moveSpeed;
 
-    [Header("Á¡¸ê")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     public KeyCode blink;
     public float blinkDistance;
 
-    [Header("ÇÃ¶óÀÌ¸ðµå")]
+    [Header("ï¿½Ã¶ï¿½ï¿½Ì¸ï¿½ï¿½")]
     public KeyCode flyMode;
     public KeyCode moveUp;
     public float flySpeed;
 
 
-    [Header("Ã¼·Â")]
+    [Header("Ã¼ï¿½ï¿½")]
     public KeyCode minHealth;
     public KeyCode maxHealth;
 
-    [Header("»ç¸Á")]
+    [Header("ï¿½ï¿½ï¿½")]
     public KeyCode dieFromZeroHealth;
     public KeyCode dieFromFall;
 
-    [Header("ÁÖº¯ ÀûÁ¦°Å")]
+    [Header("ï¿½Öºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public KeyCode clearEnemy;
     public float clearRange;
     public LayerMask clearLayer;
 
-    [Header("ÁÂÇ¥ÀÌµ¿(±Ùµ¥ Áöµµ ¾÷µ¥ÀÌÆ®°¡ ÇÊ¿äÇÔ, ¾Æ´Ï¸é ÀÌµ¿ÇÏ±æ ¿øÇÏ´Â °ø°£ ¸»ÇØÁÖ¼¼¿ä)")]
+    [Header("ï¿½ï¿½Ç¥ï¿½Ìµï¿½(ï¿½Ùµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½, ï¿½Æ´Ï¸ï¿½ ï¿½Ìµï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½)")]
     public KeyCode showMap;
 }
 
@@ -73,44 +69,44 @@ public partial class CheatData: ScriptableObject
 #region Set
 public partial class CheatData : ScriptableObject
 {
-    #region ½Ì±ÛÅæ
-    //Áö¿¬»ý¼º ½Ì±ÛÅæ: ½Ì±ÛÅæ ¿ÀºêÁ§Æ®¿¡ Á¢±ÙÇÏ´Â ¼ø°£¿¡ ¿ÀºêÁ§Æ®°¡ ¾ø´Ù¸é ¸¸µé¾îÁÜ
+    #region ï¿½Ì±ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½: ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     private const string SettingFileDirectory = "Assets/Resources";
     private const string SettingFilePath = "Assets/Resources/CheatData.asset";
-    //¸®¼Ò½º´Â µÇµµ·Ï »ç¿ëX, Àü¿ªÀ¸·Î »ç¿ëµÇ´Â °ÍÀº Å« ¹®Á¦ ¾ø´Ù°í ÇÔ
-    //Resources Æú´õ°¡ ¾ø´ÂÁö È®ÀÎ, ¾øÀ¸¸é »ý¼º
+    //ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½X, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½ï¿½
+    //Resources ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private static CheatData instance;
     public static CheatData Instance
     {
         get
         {
-            if (instance != null) //instance°¡ Á¸ÀçÇÑ´Ù¸é °¡Á®¿À±â
+            if (instance != null) //instanceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
                 return instance;
             }
 
-            //¾ø´Ù¸é 
+            //ï¿½ï¿½ï¿½Ù¸ï¿½ 
             instance = Resources.Load<CheatData>("CheatData");
 
-            //¿¡µðÅÍ Å¸ÀÓ¿¡¼­ ÀÚµ¿À¸·Î ¹Ì¸® »ý¼ºµÇµµ·Ï, ·±Å¸ÀÓ¿¡ ¹«Á¶°Ç ÀÖ¾î¾ßÇÔ.
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½, ï¿½ï¿½Å¸ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½.
 #if UNITY_EDITOR
 
             if (instance == null)
             {
-                if (!AssetDatabase.IsValidFolder(SettingFileDirectory))//ÇØ´ç ÆÄÀÏÀÌ À¯È¿ÇÑÁö
+                if (!AssetDatabase.IsValidFolder(SettingFileDirectory))//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½
                 {
-                    AssetDatabase.CreateFolder("Assets", "Resources"); //¾Æ´Ï¶ó¸é Assets ¾Æ·¡¿¡ Resources Æú´õ »ý¼º
+                    AssetDatabase.CreateFolder("Assets", "Resources"); //ï¿½Æ´Ï¶ï¿½ï¿½ Assets ï¿½Æ·ï¿½ï¿½ï¿½ Resources ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 }
 
-                //¾î¶² ÀÌÀ¯·Î ÆÄÀÏÀÌ ¾È°¡Á®¿Ô´Ù¸é ÇÏµåÇÏ°Ô °¡Á®¿À±â
+                //ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ï¿½Ô´Ù¸ï¿½ ï¿½Ïµï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 instance = AssetDatabase.LoadAssetAtPath<CheatData>(SettingFilePath);
 
-                if (instance == null) //±×·³¿¡µµ ¾È°¡Á®¿ÍÁø´Ù¸é ¾ø´Ù´Â °Í. »õ·Î ¸¸µé¾îÁÖ±â
+                if (instance == null) //ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
                 {
-                    instance = CreateInstance<CheatData>(); //ÀÌ·¸°Ô »ý¼ºÇÏ¸é ¸Þ¸ð¸®¿¡¸¸ Á¸Àç. ÆÄÀÏ ¿¡¼ÂÀ¸·Î ÀúÀåÀÌ ¾ÈµÊ
-                    AssetDatabase.CreateAsset(instance, SettingFilePath); //¹æ±Ý »ý¼ºµÈ ¿ÀºêÁ§Æ®¸¦ À¯´ÏÆ¼¿¡¼ÂÀ¸·Î »ý¼º, ÀúÀåÇÒ ¼ö ÀÖ°Ô
+                    instance = CreateInstance<CheatData>(); //ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Þ¸ð¸®¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
+                    AssetDatabase.CreateAsset(instance, SettingFilePath); //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½
                 }
 
             }

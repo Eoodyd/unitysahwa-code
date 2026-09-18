@@ -24,7 +24,7 @@ public class MaskChange : MonoBehaviour
     private PlayerHumanMaskData humanData;
     private PlayerAnimalMaskData animalData;
 
-    #region Å» ÀÌÆåÆ®
+    #region Å» ï¿½ï¿½ï¿½ï¿½Æ®
     [SerializeField] private GameObject humanMaskOnCharacter;
     [SerializeField] private GameObject ghostMaskOnHumanCharacter;
     [SerializeField] private GameObject animalMaskOnCharacter;
@@ -70,7 +70,7 @@ public class MaskChange : MonoBehaviour
 
     private void Awake()
     {
-        #region ½Ì±ÛÅæ
+        #region ï¿½Ì±ï¿½ï¿½ï¿½
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
         #endregion
@@ -97,10 +97,6 @@ public class MaskChange : MonoBehaviour
         animalAnimator = animalCharacter.GetComponent<Animator>();
         animalRigidbody = animalCharacter.GetComponent<Rigidbody>();
 
-        //player = transform.GetChild(3).gameObject;
-        //playerRigidbody = player.GetComponent<Rigidbody>();
-        //playerCollider = player.GetComponent<CapsuleCollider>();
-
         currentCharacter = humanCharacter;
         currentAnimator = humanAnimator;
         currentRigidbody = humanRigidbody;
@@ -108,7 +104,7 @@ public class MaskChange : MonoBehaviour
         ChangeMask(MaskType.HUMAN, false, false);
     }
 
-    //Ä³¸¯ÅÍ¸¸ ±³Ã¼
+    //Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½Ã¼
     public void ChangeCharacter()
     {
         if (!canUseChangeMask) return;
@@ -164,13 +160,13 @@ public class MaskChange : MonoBehaviour
         }
     } 
 
-    //Å»À» ±³Ã¼
+    //Å»ï¿½ï¿½ ï¿½ï¿½Ã¼
     public void ChangeMask(MaskType maskType, bool useFunction, bool useSound)
     {
-        //HUD ¹Ù²Ù±â
+        //HUD ï¿½Ù²Ù±ï¿½
         skillHUD.ChangeIcon(maskType);
 
-        //Å»±³Ã¼
+        //Å»ï¿½ï¿½Ã¼
         if (maskType == MaskType.HUMAN)
         {
             humanMaskOnCharacter.SetActive(true);
@@ -229,7 +225,7 @@ public class MaskChange : MonoBehaviour
         Vector3 cameraDirection = Camera.main.transform.position - maskEffectTR.position;
         Vector3 cameraForwardPosition = maskEffectTR.position + cameraDirection.normalized * 0.5f;
 
-        //È÷Æ®ÀÌÆåÆ®´Â ¾Æ´ÏÁö¸¸... ¼öÁ¤ÇØ¾ßÇÔ
+        //ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½... ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
         playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect(commonData.partnerCollisionEffect, maskObject, cameraForwardPosition));
         
         if (useSound)
@@ -238,32 +234,18 @@ public class MaskChange : MonoBehaviour
         }
     }
 
-    //»óÈ²¿¡ µû¶ó Å»±³Ã¼ ¼Ò¸® ¾È³ª°Å³ª, µ¥ÀÌÅÍ ºÒ·¯¿Ã¶§ Ä³¸¯ÅÍ¸¸ ±³Ã¼ÇÏ´Â°É·Î ÇÏ±â
+    //ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½Ã¼ ï¿½Ò¸ï¿½ ï¿½È³ï¿½ï¿½Å³ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Ã¶ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½Ã¼ï¿½Ï´Â°É·ï¿½ ï¿½Ï±ï¿½
 
     public void ChangeMaskCooldown()
     {
         if (canUseChangeMask) return;
 
-        if (Time.time < lastTimeCastedChangeMask + commonData.changeMaskCooldown) //Å»±³Ã¼ ÄðÅ¸ÀÓÀÌ Áö³ª¸é ¹ÝÈ¯
+        if (Time.time < lastTimeCastedChangeMask + commonData.changeMaskCooldown) //Å»ï¿½ï¿½Ã¼ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         {
             return;
         }
         canUseChangeMask = true;
     }
-
-    //public void FollowPlayerObject()
-    //{
-    //    if ( humanMask.activeSelf)
-    //    {
-    //        humanMask.transform.position = player.transform.position;
-    //        humanMask.transform.rotation = player.transform.rotation;
-    //    }
-    //    else
-    //    {
-    //        animalMask.transform.position = player.transform.position;
-    //        animalMask.transform.rotation = player.transform.rotation;
-    //    }
-    //}
 }
 
 

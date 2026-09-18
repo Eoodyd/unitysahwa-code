@@ -13,7 +13,7 @@ public class BrokenObject : Enemy
     private bool isInvincible = false;
 
 
-    [Header("Á×ÀÏ Àû ³Ö´Â °÷")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½")]
     public List<Enemy> enemies = new List<Enemy>();
 
     protected override void Awake()
@@ -55,8 +55,6 @@ public class BrokenObject : Enemy
 
         phaseHPs[phaseHPs.Count - 1] -= damageMessage.amount;
         lastDamagedTime = Time.time;
-        //Debug.Log($"¿ÀºêÁ§Æ® Ã¼·Â : {phaseHPs[phaseHPs.Count - 1]}");
-        //audioSourceHit.PlaySoundEffect(0);
 
         if (phaseHPs[phaseHPs.Count - 1] <= 0)
         {

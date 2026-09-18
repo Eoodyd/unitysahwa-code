@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class GhostMaskSkill : MonoBehaviour
 {
-    #region ¿ÜºÎ
+    #region ï¿½Üºï¿½
     private PlayerController playerController;
     private Player player;
 
@@ -26,12 +26,12 @@ public class GhostMaskSkill : MonoBehaviour
     [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private PlayerSound playerSound;
 
-    //µ¥ÀÌÅÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private PlayerCommonData commonData;
     private PlayerGhostMaskData ghostData;
     #endregion
 
-    #region Ã³Çü ½ºÅ³ ¿ÀºêÁ§Æ®
+    #region Ã³ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     [Space(20)]
     [SerializeField] private GameObject humanWeapon;
     [SerializeField] private GameObject[] animalWeapon;
@@ -78,25 +78,24 @@ public class GhostMaskSkill : MonoBehaviour
 
     public void InitializeSkill()
     {
-        //ÄÚ·çÆ¾
+        //ï¿½Ú·ï¿½Æ¾
         if (coFinishSkill != null) StopCoroutine(coFinishSkill);
 
-        //»óÅÂ
+        //ï¿½ï¿½ï¿½ï¿½
         isPerformingFinish = false;
         isPerformingFinishAnim = false;
 
-        //±â´É ÃÊ±âÈ­
-        //playerTimeScale.Initialize();
+        //ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
         playerSkillMove.Initialize();
         playerEffect.Initialize();
         playerState.Initialize();
         playerSound.Initialize();
 
-        //Ä«¸Þ¶ó
+        //Ä«ï¿½Þ¶ï¿½
         cameraController.ChangeCamera(CameraType.DEFAULT);
     }
 
-    //»ó½ÃÅ½»ö
+    //ï¿½ï¿½ï¿½Å½ï¿½ï¿½
     public void DetectTargetToFinish()
     {
         if (!canUseFinishSkill)
@@ -105,37 +104,25 @@ public class GhostMaskSkill : MonoBehaviour
             return;
         }
 
-        //¸®½ºÆ® Å¬¸®¾î
+        //ï¿½ï¿½ï¿½ï¿½Æ® Å¬ï¿½ï¿½ï¿½ï¿½
         finishTargetList.Clear();
 
-        //Àû ·¹ÀÌ¾îÀÇ Å¸°Ù °¨Áö
+        //ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Collider[] colliders = Physics.OverlapSphere
             (maskChange.CurrentMask.transform.position, CameraData.Instance.detectRange, CameraData.Instance.enemyLayer);
 
         int maxInkStack = 0;
-        Collider targetCenter; //Å¸°Ù±âÁØ(½ºÅÃÀÌ Á¦ÀÏ ³ôÀº Å¸°Ù) //ÀÌ¸§ ´Ù½Ã Áþ±â
+        Collider targetCenter; //Å¸ï¿½Ù±ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½) //ï¿½Ì¸ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        #region Å¸°Ù¿¡ Ãß°¡µÇ´Â Á¶°Ç
+        #region Å¸ï¿½Ù¿ï¿½ ï¿½ß°ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < colliders.Length; i++)
         {
-            //ÀûÀÌ ¾Æ´Ï¶ó¸é + Á×¾ú´Ù¸é ÆÐ½º
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ + ï¿½×¾ï¿½ï¿½Ù¸ï¿½ ï¿½Ð½ï¿½
             if (!colliders[i].gameObject.GetComponent<Enemy>()) continue;
             if (colliders[i].gameObject.GetComponent<Enemy>().isDead) continue;
 
-            //°Å¸® ¹ÛÀÌ¸é ÆÐ½º(Å¸°Ù°¨Áö¶û Áßº¹µÊ)
-            //float distance = Vector3.Distance(maskChange.CurrentMask.transform.position, colliders[i].transform.position);
-            //if (distance > CameraData.Instance.detectRange) continue;
-
-            #region ¾Õ¿¡ Àå¾Ö¹°ÀÌ ÀÖÀ¸¸é ÆÐ½º
-            //Vector3 direction = (colliders[i].transform.position - cameraController.MainCamera.transform.position).normalized; //Å¸ÄÏ¹æÇâ º¤ÅÍ
-            //if (Physics.Raycast(maskChange.CurrentMask.transform.position, direction, distance, CameraData.Instance.obstacleLayer))
-            //{
-            //    continue;
-            //}
-            #endregion
-
-            //µ¡Ä¥ Ç®½ºÅÃÀÌ Á¸ÀçÇÏ¸é ±× ¸ó½ºÅÍÀÇ ÇÑ°è½ºÅÃ¼ö ÀúÀå(´õ Å«°Ô ³ª¿Ã¼ö·Ï °»½Å)
-            //±× ¿Ü¿¡´Â ÄÁÆ¼´º
+            //ï¿½ï¿½Ä¥ Ç®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°è½ºï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ Å«ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+            //ï¿½ï¿½ ï¿½Ü¿ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½
             if (!colliders[i].gameObject.GetComponent<CalliSystem>()) continue;
             if (!colliders[i].gameObject.GetComponent<CalliSystem>().IsPaintOverMax()) continue;
 
@@ -146,8 +133,8 @@ public class GhostMaskSkill : MonoBehaviour
             }
         }
 
-        //´Ù½Ã Æ÷¹®À» µ¹·Á¼­ ÀûµéÁß¿¡
-        //ÇØ´ç ½ºÅÃÀÌ¶û °°°Å³ª ³·Àº »ó´ë ¸ðµÎ Ã³Çü¸®½ºÆ®¿¡ Ãß°¡
+        //ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½
+        //ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
         for (int i = 0; i < colliders.Length; i++)
         {
             if (!colliders[i].gameObject.GetComponent<Enemy>()) continue;
@@ -161,7 +148,7 @@ public class GhostMaskSkill : MonoBehaviour
             }
         }
 
-        //Å¸°Ù °¨Áö »óÅÂ¿¡ µû¶ó ¾ÆÀÌÄÜ È°¼ºÈ­
+        //Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         if (finishTargetList.Count == 0 || (finishTargetList == null) || !canUseFinishSkill)
         {
             skillHUD.ActivateFinishHUD(false);
@@ -173,10 +160,10 @@ public class GhostMaskSkill : MonoBehaviour
         #endregion
     }
 
-    //ÀÔ·Â½Ã ½ÇÇà ÇÔ¼ö
+    //ï¿½Ô·Â½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void Finish()
     {
-        //Á¶°Ç ¸¸Á·½Ã ½ºÅ³ ÁøÇà
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
         if (!CheckEnableFinish())
         {
             return;
@@ -193,18 +180,18 @@ public class GhostMaskSkill : MonoBehaviour
         coFinishSkill = StartCoroutine(CoFinish());
     }
 
-    //Ä«¸Þ¶ó Á¤¸é°ú Ä«¸Þ¶ó¿Í Àû ¹æÇâ°úÀÇ °¢µµ °è»êÇØ¼­ Ã³Çü°¡´ÉÇÑÁö °è»ê
+    //Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     public bool CheckEnableFinish()
     {
         if (!canUseFinishSkill) return false;
         if (finishTargetList == null) return false;
         if (finishTargetList.Count <= 0) return false;
 
-        //½Ã¾ß°¢ ³»¿¡ Å¸°ÙÀÌ ÀÖ´Ù¸é ½ÇÇà
+        //ï¿½Ã¾ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         bool startSkill = false;
         for (int i = 0; i < finishTargetList.Count; i++)
         {
-            Vector3 direction = (finishTargetList[i].transform.position - cameraController.MainCamera.transform.position).normalized; //Å¸ÄÏ¹æÇâ º¤ÅÍ
+            Vector3 direction = (finishTargetList[i].transform.position - cameraController.MainCamera.transform.position).normalized; //Å¸ï¿½Ï¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
             if (Vector3.Angle(cameraController.MainCamera.transform.forward, direction) < (ghostData.viewAngle * 0.5f))
             {
@@ -218,39 +205,34 @@ public class GhostMaskSkill : MonoBehaviour
             return false;
         }
 
-        //¸ðµç Á¶°Ç ¸¸Á·½Ã ½ÇÇà
+        //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         return true;
     }
 
     public IEnumerator CoFinish()
     {
-        //¹«Àû
+        //ï¿½ï¿½ï¿½ï¿½
         playerState.ToggleInvincibleState(true);
 
-        //if (playerMovement.Movement != Vector3.zero && !cameraController.CurrentTarget)
-        //{
-        //    maskChange.CurrentMask.transform.forward = playerMovement.Movement;
-        //}
-
-        //Ä«¸Þ¶ó
+        //Ä«ï¿½Þ¶ï¿½
         cameraController.ChangeCamera(CameraType.FINISHSKILL);
         SkillCameraAnimation();
 
-        //½Ã°£
+        //ï¿½Ã°ï¿½
         finishSkillStartTime = Time.time;
         canUseFinishSkill = false;
 
-        //±¸ºÐ
+        //ï¿½ï¿½ï¿½ï¿½
         bool isHumanMask = false;
 
-        //»óÅÂ
+        //ï¿½ï¿½ï¿½ï¿½
         playerState.ChangePlayerState(PlayerStateType.GHOST_FINISHSKILL);
         playerState.ChangePlayerSubState(PlayerSubStateType.NONE);
 
-        //½ºÅ³ »ç¿ëÁßÀÓÀ» ¾Ë¸²
+        //ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
         playerSound.StopLoopingAudio();
 
-        //Àû Á¤Áö
+        //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Collider[] colliders = Physics.OverlapSphere
             (maskChange.CurrentMask.transform.position, CameraData.Instance.detectRange, CameraData.Instance.enemyLayer);
 
@@ -266,7 +248,7 @@ public class GhostMaskSkill : MonoBehaviour
             }
         }
         
-        //¾Ö´Ï¸ÞÀÌ¼Ç Ãâ·Â
+        //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
         if (maskChange.CurrentMask == maskChange.HumanMask)
         {
             maskChange.CurrentAnimator.CrossFade(playerAnimation.Ghost_HumanHitGround, 0);
@@ -285,7 +267,7 @@ public class GhostMaskSkill : MonoBehaviour
             
         }
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool setGhostWeaponOnce = false;
         bool setOriginalWeaponOnce = false;
         bool killTargetsOnce = false;
@@ -302,7 +284,7 @@ public class GhostMaskSkill : MonoBehaviour
         {
             if (isHumanMask)
             {
-                #region ¼ÂÆÃ
+                #region ï¿½ï¿½ï¿½ï¿½
                 if (!setGhostWeaponOnce && (Time.time >= finishSkillStartTime + ghostData.humanSetGhostWeaponTime))
                 {
                     maskChange.ChangeMask(MaskType.GHOST,true,false);
@@ -325,7 +307,7 @@ public class GhostMaskSkill : MonoBehaviour
                     {
                         foreach (var target in finishTargetList)
                         {
-                            //while¹® 
+                            //whileï¿½ï¿½ 
                             if (target.GetComponent<Enemy>() || !target.GetComponent<Enemy>().isDead)
                             {
                                 target.GetComponent<Enemy>().Execution();
@@ -349,7 +331,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+                #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
                 var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
                 var animationHash = animatorStateInfo.shortNameHash;
 
@@ -367,7 +349,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region ¹°¸®ÀÌµ¿
+                #region ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
                 if (!activeMoveOnce)
                 {
                     for (int i = 0; i < ghostData.humanSkillMove.Length; i++)
@@ -378,11 +360,11 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region Á¦ÇÑ
+                #region ï¿½ï¿½ï¿½ï¿½
                     playerState.RestrictPlayer(ghostData.humanRestrict, finishSkillStartTime);
                 #endregion
 
-                #region ÀÌÆåÆ®
+                #region ï¿½ï¿½ï¿½ï¿½Æ®
                 if (!activeEffectOnce)
                 {
                     playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
@@ -393,10 +375,10 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region ¼Ò¸®
+                #region ï¿½Ò¸ï¿½
                 if (!activeSoundOnce)
                 {
-                    //waitTime °ªÀÌ Å« structºÎÅÍ À§¿¡ ¹èÄ¡
+                    //waitTime ï¿½ï¿½ï¿½ï¿½ Å« structï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
                     playerSound.SetPlayerSound(ghostData.humanHitGroundSound, player.transform.position, finishSkillStartTime);
                     playerSound.SetPlayerSound(ghostData.humanSwingSound, humanWeapon.transform.position, finishSkillStartTime);
                     playerSound.SetPlayerSound(ghostData.humanAfterSwingSound, player.transform.position, finishSkillStartTime);
@@ -405,7 +387,7 @@ public class GhostMaskSkill : MonoBehaviour
                 
                 #endregion
 
-                #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+                #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
                 if (!activeCameraShake1Once && (Time.time >= finishSkillStartTime + ghostData.humanFinishHitGroundCameraShake.waitTime))
                 {
                     playerCameraEffect.ShakeCamera(ghostData.humanFinishHitGroundCameraShake);
@@ -418,7 +400,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region Å¸ÀÓ ½ºÄÉÀÏ
+                #region Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (!activeTimeScaleOnce)
                 {
                     playerTimeScale.StartCoroutine(playerTimeScale.CoSetTimeScale(ghostData.humanFinishTimeScale));
@@ -428,7 +410,7 @@ public class GhostMaskSkill : MonoBehaviour
             }
             else
             {
-                #region ¼ÂÆÃ
+                #region ï¿½ï¿½ï¿½ï¿½
                 if (!setGhostWeaponOnce && (Time.time >= finishSkillStartTime + ghostData.animalSetGhostWeaponTime))
                 {
                     maskChange.ChangeMask(MaskType.GHOST, true, false);
@@ -446,7 +428,7 @@ public class GhostMaskSkill : MonoBehaviour
                 {
                     maskChange.ChangeMask(MaskType.ANIMAL, false,false);
 
-                    //µ¿¹° ¹«±âÇü»óÀº Æò¼Ò¿¡ ºñÈ°¼ºÈ­
+                    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ò¿ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
 
                     ghostWeaponForAnimal.SetActive(false);
                     setOriginalWeaponOnce = true;
@@ -476,7 +458,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+                #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
                 var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
                 var animationHash = animatorStateInfo.shortNameHash;
 
@@ -494,7 +476,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region ¹°¸®ÀÌµ¿
+                #region ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
                 if (!activeMoveOnce)
                 {
                     for (int i = 0; i < ghostData.animalSkillMove.Length; i++)
@@ -505,11 +487,11 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region Á¦ÇÑ
+                #region ï¿½ï¿½ï¿½ï¿½
                 playerState.RestrictPlayer(ghostData.animalRestrict, finishSkillStartTime);
                 #endregion
 
-                #region ÀÌÆåÆ®
+                #region ï¿½ï¿½ï¿½ï¿½Æ®
                 if (!activeEffectOnce)
                 {
                     playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
@@ -520,7 +502,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region ¼Ò¸®
+                #region ï¿½Ò¸ï¿½
                 if (!activeSoundOnce)
                 {
                     playerSound.SetPlayerSound(ghostData.animalSweapSound, player.transform.position,finishSkillStartTime);
@@ -530,7 +512,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+                #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
                 if (!activeCameraShake1Once && (Time.time >= finishSkillStartTime + ghostData.animalFinishSweapCameraShake.waitTime))
                 {
                     playerCameraEffect.ShakeCamera(ghostData.animalFinishSweapCameraShake);
@@ -543,7 +525,7 @@ public class GhostMaskSkill : MonoBehaviour
                 }
                 #endregion
 
-                #region Å¸ÀÓ ½ºÄÉÀÏ
+                #region Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (!activeTimeScaleOnce)
                 {
                     playerTimeScale.StartCoroutine(playerTimeScale.CoSetTimeScale(ghostData.animalFinishTimeScale));
@@ -556,7 +538,7 @@ public class GhostMaskSkill : MonoBehaviour
         }
     }
 
-    public void FinishSkillCooldown() //Ã³Çü ÄðÅ¸ÀÓ
+    public void FinishSkillCooldown() //Ã³ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
     {
         if (canUseFinishSkill) return;
 

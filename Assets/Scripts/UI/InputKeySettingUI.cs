@@ -11,11 +11,10 @@ public class InputKeySettingUI : MonoBehaviour
 {
     private SaveManager saveManager;
 
-    //¹öÆ°º°·Î 
-    [Header("¹öÆ°ÀÌ¶û ÅØ½ºÆ® ¼ø¼­°°µµ·Ï")]
+    //ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ 
+    [Header("ï¿½ï¿½Æ°ï¿½Ì¶ï¿½ ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private Button[] inputKeyButton;
     private TextMeshProUGUI[] inputKeyButtonText = new TextMeshProUGUI[(int)KeyAction.KEYCOUNT];
-    //private TextMeshProUGUI[] inputKeyText;
 
     public bool isEditingKey { get; private set; }
     public bool completeEditingKey { get; private set; }
@@ -25,10 +24,10 @@ public class InputKeySettingUI : MonoBehaviour
     {
         for (int i = 0; i < inputKeyButton.Length; i++)
         {
-            //Closure ¹®Á¦¹ß»ý
-            // ¹Ýº¹¹®¿¡¼­ ¶÷´ÙÇÔ¼ö, delegate ÇÔ¼ö »ç¿ë½Ã ¹ß»ýÇÏ´Â ¹®Á¦
-            // i°ªÀÇ º¹»ç°ªÀ» »ç¿ëÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó iº¯¼ö ±× ÀÚÃ¼¸¦ ÂüÁ¶, ¹Ýº¹¹®ÀÌ ´Ù ³¡³­ ÈÄ i°ªÀ» ÂüÁ¶ÇÔ
-            // ÇØ°áÀ» À§ÇØ¼± iÀÇ º¹»ç°ªÀ» Á÷Á¢ ¸¸µé¾îÁÖ±â
+            //Closure ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½
+            // ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½, delegate ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+            // iï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ç°ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ iï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ iï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            // ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ iï¿½ï¿½ ï¿½ï¿½ï¿½ç°ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
             
             int index = i;
             inputKeyButton[index].onClick.AddListener(()=> EditInputKey(index));
@@ -43,10 +42,6 @@ public class InputKeySettingUI : MonoBehaviour
 
         for (int i = 0; i < (int)KeyAction.KEYCOUNT; i++)
         {
-            //saveManager.InputKeysÀÇ key °ªÀ» inputKeyText¿¡ Àû¿ë
-            //inputKeyText[i].text = $"{(KeyAction)i}";
-
-            //saveManager.InputKeysÀÇ value °ªÀ» inputKeyButtonText Àû¿ë
             ChangeInputKeyButtonText(i);
         }
     }
@@ -55,10 +50,10 @@ public class InputKeySettingUI : MonoBehaviour
     {
         if (isEditingKey)
         {
-            //ÆíÁýÁß¿¡ ÀÔ·ÂÇÑ Å°ÄÚµå Á¤º¸°¡ None ÀÌ ¾Æ´Ò °æ¿ì º¯È¯
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ Å°ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ None ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             if (DetectPressedKeyCode() != KeyCode.None)
             {
-                //¸Þ´º¹öÆ°ÀÌ ¸¶¿ì½º ÁÂÅ¬¸¯ÀÌ¸é ¸Å¿ì ºÒÆíÇØÁü
+                //ï¿½Þ´ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Å¬ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (currentKeyIndex == (int)KeyAction.MENU)
                 {
                     if (DetectPressedKeyCode() == KeyCode.Mouse0)
@@ -67,17 +62,17 @@ public class InputKeySettingUI : MonoBehaviour
                     }
                 }
 
-                //Á¶ÀÛÅ° º¯°æ
+                //ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½
                 saveManager.ChangeKeySetting(currentKeyIndex, DetectPressedKeyCode());
                 saveManager.SaveInputKeyData();
 
-                //UI º¯°æ
+                //UI ï¿½ï¿½ï¿½ï¿½
                 ChangeInputKeyButtonText(currentKeyIndex);
 
                 currentKeyIndex = -1;
                 isEditingKey = false;
 
-                //¸Þ´º ³ª°¡±â¶û Áßº¹µÇÁö ¾Êµµ·Ï
+                //ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
                 completeEditingKey = true;
             }
         }
@@ -89,7 +84,7 @@ public class InputKeySettingUI : MonoBehaviour
     }
 
     private KeyCode DetectPressedKeyCode()
-    {//ÇöÀç ÀÔ·ÂµÈ Å°ÄÚµå Á¤º¸ ¹ÝÈ¯
+    {//ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Âµï¿½ Å°ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
         {
             if (Input.GetKeyDown(kcode))
@@ -101,13 +96,13 @@ public class InputKeySettingUI : MonoBehaviour
     }
 
     private void EditInputKey(int index)
-    {//¹öÆ°À» ´©¸£¸é ½ÇÇàµÇ´Â ÇÔ¼ö
+    {//ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½
         isEditingKey = true;
         currentKeyIndex = index;
     }
 
     private void ChangeInputKeyButtonText(int index)
-    {//¹öÆ° ÅØ½ºÆ® º¯°æ
+    {//ï¿½ï¿½Æ° ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
         if (saveManager.InputKeys.ContainsKey((KeyAction)index))
         {

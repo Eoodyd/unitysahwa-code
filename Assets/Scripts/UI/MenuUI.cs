@@ -12,8 +12,8 @@ public class MenuUI : MonoBehaviour
 {
     public static MenuUI instance;
 
-    #region ¿ÜºÎ
-    [Header("¿ÜºÎ")]
+    #region ï¿½Üºï¿½
+    [Header("ï¿½Üºï¿½")]
     [SerializeField] private CameraController cameraController;
     [SerializeField] private MaskChange maskChange;
     [SerializeField] private PlayerSound playerSound;
@@ -29,9 +29,9 @@ public class MenuUI : MonoBehaviour
     private PlayerCommonData commonData;
     #endregion
 
-    #region ¸Þ´º
+    #region ï¿½Þ´ï¿½
     [Space(20)]
-    [Header("¸Þ´º")]
+    [Header("ï¿½Þ´ï¿½")]
     [SerializeField] private GameObject mainMenu;
     public GameObject MainMenu
     {
@@ -53,7 +53,7 @@ public class MenuUI : MonoBehaviour
 
     #region Window
     [Space(20)]
-    [Header("±â´ÉÃ¢")]
+    [Header("ï¿½ï¿½ï¿½Ã¢")]
     [SerializeField] private GameObject newGameWindow;
     public GameObject NewGameWindow
     {
@@ -98,14 +98,14 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private Button setPCButton;
     [SerializeField] private Button setMobileButton;
 
-    //TODO: ¹èÆ² HUD¿¡¼­ PC HUD µµ ÀÛ¼ºÇÏ±â
+    //TODO: ï¿½ï¿½Æ² HUDï¿½ï¿½ï¿½ï¿½ PC HUD ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï±ï¿½
     #endregion
 
     public bool isPlayerControlDisabled { get; private set; }
     public bool canShowPauseMenu { get; private set; }
 
     #region Save Slot
-    [Header("½½·Ô(¼ø¼­´ë·Î ³Ö±â)")]
+    [Header("ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½)")]
     [SerializeField] private Button[] loadSlots;
     [SerializeField] private GameObject[] selectImage;
     [SerializeField] private TextMeshProUGUI[] areaText;
@@ -113,7 +113,7 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] playTimeText;
     [SerializeField] private TextMeshProUGUI[] dateText;
     [SerializeField] private TextMeshProUGUI[] noDataText;
-    //½½·Ô ¼ø¼­ Á¤ÇÏ±â À§ÇÔ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½
     private int?[] timeIndex;
     #endregion
 
@@ -143,7 +143,7 @@ public class MenuUI : MonoBehaviour
 
     #endregion
 
-    #region ·¹ÅÍ¹Ú½º
+    #region ï¿½ï¿½ï¿½Í¹Ú½ï¿½
     [Space(20)]
     [Header("LetterBox")]
     [SerializeField] private Image letterBoxImage;
@@ -151,16 +151,16 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private Mask letterBoxMask;
     #endregion
 
-    #region ¾ð¾î¼³Á¤
+    #region ï¿½ï¿½î¼³ï¿½ï¿½
     [Space(20)]
-    [Header("¾ð¾î ±³Ã¼")]
+    [Header("ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼")]
     [SerializeField] private Button changeToKorean;
     [SerializeField] private Button changeToEnglish;
     #endregion
 
-    #region ¼³Á¤ ¹öÆ° ÀÔ·Â
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½Ô·ï¿½
     [Space(20)]
-    [Header("¼³Á¤ ¹öÆ°")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°")]
     [SerializeField] private GameObject[] settingElements;
     [SerializeField] private Image[] settingTextBG;
     [SerializeField] private TextMeshProUGUI[] settingText;
@@ -186,12 +186,12 @@ public class MenuUI : MonoBehaviour
         timelineHelper = TimelineHelper.instance;
         loadingUI = LoadingUI.instance;
 
-        //¸Þ´ºÃ¢ À§Ä¡Á¤·Ä  
+        //ï¿½Þ´ï¿½Ã¢ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½  
         SetPosition();
         SetUIElements();
         SetButtonFunction();
 
-        //PlayGuide°¡ DontDestroy¶ó¼­
+        //PlayGuideï¿½ï¿½ DontDestroyï¿½ï¿½
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             PlayGuide.instance.IsTutorialStart = false;
@@ -200,7 +200,7 @@ public class MenuUI : MonoBehaviour
 
         if (mainMenu.activeSelf && !SceneSwitcher.instance.IsNotPlayingMainMenu)
         {
-            //¸ÞÀÎ¸Þ´ºÀÎ °æ¿ì
+            //ï¿½ï¿½ï¿½Î¸Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             canShowPauseMenu = false;
             isPlayerControlDisabled = true;
 
@@ -209,7 +209,7 @@ public class MenuUI : MonoBehaviour
         }
         else
         {
-            //¹Ù·Î ÀÎ°ÔÀÓ ½ÃÀÛ
+            //ï¿½Ù·ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             canShowPauseMenu = true;
             isPlayerControlDisabled = false;
 
@@ -229,7 +229,6 @@ public class MenuUI : MonoBehaviour
     private void SetPosition()
     {
         RectTransform starMenuRT = mainMenu.GetComponent<RectTransform>();
-        //RectTransform cartoonRT = cartoon.GetComponent<RectTransform>();
         RectTransform pauseMenuRT = pauseMenu.GetComponent<RectTransform>();
         RectTransform settingWindowRT = settingWindow.GetComponent<RectTransform>();
 
@@ -242,14 +241,6 @@ public class MenuUI : MonoBehaviour
         rectTransform.offsetMin = Vector2.zero;
         rectTransform.offsetMax = Vector2.zero;
         rectTransform.anchoredPosition3D = Vector3.zero;
-
-        //rectTransform.anchorMin = Vector2.zero;
-        //rectTransform.anchorMax = Vector2.zero;
-        //rectTransform.pivot = new Vector2(0.5f, 0.5f);
-        //rectTransform.rotation = Quaternion.identity;
-        //rectTransform.localScale = new Vector3(1, 1, 1);
-
-        //https://stackoverflow.com/questions/46756823/positioning-ui-elements-with-anchor-presets-via-code
     }
     private void SetUIElements()
     {
@@ -259,7 +250,6 @@ public class MenuUI : MonoBehaviour
         goToMainMenuWindow.SetActive(false);
 
         settingWindow.SetActive(false);
-        //soundWindow.SetActive(false); //´Ù¸¥ ¼³Á¤ UI°¡ ¾ø´Ù
         inputKeyWindow.SetActive(false);
         loadSlotWindow.SetActive(false);
         loadWindow.SetActive(false);
@@ -270,10 +260,10 @@ public class MenuUI : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            //»õ°ÔÀÓ ½ÃÀÛ ÀÌº¥Æ®
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
             newGameButton.onClick.AddListener(() => { ShowStory(); });
 
-            //½ºÅä¸® ³¡¿¡ °ÔÀÓ ½ÃÀÛ ±â´ÉµéÀ» ³ÖÀ½
+            //ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Éµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             StoryImage[StoryImage.Length - 1].onClick.AddListener(() => { SaveManager.instance.ResetData(); });
             StoryImage[StoryImage.Length - 1].onClick.AddListener(() => { timelineHelper.StartTutorialTimeline(); });
             StoryImage[StoryImage.Length - 1].onClick.AddListener(() => { SaveManager.instance.SelectIndex(0); });
@@ -286,11 +276,8 @@ public class MenuUI : MonoBehaviour
                 StoryImage[i].onClick.AddListener(() => { StoryImage[index].gameObject.SetActive(false); });
             }
         }
-        
 
-        //newGameButton.onClick.AddListener(() => { ShowMouseCursor(false); });
-
-        //ºÒ·¯¿À±â ÀÌº¥Æ®(ºÒ·¯¿À±â ½½·Ô ÀÌº¥Æ®´Â µû·Î)
+        //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®(ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         for (int i = 0; i < loadSlots.Length; i++)
         {
             loadSlots[i].onClick.AddListener(() =>
@@ -310,14 +297,14 @@ public class MenuUI : MonoBehaviour
             );
         }
 
-        //¼±ÅÃµÈ ½½·ÔÀÇ index È®Á¤Áþ°í ¾ÀºÒ·¯¿À±â
+        //ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ index È®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
         loadButton.onClick.AddListener(() => SaveManager.instance.SetCurrentIndex());
         loadButton.onClick.AddListener(() => SceneSwitcher.instance.LoadScene());
-        //ºÒ·¯¿À±â¸¦ ÅëÇØ ÇÃ·¹ÀÌ¾î°¡ ¹èÄ¡µÉ ¶§ MoveToNextIndex()°¡ ½ÇÇàµÇ´Â °ÍÀ» ¹æÁö
+        //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ MoveToNextIndex()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         loadButton.onClick.AddListener(() => SceneSwitcher.instance.SkipRespawnSave = true);
 
 
-        //ÀÏ½ÃÁ¤Áö ¸Þ´º¿¡¼­ ¸ÞÀÎ¸Þ´º·Î µ¹¾Æ°¥ ¶§ÀÇ ÇÔ¼ö
+        //ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
         goToMainMenuButton.onClick.AddListener(() => { SceneManager.LoadScene(0); });
         goToMainMenuButton.onClick.AddListener(() => { Time.timeScale = 1; });
         goToMainMenuButton.onClick.AddListener(() => { SceneSwitcher.instance.IsNotPlayingMainMenu = false; });
@@ -328,11 +315,11 @@ public class MenuUI : MonoBehaviour
         openSettingButton.onClick.AddListener(() => { MobileInput.instance.OpenMenu(); });
         openSettingButton.onClick.AddListener(() => { ActivateLetterBox(true); });
 
-        //ÇÃ·§Æû ½ºÀ§Ä¡
+        //ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
         setPCButton.onClick.AddListener(() => { PlatformSwitcher.instance.SetPCPlatform(true); });
         setMobileButton.onClick.AddListener(() => { PlatformSwitcher.instance.SetPCPlatform(false); });
 
-        //¾ð¾î±³Ã¼
+        //ï¿½ï¿½î±³Ã¼
         changeToKorean.onClick.AddListener(() => { LanguageManager.Instance.ChangeLanguage(0); });
         changeToKorean.onClick.AddListener(() => { ChangeSlotLanguage(); });
         changeToEnglish.onClick.AddListener(() => { LanguageManager.Instance.ChangeLanguage(1); });
@@ -344,7 +331,7 @@ public class MenuUI : MonoBehaviour
             for (int j = 0; j < settingText.Length; j++)
             {
                 int secondIndex = j;
-                //º»ÀÎÀÌ Å¬¸¯µÇ¾úÀ» ¶§
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½
                 if (firstIndex == secondIndex)
                 {
                     settingButton[firstIndex].onClick.AddListener(() => { settingElements[secondIndex].SetActive(true); });
@@ -380,8 +367,8 @@ public class MenuUI : MonoBehaviour
     }
 
     public void MenuSwitch()
-    {//Esc´­·µÀ» ¶§ ¹ÝÀÀ. StartMenu´Â ²¨ÁöÁö ¾ÊÀ½.
-        //·ÎµùÁß¿¡´Â °£¼·¹ÞÁö ¾ÊÀ½.
+    {//Escï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. StartMenuï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+        //ï¿½Îµï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
         if (loadingUI.LoadBG.activeSelf)
         {
             return;
@@ -390,7 +377,7 @@ public class MenuUI : MonoBehaviour
         {
             if (soundWindow.activeSelf)
             {
-                //¼³Á¤Ã¢ÀÌ ´ÝÈú ¶§ ÆÄÀÏ¿¡ ÀúÀå(+¹öÆ°¿¡µµ ÇÔ¼ö µî·Ï)
+                //ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½(+ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½)
                 soundUI.SaveVolumeData();
             }
 
@@ -405,7 +392,7 @@ public class MenuUI : MonoBehaviour
                 mouseUI.SaveMouseData();
             }
 
-            //¼ÂÆÃÃ¢ ÀÚÃ¼°¡ ´ÝÈû
+            //ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             settingWindow.SetActive(false);
         }
         else if (loadSlotWindow.activeSelf)
@@ -428,19 +415,18 @@ public class MenuUI : MonoBehaviour
             quitWindow.SetActive(false);
         }
         else if (pauseMenu.activeSelf)
-        {//ÀÏ½ÃÁ¤Áö ¸Þ´º
+        {//ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½
             if (goToMainMenuWindow.activeSelf)
             {
                 goToMainMenuWindow.SetActive(false);
             }
             else
             {
-                //ÀÏ½ÃÁ¤Áö -> ÇÃ·¹ÀÌ
+                //ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½Ã·ï¿½ï¿½ï¿½
                 gameTimeScale.SetTimeScale(1);
 
                 if (!timelineHelper.IsTimelinePlaying())
                 {
-                    //ShowMouseCursor(false);
                     isPlayerControlDisabled = false;
                     playerSound.TogglePlayingAudioPause(false);
 
@@ -466,7 +452,7 @@ public class MenuUI : MonoBehaviour
             }
         }
         else if (mainMenu.activeSelf)
-        {//½ºÅ¸Æ® ¸Þ´º
+        {//ï¿½ï¿½Å¸Æ® ï¿½Þ´ï¿½
             SaveManager.instance.SelectedIndex = null;
 
             if (settingWindow.activeSelf)
@@ -479,7 +465,7 @@ public class MenuUI : MonoBehaviour
             }
         }
         else
-        {//pauseMenu È°¼ºÈ­ ½ÃÅ°±â(pauseMenu È°¼ºÈ­ ¾ÈµÇ´Â »óÈ²ÀÌ Á¸ÀçÇÔ)
+        {//pauseMenu È°ï¿½ï¿½È­ ï¿½ï¿½Å°ï¿½ï¿½(pauseMenu È°ï¿½ï¿½È­ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
             if (!canShowPauseMenu)
             {
                 return;
@@ -488,8 +474,6 @@ public class MenuUI : MonoBehaviour
             gameTimeScale.SetTimeScale(0);
 
             isPlayerControlDisabled = true;
-
-            //ShowMouseCursor(true);
 
             playerSound.TogglePlayingAudioPause(true);
 
@@ -504,17 +488,6 @@ public class MenuUI : MonoBehaviour
     {
         canShowPauseMenu = canShow;
     }
-
-    //public void OnOffHelpWindow()
-    //{
-    //    guideText.SetActive(!guideText.activeSelf);
-    //}
-
-    //public void HideAllHUD(bool hide)
-    //{
-    //    inputHUD.SetActive(!hide);
-    //    battleHUD.SetActive(!hide);
-    //}
 
     public void ActivateLetterBox(bool activate)
     {
@@ -553,47 +526,47 @@ public class MenuUI : MonoBehaviour
     }
     #endregion
 
-    #region Load, Save(±â·Ï Ã¢À» °ø¿ëÀ¸·Î ¸¸µé¾î¾ß°ÚÀ½)
+    #region Load, Save(ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ï¿½ï¿½)
     public void RecordSlot(int filePathIndex, int sceneIndex, int areaIndex, string time)
     {
-        //ÆÄÀÏ °æ·Î index¿Í µ¿ÀÏÇÑ indexÀÇ recordButtons[filePathIndex] 
-        //½Ã°£ ¼ø¼­¸¦ timeIndex¿¡ ±â·Ï
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ indexï¿½ï¿½ recordButtons[filePathIndex] 
+        //ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ timeIndexï¿½ï¿½ ï¿½ï¿½ï¿½
         loadSlots[filePathIndex].gameObject.SetActive(true);
         timeIndex[filePathIndex] = sceneIndex * 100 + areaIndex;
 
-        //¿ÀºêÁ§Æ® È°¼ºÈ­ ¹× ÀÌº¥Æ® ºÎ¿©
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­ ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Î¿ï¿½
         loadSlots[filePathIndex].interactable = true;
         loadSlots[filePathIndex].onClick.RemoveAllListeners();
         loadSlots[filePathIndex].onClick.AddListener(() => loadWindow.SetActive(true));
         loadSlots[filePathIndex].onClick.AddListener(() => SaveManager.instance.SelectIndex(filePathIndex));
 
-        #region Áö¿ª ÅØ½ºÆ®
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®
         string areaName;
         if (PlatformSwitcher.instance.IsKorean)
         {
             areaName = areaIndex switch
             {
-                0 => "´ö±¼ ¿· »û±æ",
-                1 => "´ö±¼ ÀÔ±¸ 1",
+                0 => "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½",
+                1 => "ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½ 1",
 
-                2 => "´ö±¼ ÀÔ±¸ 2",
-                3 => "Çö¹« Áß¾Ó±æ",
+                2 => "ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½ 2",
+                3 => "ï¿½ï¿½ï¿½ï¿½ ï¿½ß¾Ó±ï¿½",
 
-                4 => "¼­ÂÊÀ¸·Î °¡´Â ±æ",
-                5 => "À§¼öÀÇ ´Ù¸® 1",
-                6 => "À§¼öÀÇ ´Ù¸® 2",
-                7 => "À§¼öÀÇ ´Ù¸® 3",
-                8 => "À§¼öÀÇ ´Ù¸® 4",
+                4 => "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½",
+                5 => "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 1",
+                6 => "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 2",
+                7 => "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 3",
+                8 => "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 4",
 
-                9 => "¹ìÀÇ Á¤¿ø 1",
-                10 => "¹ìÀÇ Á¤¿ø 2",
-                11 => "¹ìÀÇ Á¤¿ø 3",
-                12 => "¹ìÀÇ Á¤¿ø 4",
-                13 => "¹ìÀÇ Á¤¿ø 5",
+                9 => "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1",
+                10 => "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2",
+                11 => "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3",
+                12 => "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 4",
+                13 => "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 5",
 
-                14 => "À§¼öÀÇ ¹æ",
+                14 => "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½",
 
-                _ => "¿À·ùÁö¿ª"
+                _ => "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
             };
         }
         else
@@ -630,7 +603,7 @@ public class MenuUI : MonoBehaviour
         #region SaveType
         if (PlatformSwitcher.instance.IsKorean)
         {
-            saveTypeText[filePathIndex].text = "ÀÚµ¿ ÀúÀå";
+            saveTypeText[filePathIndex].text = "ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½";
         }
         else
         {
@@ -651,9 +624,9 @@ public class MenuUI : MonoBehaviour
         noDataText[filePathIndex].text = "";
         #endregion
 
-        //ÅØ½ºÆ® ÀÛ¼º
+        //ï¿½Ø½ï¿½Æ® ï¿½Û¼ï¿½
 
-        //½½·Ô Á¤·Ä
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SortSlots();
     }
     public void ChangeSlotLanguage()
@@ -664,82 +637,6 @@ public class MenuUI : MonoBehaviour
             SaveManager.instance.WriteSlotDate(i);
         }
         SortSlots();
-
-
-        //string areaName = null;
-        //string saveType = null;
-
-        //if (PlatformSwitcher.instance.IsKorean)
-        //{
-        //    for (int i = 0; i < areaText.Length; i++)
-        //    {
-        //        areaText[i].text = areaName switch
-        //        {
-        //            "Area00" => "´ö±¼ ¿· »û±æ",
-        //            "Area01" => "´ö±¼ ÀÔ±¸ 1",
-
-        //            "Area10" => "´ö±¼ ÀÔ±¸ 2",
-        //            "Area11" => "Çö¹« Áß¾Ó±æ",
-
-        //            "Area20" => "¼­ÂÊÀ¸·Î °¡´Â ±æ",
-        //            "Area21" => "À§¼öÀÇ ´Ù¸® 1",
-        //            "Area22" => "À§¼öÀÇ ´Ù¸® 2",
-        //            "Area23" => "À§¼öÀÇ ´Ù¸® 3",
-        //            "Area24" => "À§¼öÀÇ ´Ù¸® 4",
-
-        //            "Area30" => "¹ìÀÇ Á¤¿ø 1",
-        //            "Area31" => "¹ìÀÇ Á¤¿ø 2",
-        //            "Area32" => "¹ìÀÇ Á¤¿ø 3",
-        //            "Area33" => "¹ìÀÇ Á¤¿ø 4",
-        //            "Area34" => "¹ìÀÇ Á¤¿ø 5",
-
-        //            "Area40" => "À§¼öÀÇ ¹æ",
-        //                _ => ""
-        //        };
-
-        //        saveTypeText[i].text = saveType switch
-        //        {
-        //            "Auto Save" => "ÀÚµ¿ ÀúÀå",
-        //            _ => ""
-        //        };
-        //    }
-        //}
-        //else
-        //{
-        //    for (int i = 0; i < areaText.Length; i++)
-        //    {
-        //        areaText[i].text = areaName switch
-        //        {
-        //            "´ö±¼ ¿· »û±æ" =>"Area00" , 
-        //            "´ö±¼ ÀÔ±¸ 1" =>"Area01" , 
-
-        //            "´ö±¼ ÀÔ±¸ 2" =>    "Area10" ,
-        //            "Çö¹« Áß¾Ó±æ" => "Area11",
-
-        //            "¼­ÂÊÀ¸·Î °¡´Â ±æ" => "Area20",
-        //            "À§¼öÀÇ ´Ù¸® 1" =>   "Area21",
-        //            "À§¼öÀÇ ´Ù¸® 2" =>   "Area22",
-        //            "À§¼öÀÇ ´Ù¸® 3" =>   "Area23",
-        //            "À§¼öÀÇ ´Ù¸® 4" =>   "Area24",
-
-        //            "¹ìÀÇ Á¤¿ø 1" =>"Area30",
-        //            "¹ìÀÇ Á¤¿ø 2" =>"Area31",
-        //            "¹ìÀÇ Á¤¿ø 3" =>"Area32",
-        //            "¹ìÀÇ Á¤¿ø 4" =>"Area33",
-        //            "¹ìÀÇ Á¤¿ø 5" => "Area34",
-
-        //            "À§¼öÀÇ ¹æ" => "Area40",
-
-        //            _ => ""
-        //        };
-
-        //        saveTypeText[i].text = saveType switch
-        //        {
-        //            "ÀÚµ¿ ÀúÀå" => "Auto Save",
-        //            _ => ""
-        //        };
-        //    }
-        //}
     }
 
     public void ResetSlot()
@@ -752,7 +649,7 @@ public class MenuUI : MonoBehaviour
             dateText[i].text = "";
             if (PlatformSwitcher.instance.IsKorean)
             {
-                noDataText[i].text = "µ¥ÀÌÅÍ ¾øÀ½";
+                noDataText[i].text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
             }
             else
             {
@@ -764,9 +661,9 @@ public class MenuUI : MonoBehaviour
     }
     public void SortSlots()
     {
-        //µ¥ÀÌÅÍ°¡ ÀÖ´Â ½½·ÔÀÌ¶ó¸é ºñ±³ÇØ¼­ Á¤·Ä, ºó½½·ÔÀº ºñÈ°¼ºÈ­
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ó½½·ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
 
-        //timeIndex ¼ø¼­´ë·Î transform À§Ä¡ Á¤·Ä
+        //timeIndex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ transform ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
         bool[] isSelected = new bool[loadSlots.Length];
 
         for (int i = 0; i < loadSlots.Length; i++)
@@ -776,15 +673,14 @@ public class MenuUI : MonoBehaviour
 
             for (int j = 0; j < loadSlots.Length; j++)
             {
-                //½½·Ô Á¤º¸°¡ ¾ø´Ù¸é ºñÈ°¼ºÈ­ÇÏ°í ´ÙÀ½ Ç×À¸·Î
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (!timeIndex[j].HasValue)
                 {
-                    //loadSlots[j].gameObject.SetActive(false);
                     continue;
                 }
 
 
-                //¼±ÅÃµÈ index Á¦¿Ü
+                //ï¿½ï¿½ï¿½Ãµï¿½ index ï¿½ï¿½ï¿½ï¿½
                 if (isSelected[j]) continue;
 
                 if (biggestNumber < timeIndex[j].Value)
@@ -794,7 +690,7 @@ public class MenuUI : MonoBehaviour
                 }
             }
 
-            //³²¾ÆÀÖ´Â °ª Áß¿¡ Á¦ÀÏ Å« °ªÀÇ index
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ index
 
             isSelected[index] = true;
             loadSlots[index].transform.SetAsFirstSibling();
@@ -803,11 +699,6 @@ public class MenuUI : MonoBehaviour
 
     public void CloseWindowUsingButton()
     {
-        //if (inputKeyUI.isEditingKey)
-        //{
-        //    return;
-        //}
-
         settingWindow.SetActive(false);
     }
     #endregion

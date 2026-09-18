@@ -14,10 +14,10 @@ public class WisuSuppressionController : Enemy
     private float restoreHP;
     private float restoreHPCount;
 
-    [Header("¼öÁ¤ ºñÈ°¼ºÈ­½Ã(ÆÄ°ú) ÀÌº¥Æ®")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½ï¿½(ï¿½Ä°ï¿½) ï¿½Ìºï¿½Æ®")]
     public List<EventData> deactivateEvents;
 
-    [Header("¼öÁ¤ È°¼ºÈ­½Ã ÀÌº¥Æ®")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ìºï¿½Æ®")]
     public List<EventData> activateEvents;
 
 
@@ -63,8 +63,6 @@ public class WisuSuppressionController : Enemy
 
         phaseHPs[phaseHPs.Count - 1] -= damageMessage.amount;
         lastDamagedTime = Time.time;
-        //Debug.Log($"Á¦¾î±â ÇöÀç Ã¼·Â : {phaseHPs[phaseHPs.Count - 1]}");
-        //audioSourceHit.PlaySoundEffect(0);
 
         if (phaseHPs[phaseHPs.Count - 1] <= 0)
         {

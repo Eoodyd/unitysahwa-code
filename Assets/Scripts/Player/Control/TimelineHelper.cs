@@ -13,7 +13,7 @@ public class TimelineHelper : MonoBehaviour
 {
     public static TimelineHelper instance;
 
-    #region ½ºÅ©¸³Æ®
+    #region ï¿½ï¿½Å©ï¿½ï¿½Æ®
     [SerializeField] private MaskChange maskChange;
     [SerializeField] private PlayerState playerState;
     [SerializeField] private PlayerSound playerSound;
@@ -24,20 +24,12 @@ public class TimelineHelper : MonoBehaviour
     [SerializeField] private MouseSettingUI mouseSettingUI;
     #endregion
 
-    //[SerializeField] private GameObject[] HUD;
-    //TODO: menuUI¿¡¼­ InputHUD, BattleHUD °¡Á®¿Í¼­ »ç¿ë
-
-
-    #region ½ÃÀÛ
+    #region ï¿½ï¿½ï¿½ï¿½
     [Space(20)]
-    [Header("½ÃÀÛ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     private bool isTutorialScene;
 
     public GameObject startNewGameCamera;
-    //[SerializeField] private GameObject startNewGameTimeline;
-    //private PlayableDirector startNewGamePlayableDirector;
-    //[SerializeField] private GameObject startNewGameSkipButton;
-    //[SerializeField] private GameObject mainmenuCamera;
 
     [SerializeField] private GameObject tutorialStartSceneCamera;
     [SerializeField] private GameObject tutorialStartSceneTimeline;
@@ -60,10 +52,10 @@ public class TimelineHelper : MonoBehaviour
 
     private void Start()
     {
-        //ÇØ´ç ½ºÅ©¸³Æ®´Â ±âÈ¹ÀÚÀÇ Å¸ÀÓ¶óÀÎ ¾î½Ã½ºÆ®¸¦ À§ÇØ ±¸ÇöµÊ.
-        //¾ÀºÐ¸®¿¡ ÀÇÇØ tutorial ¾À°ú ±× ¿ÜÀÇ ¾À¿¡ ¿ªÇÒÀÌ ±¸ºÐµÇ°Ô µÇ¾úÀ½.
+        //ï¿½Ø´ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½Ã½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+        //ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ tutorial ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÐµÇ°ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½.
 
-        //Ã¹¹øÂ° ¾À + ½ºÅ¸Æ®¸Þ´º È°¼ºÈ­ + ¸ÞÀÎ¸Þ´º ÇÃ·¹À× ¾Æ´Ò ¶§
+        //Ã¹ï¿½ï¿½Â° ï¿½ï¿½ + ï¿½ï¿½Å¸Æ®ï¿½Þ´ï¿½ È°ï¿½ï¿½È­ + ï¿½ï¿½ï¿½Î¸Þ´ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½
         if (SceneManager.GetActiveScene().buildIndex == 0 && menuUI.MainMenu.activeSelf && !SceneSwitcher.instance.IsNotPlayingMainMenu)
         {
             isTutorialScene = true;
@@ -80,9 +72,8 @@ public class TimelineHelper : MonoBehaviour
             isTutorialScene = false;
             menuUI.MainMenu.SetActive(false);
             DisablePlayerControl(false);
-            //if(mainmenuCamera != null) mainmenuCamera.SetActive(false);
 
-            //¸ÞÀÎ¸Þ´º °Ç³Ê¶Ù±â À§ÇÑ Ã³¸®
+            //ï¿½ï¿½ï¿½Î¸Þ´ï¿½ ï¿½Ç³Ê¶Ù±ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
             SceneSwitcher.instance.IsNotPlayingMainMenu = false;
         }
 
@@ -96,30 +87,7 @@ public class TimelineHelper : MonoBehaviour
         }
     }
 
-    #region Æ©Åä¸®¾ó ¾À
-    //public void SkipGameStartScene()
-    //{
-    //    StartCoroutine(CoSkipGameStartScene());
-    //}
-    //public void StartNewGameTimeline()
-    //{
-    //    startNewGamePlayableDirector.Play();
-    //}
-    //public IEnumerator CoSkipGameStartScene()
-    //{
-    //    FadeOutScreen(2);
-
-    //    yield return new WaitForSeconds(.5f);
-
-    //    startNewGameCamera.SetActive(false);
-    //    startNewGameTimeline.SetActive(false);
-    //    startNewGameSkipButton.SetActive(false);
-
-    //    //Á¤¸éÀ» ¹Ù¶óº¸µµ·Ï
-    //    maskChange.HumanMask.transform.position = playerTutorialStartPosition.transform.position;
-    //    maskChange.HumanMask.transform.rotation = Quaternion.Euler(0, 90, 0);
-    //}
-
+    #region Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½
     public void StartTutorialTimeline()
     {
         StartCoroutine(CoStartTutorialTimeline());
@@ -157,7 +125,7 @@ public class TimelineHelper : MonoBehaviour
             }
         }
 
-        //Ä¿¼­ ¼ÂÆÃ
+        //Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (PlatformSwitcher.instance.IsPCPlatform)
         {
             Cursor.visible = false;
@@ -173,7 +141,7 @@ public class TimelineHelper : MonoBehaviour
         tutorialStartSceneTimeline.SetActive(false);
         tutorialStartSceneSkipButton.SetActive(false);
 
-        //Á¤¸éÀ» ¹Ù¶óº¸µµ·Ï
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶óº¸µï¿½ï¿½ï¿½
         yield return new WaitForSeconds(1f);
 
         FadeInScreen(2);
@@ -211,14 +179,11 @@ public class TimelineHelper : MonoBehaviour
     {
         menuUI.DisablePlayerControl(disableControl);
 
-        //Å¸ÀÓ¶óÀÎ µ¿¾È¿¡µµ ÆÛÁî¸Þ´º»ç¿ë°¡´É
+        //Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ë°¡ï¿½ï¿½
         menuUI.CanShowPauseMenu(true);
 
-        //menuUI.InputHUD.SetActive(!disableControl);
-        //menuUI.BattleHUD.SetActive(!disableControl);
-
         if (disableControl)
-        {//¿òÁ÷ÀÏ ¼ö ¾øÀ½
+        {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             playerSound.StopLoopingAudio();
             playerState.ChangePlayerState(PlayerStateType.NONE);
             playerState.ChangePlayerSubState(PlayerSubStateType.NONE);
@@ -230,16 +195,13 @@ public class TimelineHelper : MonoBehaviour
             {
                 menuUI.InputHUD.SetActive(false);
             }
-
-            //Cursor.visible = true;
-            //Cursor.lockState = CursorLockMode.Confined;
         }
         else
-        {//¿òÁ÷ÀÏ ¼ö ÀÖÀ½
+        {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             mouseSettingUI.LoadMouseData();
             maskChange.HumanRigidbody.isKinematic = false;
 
-            //Å¸ÀÓ¶óÀÎ ÁøÇà ³¡¿¡ ÀÎ°ÔÀÓ ÁøÀÔÇÒ ¶§
+            //Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             if (IsTimelinePlaying())
             {
                 if (PlatformSwitcher.instance.IsPCPlatform)
@@ -261,21 +223,15 @@ public class TimelineHelper : MonoBehaviour
         }
     }
 
-    //public void ActivateHUD(bool activate)
-    //{
-    //    menuUI.InputHUD.SetActive(activate);
-    //    menuUI.BattleHUD.SetActive(activate);
-    //}
-
     public void FadeInScreen(float timeRate)
     {
-        //¿ø·¡ È­¸éÀ¸·Î ÀüÈ¯
+        //ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         cameraUIEffect.FadeInScreen(timeRate);
     }
 
     public void FadeOutScreen(float timeRate)
     {
-        //°Ë°Ô ÀüÈ¯
+        //ï¿½Ë°ï¿½ ï¿½ï¿½È¯
         cameraUIEffect.FadeOutScreen(timeRate);
     }
 }

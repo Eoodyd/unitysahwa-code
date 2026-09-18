@@ -17,22 +17,14 @@ public class SavePlayerPositionTrigger : EventData
 
     public override void Execute()
     {
-        //¹®Á¦1:
-        //currentIndex°¡ ÃÖ±Ù°æ·Î¸¦ °¡¸®Å°°í ÀÖ°í, ½½·Ô UI¿¡¼­ °¡Àå ÃÖ±Ù °æ·Î¸¦ ºÒ·¯¿Ã ¶§,
-        //Ä³¸¯ÅÍ°¡ Æ®¸®°Å ¹â¾Æ¼­ ½ÇÇàµÇ´Â ÇÔ¼ö(Execute())°¡ µ¥ÀÌÅÍ¸¦ ÀÐ¾îµéÀÌ´Â ÇÔ¼öº¸´Ù ¸ÕÀú ½ÇÇàµÇ¸é¼­ ¾ø´Â ÀúÀå°æ·Î¸¦ ºÒ·¯¿À´Â ¿¡·¯ ¹ß»ý
-        //-> NotMoveNextIndex ¶ó´Â bool º¯¼ö¸¦ ¸¸µé¾î ¸ø³Ñ¾î°¡µµ·Ï ÀÓ½ÃÁ¶Ä¡
+        //ï¿½ï¿½ï¿½ï¿½1:
+        //currentIndexï¿½ï¿½ ï¿½Ö±Ù°ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ö°ï¿½, ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½,
+        //Ä³ï¿½ï¿½ï¿½Í°ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½(Execute())ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸é¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
+        //-> NotMoveNextIndex ï¿½ï¿½ï¿½ bool ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ¾î°¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ï¿½ï¿½Ä¡
 
         saveManager.CurrentAreaIndex = (int)areaName;
         saveManager.CurrentPosition = this.transform.position;
         saveManager.SaveSloatData();
-        
-        //TODO: ÀÏ´Ü ½Ã°£Â÷ ÀúÀåÀ¸·Î ÇØ°áÇßÀ¸³ª ÀúÀå½Ã½ºÅÛ ¹Ù²ã¾ßÇÔ
-        //½Ã°£Â÷·Î ÇÑ´Ù¸é ±â±â ¼º´É¿¡ µû¶ó ¹®Á¦°¡ »ý±æ¼öµµ ÀÖÀ½
-        //if(SceneSwitcher.instance.SkipRespawnSave)
-        //{
-        //    SceneSwitcher.instance.SkipRespawnSave = false;
-        //    return;
-        //}
 
         saveManager.MoveToNextIndex();
     }

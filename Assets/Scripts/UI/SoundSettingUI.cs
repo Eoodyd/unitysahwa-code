@@ -21,82 +21,9 @@ public class SoundSettingUI : MonoBehaviour
     [SerializeField] private Slider enemySFXSlider;
     [SerializeField] private Slider playerSFXSlider;
 
-    //private float currentMasterVolume;
-    //public float CurrentMasterVolume 
-    //{
-    //    get
-    //    {
-    //        return currentMasterVolume;
-    //    }
-        
-    //    private set 
-    //    {
-    //        if (value <= 0)
-    //        {
-    //            currentMasterVolume = 0;
-    //        }
-    //        else if (value > 1)
-    //        {
-    //            currentMasterVolume = 1;
-    //        }
-    //        else
-    //        {
-    //            currentMasterVolume = value;
-    //        }
-    //    }
-    //}
-    //private float currentBGMVolume;
-    //public float CurrentBGMVolume
-    //{
-    //    get
-    //    {
-    //        return currentBGMVolume;
-    //    }
-
-    //    private set
-    //    {
-    //        if (value <= 0)
-    //        {
-    //            currentBGMVolume = 0;
-    //        }
-    //        else if (value > 1)
-    //        {
-    //            currentBGMVolume = 1;
-    //        }
-    //        else
-    //        {
-    //            currentBGMVolume = value;
-    //        }
-    //    }
-    //}
-    //private float currentSFXVolume;
-    //public float CurrentSFXVolume
-    //{
-    //    get
-    //    {
-    //        return currentSFXVolume;
-    //    }
-
-    //    private set
-    //    {
-    //        if (value <= 0)
-    //        {
-    //            currentSFXVolume = 0;
-    //        }
-    //        else if (value > 1)
-    //        {
-    //            currentSFXVolume = 1;
-    //        }
-    //        else
-    //        {
-    //            currentSFXVolume = value;
-    //        }
-    //    }
-    //}
-
     private void Awake()
     {
-        //float ¸Å°³º¯¼ö 1°³ °¡Á®¾ßÇÔ.
+        //float ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
         masterAudioSlider.onValueChanged.AddListener(SetMasterVolume);
         BGMAudioSlider.onValueChanged.AddListener(SetBGM);
         enemySFXSlider.onValueChanged.AddListener(SetEnemySFX);
@@ -111,32 +38,25 @@ public class SoundSettingUI : MonoBehaviour
 
     #region SetVolume
     public void SetMasterVolume(float value)
-    {//½½¶óÀÌ´õ °ªÀ» ¹Ù·Î ¹Þ¾Æ¼­ »ç¿ë
-        //float logValue = Mathf.Log10(value) * 20;
-
-        //if (value <= 0.005)
-        //{
-        //    logValue = -80;
-        //}
-
+    {//ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½
         enemyAudioMixer.SetFloat("Master", value);
         playerAudioMixer.SetFloat("Master", value);
         envAudioMixer.SetFloat("Master", value);
     }
     public void SetBGM(float value)
-    {//½½¶óÀÌ´õ °ªÀ» ¹Ù·Î ¹Þ¾Æ¼­ »ç¿ë
+    {//ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½
 
         envAudioMixer.SetFloat("BGM", value);
         envAudioMixer.SetFloat("SFX", value);
     }
     public void SetEnemySFX(float value)
-    {//½½¶óÀÌ´õ °ªÀ» ¹Ù·Î ¹Þ¾Æ¼­ »ç¿ë
+    {//ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½
 
         enemyAudioMixer.SetFloat("SFX", value);
     }
 
     public void SetPlayerSFX(float value)
-    {//½½¶óÀÌ´õ °ªÀ» ¹Ù·Î ¹Þ¾Æ¼­ »ç¿ë
+    {//ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½
 
         playerAudioMixer.SetFloat("SFX", value);
     }
@@ -149,23 +69,23 @@ public class SoundSettingUI : MonoBehaviour
     }
 
     public void SaveVolumeData()
-    {//¼ÂÆÃ Ã¢¿¡¼­ Á¶Á¤ÇÑ º¼·ý°ªÀ» ÀúÀåÇÒ °æ¿ì
+    {//ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
         saveManager.ChangeVolumeSetting(masterAudioSlider.value, BGMAudioSlider.value, enemySFXSlider.value, playerSFXSlider.value);
         saveManager.SaveSoundData();
     }
 
     public void LoadVolumeData()
-    {//saveManager ½ºÅ©¸³Æ®ÀÇ º¼·ý¼öÄ¡ ºÒ·¯¿À±â(ÆÄÀÏÀÇ °ªÀ» ºÒ·¯¿ÀÁø ¾ÊÀ½)
+    {//saveManager ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-        //ÀúÀåµÈ °ªÀ» Àçº¯È¯ ÈÄ 0~1°ªÀ» ¸¸µé¾î ÁØ ÈÄ 
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½çº¯È¯ ï¿½ï¿½ 0~1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ 
         SetMasterVolume(saveManager.masterVolume);
         SetBGM(saveManager.BGMVolume);
 
         SetEnemySFX(saveManager.enemySFXVolume);
         SetPlayerSFX(saveManager.playerSFXVolume);
 
-        //Àçº¯È¯ ÈÄ UI ½½¶óÀÌ´õ °ª ¼³Á¤.
+        //ï¿½çº¯È¯ ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
         masterAudioSlider.value = saveManager.masterVolume;
         BGMAudioSlider.value = saveManager.BGMVolume;
         enemySFXSlider.value = saveManager.enemySFXVolume;

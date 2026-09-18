@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class HumanMaskSkill : PlayerSkill
 {
-    #region ¿ÜºÎ
+    #region ï¿½Üºï¿½
     [SerializeField] private SkillHUD skillHUD;
-    //½ºÅ³ ±â´É
+    //ï¿½ï¿½Å³ ï¿½ï¿½ï¿½
     [SerializeField] private PlayerCameraEffect playerCameraEffect;
     [SerializeField] private PlayerSkillMove playerSkillMove;
     [SerializeField] private PlayerState playerState;
@@ -19,7 +19,7 @@ public class HumanMaskSkill : PlayerSkill
     [SerializeField] private GameTimeScale gameTimeScale;
     #endregion
 
-    #region »ç¿ë°¡´É ¿©ºÎ
+    #region ï¿½ï¿½ë°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public bool canUseFirstAttack {get; private set;}
     public bool canUseSecondAttack {get; private set;}
     public bool canUseThirdAttack {get; private set;}
@@ -28,7 +28,7 @@ public class HumanMaskSkill : PlayerSkill
     public bool canUseDash { get; private set; }
     #endregion
 
-    #region ½ºÅ³ ¼öÇàÁß ¿©ºÎ
+    #region ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bool isPerformingFirstAttack;
     private bool isPerformingSecondAttack;
     private bool isPerformingThirdAttack;
@@ -37,7 +37,7 @@ public class HumanMaskSkill : PlayerSkill
     private bool isPerformingDash;
 
 
-    //¾Ö´Ï ¼öÇà
+    //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bool isPerformingFirstAttackAnim;
     private bool isPerformingSecondAttackAnim;
     private bool isPerformingThirdAttackAnim;
@@ -46,7 +46,7 @@ public class HumanMaskSkill : PlayerSkill
     private bool isPerformingDashAnim;
     #endregion
 
-    #region ½ÃÀü½Ã°£
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
     private float firstAttackStartTime;
     private float secondAttackStartTime;
     private float thirdAttackStartTime;
@@ -55,7 +55,7 @@ public class HumanMaskSkill : PlayerSkill
     private float dashStartTime;
     #endregion
 
-    #region ½ºÅ³ ÄÚ·çÆ¾
+    #region ï¿½ï¿½Å³ ï¿½Ú·ï¿½Æ¾
     public Coroutine coFirstAttack {get; private set;}
     public Coroutine coSecondAttack {get; private set;}
     public Coroutine coThirdAttack {get; private set;}
@@ -114,7 +114,6 @@ public class HumanMaskSkill : PlayerSkill
         InitializeCoroutine();
         InitializeState();
 
-        //playerTimeScale.Initialize();
         playerSkillMove.Initialize();
         playerEffect.Initialize();
         playerState.Initialize();
@@ -137,7 +136,7 @@ public class HumanMaskSkill : PlayerSkill
 
     public void InitializeState()
     {
-        #region ±âº»°ø°Ý
+        #region ï¿½âº»ï¿½ï¿½ï¿½ï¿½
         isPerformingFirstAttack = false;
         isPerformingSecondAttack = false;
         isPerformingThirdAttack = false;
@@ -146,13 +145,13 @@ public class HumanMaskSkill : PlayerSkill
         isPerformingSecondAttackAnim = false;
         isPerformingThirdAttackAnim = false;
 
-        //»ç¿ë¿©ºÎ(ÆòÅ¸ ÄðÅ¸ÀÓX)
-        canUseFirstAttack = true; //ÆòÅ¸´Â ÄðÅ¸ÀÓ ¾øÀ½
-        canUseSecondAttack = false; //ÆòÅ¸1 ÇÔ¼ö¿¡¼­ true·Î ¹Ù²ñ
-        canUseThirdAttack = false; //ÆòÅ¸2 ÇÔ¼ö¿¡¼­ true·Î ¹Ù²ñ
+        //ï¿½ï¿½ë¿©ï¿½ï¿½(ï¿½ï¿½Å¸ ï¿½ï¿½Å¸ï¿½ï¿½X)
+        canUseFirstAttack = true; //ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        canUseSecondAttack = false; //ï¿½ï¿½Å¸1 ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ trueï¿½ï¿½ ï¿½Ù²ï¿½
+        canUseThirdAttack = false; //ï¿½ï¿½Å¸2 ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ trueï¿½ï¿½ ï¿½Ù²ï¿½
         #endregion
 
-        #region ½ºÅ³
+        #region ï¿½ï¿½Å³
         isPerformingInkShape = false;
         isPerformingInkFloor = false;
         isPerformingDash = false;
@@ -163,7 +162,7 @@ public class HumanMaskSkill : PlayerSkill
         #endregion
     }
 
-    //À§¿¡ ÃÊ±âÈ­ ÇÔ¼ö ÀüºÎ ½ÇÇà
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     #endregion
 
     #region Skill
@@ -205,7 +204,7 @@ public class HumanMaskSkill : PlayerSkill
         inkFloorHitCount[0] = 0;
         inkFloorHitCount[1] = 0;
 
-        //°ÔÀÓ¿ÀºêÁ§Æ® ¼Â¿¢Æ¼ºê ÇÊ¿ä
+        //ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Â¿ï¿½Æ¼ï¿½ï¿½ ï¿½Ê¿ï¿½
         normalAttackHitBox.SetActive(false);
         inkShapeHitBox.SetActive(false);
         for (int i = 0; i < inkShapeSplashEffect.Length; i++)
@@ -254,7 +253,7 @@ public class HumanMaskSkill : PlayerSkill
         }
     }
 
-    //NormalizedTime <= 0.9f ÀÏ¶§¸¸ ´ÙÀ½ ÆòÅ¸ °¡´ÉÀ¸·Î Á¶°Ç ºÙ¿©µµ µÉµíÇÔ(¶Ç´Â ÇÁ·¹ÀÓ)
+    //NormalizedTime <= 0.9f ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½ï¿½ ï¿½Éµï¿½ï¿½ï¿½(ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
     public IEnumerator CoFirstAttack()
     {
 
@@ -267,16 +266,14 @@ public class HumanMaskSkill : PlayerSkill
         canUseFirstAttack = false;
         firstAttackStartTime = Time.time;
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
-        //bool inactiveHitBoxOnce = false;
         bool activeSoundOnce = false;
         bool activeCameraShakeOnce = false;
         #endregion
 
-        //playerSkillInput.ProcessInputDirectly(humanData.firstNormalAttackInput, firstAttackStartTime);
         playerSkillInput.ProcessInput(humanData.firstNormalAttackInput, firstAttackStartTime);
         while (isPerformingFirstAttack)
         {
@@ -303,7 +300,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¹°¸® ÀÌµ¿
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             if (!activeMoveOnce)
             {
                 for (int i = 0; i < humanData.firstNormalAttackMove.Length; i++)
@@ -314,15 +311,15 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Á¦ÇÑ
+            #region ï¿½ï¿½ï¿½ï¿½
             playerState.RestrictPlayer(humanData.firstNormalAttackRestrict,firstAttackStartTime);
 
-            //DoNotActÀÇ duration±îÁö ³¡³­ »óÈ²¿¡¼­ ¿òÁ÷ÀÌ¸é ½ºÅ³ ÁßÁö 
+            //DoNotActï¿½ï¿½ durationï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ 
             if (isPerformingFirstAttackAnim && (Time.time >= firstAttackStartTime + humanData.firstNormalAttackRestrict.actRestrictWaitTime))
             {
                 canUseSecondAttack = true;
 
-                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .4f) // ¿òÁ÷ÀÌ¸é ÃÊ±âÈ­
+                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .4f) // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
                 {
                     InitializeSkill();
                     yield break;
@@ -330,7 +327,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ÀÌÆåÆ®
+            #region ï¿½ï¿½ï¿½ï¿½Æ®
             if (!activeEffectOnce)
             {
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
@@ -339,7 +336,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region È÷Æ®¹Ú½º
+            #region ï¿½ï¿½Æ®ï¿½Ú½ï¿½
             if (!activeHitBoxOnce)
             {
                 playerHitBox.StartCoroutine(playerHitBox.TogglePlayerHitBox(humanData.firstNormalAttackHitBox));
@@ -347,7 +344,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¼Ò¸®
+            #region ï¿½Ò¸ï¿½
             if (!activeSoundOnce)
             {
                 playerSound.SetPlayerSound(humanData.firstNormalAttackSound, player.transform.position, firstAttackStartTime);
@@ -355,7 +352,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+            #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
             if (!activeCameraShakeOnce && (Time.time >= firstAttackStartTime + humanData.firstNormalAttackCameraShake.waitTime))
             {
                 playerCameraEffect.ShakeCamera(humanData.firstNormalAttackCameraShake);
@@ -379,7 +376,7 @@ public class HumanMaskSkill : PlayerSkill
         canUseSecondAttack = false;
         secondAttackStartTime = Time.time;
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -430,12 +427,12 @@ public class HumanMaskSkill : PlayerSkill
             playerState.RestrictPlayer(humanData.secondNormalAttackRestrict, secondAttackStartTime);
 
 
-            //DoNotActÀÇ duration±îÁö ³¡³­ »óÈ²¿¡¼­ ¿òÁ÷ÀÌ¸é ½ºÅ³ ÁßÁö
+            //DoNotActï¿½ï¿½ durationï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
             if (isPerformingSecondAttackAnim && Time.time >= secondAttackStartTime + humanData.secondNormalAttackRestrict.actRestrictWaitTime)
             {
                 canUseThirdAttack = true;
 
-                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ¿òÁ÷ÀÌ¸é ÃÊ±âÈ­
+                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
                 {
                     InitializeSkill();
                     yield break;
@@ -468,7 +465,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+            #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
             if (!activeCameraShakeOnce && (Time.time >= secondAttackStartTime + humanData.secondNormalAttackCameraShake.waitTime))
             {
                 playerCameraEffect.ShakeCamera(humanData.secondNormalAttackCameraShake);
@@ -492,7 +489,7 @@ public class HumanMaskSkill : PlayerSkill
         canUseThirdAttack = false;
         thirdAttackStartTime = Time.time;
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeSoundOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -513,7 +510,7 @@ public class HumanMaskSkill : PlayerSkill
 
         while (isPerformingThirdAttack)
         {
-            #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+            #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
             var animationHash = animatorStateInfo.shortNameHash;
 
@@ -536,7 +533,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¹°¸® ÀÌµ¿
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             if (!activeMoveOnce)
             {
                 for (int i = 0; i < humanData.thirdNormalAttackMove.Length; i++)
@@ -548,14 +545,14 @@ public class HumanMaskSkill : PlayerSkill
 
             #endregion
 
-            #region Á¦ÇÑ
+            #region ï¿½ï¿½ï¿½ï¿½
             playerState.RestrictPlayer(humanData.thirdNormalAttackRestrict, thirdAttackStartTime);
 
 
-            //DoNotActÀÇ duration±îÁö ³¡³­ »óÈ²¿¡¼­ ¿òÁ÷ÀÌ¸é ½ºÅ³ ÁßÁö 
+            //DoNotActï¿½ï¿½ durationï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ 
             if (isPerformingThirdAttackAnim && Time.time >= thirdAttackStartTime + humanData.thirdNormalAttackRestrict.actRestrictWaitTime)
             {
-                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ¿òÁ÷ÀÌ¸é ÃÊ±âÈ­
+                if (maskChange.CurrentAnimator.GetFloat("moveAmount") > .9f) // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
                 {
                     InitializeSkill();
                     yield break;
@@ -563,7 +560,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion 
             
-            #region ÀÌÆåÆ®
+            #region ï¿½ï¿½ï¿½ï¿½Æ®
             if (!activeEffectOnce)
             {
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
@@ -573,9 +570,6 @@ public class HumanMaskSkill : PlayerSkill
             #endregion
             
             #region HitBox
-            //ControlObject
-            //    (ref normalAttackHitBox, ref inactiveHitBoxOnce, ref activeHitBoxOnce,
-            //    Time.time, thirdAttackStartTime, humanData.normalAttackHitBoxWaitTime3, humanData.normalAttackHitBoxDuration3);
             if (!activeHitBoxOnce)
             {
                 playerHitBox.StartCoroutine(playerHitBox.TogglePlayerHitBox(humanData.thirdNormalAttackHitBox));
@@ -592,7 +586,7 @@ public class HumanMaskSkill : PlayerSkill
 
             #endregion
 
-            #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+            #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
             if (!activeCameraShakeOnce && (Time.time >= thirdAttackStartTime + humanData.thirdNormalAttackCameraShake.waitTime))
             {
                 playerCameraEffect.ShakeCamera(humanData.thirdNormalAttackCameraShake);
@@ -600,7 +594,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Å¸ÀÓ ½ºÄÉÀÏ
+            #region Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (!activeTimeScaleOnce)
             {
                 gameTimeScale.StartCoroutine( gameTimeScale.CoSetTimeScale(humanData.thirdNormalAttackGameTimeScale));
@@ -633,11 +627,11 @@ public class HumanMaskSkill : PlayerSkill
         canUseInkShape = false;
         inkShapeStartTime = Time.time;
 
-        playerSkillMove.GetOriginHeight(); //¾Õ¿¡ Àå¾Ö¹° Å½Áö
+        playerSkillMove.GetOriginHeight(); //ï¿½Õ¿ï¿½ ï¿½ï¿½Ö¹ï¿½ Å½ï¿½ï¿½
 
         maskChange.CurrentAnimator.CrossFade(playerAnimation.Human_InkShape, .1f);
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeMoveOnce = false;
         bool activeEffectOnce = false;
         bool activeHitBoxOnce = false;
@@ -650,12 +644,12 @@ public class HumanMaskSkill : PlayerSkill
 
         while (isPerformingInkShape)
         {
-            #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+            #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
             var animationHash = animatorStateInfo.shortNameHash;
             if (animationHash == playerAnimation.Human_InkShape)
             {
-                isPerformingInkShapeAnim = true; //¾Ö´Ï ½ÇÇàÁß
+                isPerformingInkShapeAnim = true; //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
             else
             {
@@ -667,7 +661,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¹°¸® ÀÌµ¿
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             if (!activeMoveOnce)
             {
                 for (int i = 0; i < humanData.inkShapeMove.Length; i++)
@@ -682,21 +676,21 @@ public class HumanMaskSkill : PlayerSkill
             playerState.RestrictPlayer(humanData.inkShapeRestrict, inkShapeStartTime);
             #endregion
 
-            #region ÀÌÆåÆ®
+            #region ï¿½ï¿½ï¿½ï¿½Æ®
             if (!activeEffectOnce)
             {
-                //Æ®·¹ÀÏ
+                //Æ®ï¿½ï¿½ï¿½ï¿½
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (humanData.inkShapeSpinTrailEffect, inkShapeTrail, inkShapeTrailPosition));
                 
-                //½ºÇÃ·¡½¬
+                //ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
                 playerEffect.StartCoroutine(playerEffect.TogglePlayerEffect
                     (humanData.inkShapeSplashEffect, inkShapeSplashEffect, inkShapeEffectPosition));
                 activeEffectOnce = true;
             }
             #endregion
 
-            #region È÷Æ®¹Ú½º
+            #region ï¿½ï¿½Æ®ï¿½Ú½ï¿½
             if (Time.time >= inkShapeStartTime + humanData.inkShapeHitBoxWaitTime)
             {
                 if (!activeHitBoxOnce)
@@ -712,7 +706,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¼Ò¸®
+            #region ï¿½Ò¸ï¿½
             if (!activeSoundOnce)
             {
                 playerSound.SetPlayerSound(humanData.inkShapeSpinSound, player.transform.position, inkShapeStartTime);
@@ -721,7 +715,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+            #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
             if (!activeCameraShakeOnce && (Time.time >= inkShapeStartTime + humanData.inkShapeCameraShake.waitTime))
             {
                 playerCameraEffect.ShakeCamera(humanData.inkShapeCameraShake);
@@ -729,7 +723,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Å¸ÀÓ ½ºÄÉÀÏ
+            #region Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (!activeTimeScaleOnce)
             {
                 gameTimeScale.StartCoroutine( gameTimeScale.CoSetTimeScale(humanData.inkShapeGameTimeScale));
@@ -801,7 +795,7 @@ public class HumanMaskSkill : PlayerSkill
 
         maskChange.CurrentAnimator.CrossFade(playerAnimation.Human_InkFloor, 0.1f);
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeSound1Once = false;
         bool activeSound2Once = false;
 
@@ -826,13 +820,13 @@ public class HumanMaskSkill : PlayerSkill
 
         while (isPerformingInkFloor)
         {
-            #region ¾Ö´Ï¸ÞÀÌ¼Ç ÁøÇà »óÈ²
+            #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²
             var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
             var animationHash = animatorStateInfo.shortNameHash;
 
             if (animationHash == playerAnimation.Human_InkFloor)
             {
-                isPerformingInkFloorAnim = true; //¾Ö´Ï ½ÇÇàÁß
+                isPerformingInkFloorAnim = true; //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
             else if (animationHash == playerAnimation.Human_Die)
             {
@@ -849,7 +843,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¹°¸® ÀÌµ¿
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             if (!activeMoveOnce)
             {
                 for (int i = 0; i < humanData.inkFloorMove.Length; i++)
@@ -860,12 +854,12 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Á¦ÇÑ
+            #region ï¿½ï¿½ï¿½ï¿½
             playerState.RestrictPlayer(humanData.inkFloorRestrict, inkFloorStartTime);
 
             #endregion
 
-            #region ¹ß»çÃ¼ ÀÌÆåÆ®
+            #region ï¿½ß»ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®
             if (!activeEffectOnce)
             {
                 inkFloorProjectileEffectPosition.transform.position = target.transform.position;
@@ -877,7 +871,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region È÷Æ®¹Ú½º_¹ß»çÃ¼ -> È½¼ö »ý°¢ÇØ¾ßÇÔ
+            #region ï¿½ï¿½Æ®ï¿½Ú½ï¿½_ï¿½ß»ï¿½Ã¼ -> È½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
             if (Time.time >= inkFloorStartTime + humanData.inkFloorHitBoxWaitTime)
             {
                 if (!cameraController.CurrentTarget) { }
@@ -905,7 +899,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ½ºÀ®, ¹ß»çÃ¼ ¼Ò¸®
+            #region ï¿½ï¿½ï¿½ï¿½, ï¿½ß»ï¿½Ã¼ ï¿½Ò¸ï¿½
             if (!activeSound1Once)
             {
                 playerSound.SetPlayerSound(humanData.inkFloorSwingSound, player.transform.position, inkFloorStartTime);
@@ -918,7 +912,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Ä«¸Þ¶ó ½¦ÀÌÅ©
+            #region Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©
             if (!activeCameraShakeOnce && (Time.time >= inkFloorStartTime + humanData.inkFloorCameraShake.waitTime))
             {
                 playerCameraEffect.ShakeCamera(humanData.inkFloorCameraShake);
@@ -926,7 +920,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Å¸ÀÓ ½ºÄÉÀÏ
+            #region Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (!activeTimeScaleOnce)
             {
                 gameTimeScale.StartCoroutine(  gameTimeScale.CoSetTimeScale(humanData.inkFloorGameTimeScale));
@@ -940,8 +934,6 @@ public class HumanMaskSkill : PlayerSkill
     public void InkFloorCooldown()
     {
         if (canUseInkFloor) return;
-
-        //skillHUD.SkillIconCooldown(SkillCooldown.INKFLOOR, Time.time - inkFloorStartTime);
 
         if (Time.time > inkFloorStartTime + humanData.inkFloorStat.cooldown)
         {
@@ -1018,13 +1010,9 @@ public class HumanMaskSkill : PlayerSkill
             isFrontDash = true;
             maskChange.CurrentAnimator.CrossFade(playerAnimation.Human_FrontDash, 0.1f);
             playerSkillInput.ProcessInput(commonData.dashInput, dashStartTime);
-            //if (playerMovement.Movement != Vector3.zero) //Å°¸¦ ´©¸¥¹æÇâÀ¸·Î 
-            //{
-            //    maskChange.CurrentMask.transform.forward = playerMovement.Movement;
-            //}
         }
 
-        #region º¯¼ö
+        #region ï¿½ï¿½ï¿½ï¿½
         bool activeSoundOnce = false;
 
         bool activeMoveOnce = false;
@@ -1033,13 +1021,13 @@ public class HumanMaskSkill : PlayerSkill
 
         while (isPerformingDash)
         {
-            #region ¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+            #region ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
             var animatorStateInfo = maskChange.CurrentAnimator.GetCurrentAnimatorStateInfo(0);
             var animationHash = animatorStateInfo.shortNameHash;
 
             if ((animationHash == playerAnimation.Human_FrontDash) || (animationHash == playerAnimation.Human_BackDash))
             {
-                isPerformingDashAnim = true; //¾Ö´Ï ½ÇÇàÁß
+                isPerformingDashAnim = true; //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
             else if ((animationHash == playerAnimation.Human_Hit) || (animationHash == playerAnimation.Human_Die))
             {
@@ -1056,7 +1044,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¹°¸® ÀÌµ¿
+            #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             if (!isFrontDash)
             {
                 if (!activeMoveOnce)
@@ -1081,7 +1069,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region Á¦ÇÑ
+            #region ï¿½ï¿½ï¿½ï¿½
             if (isFrontDash)
             {
                 playerState.RestrictPlayer(commonData.dashRestrict, dashStartTime);
@@ -1093,7 +1081,7 @@ public class HumanMaskSkill : PlayerSkill
             }
             #endregion
 
-            #region ¼Ò¸®
+            #region ï¿½Ò¸ï¿½
             if (!activeSoundOnce)
             {
                 if (isFrontDash)

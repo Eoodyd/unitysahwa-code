@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
-    //ÁÖÀÇÁ¡: ÀÚ½Ä¿ÀºêÁ§Æ®°¡ ºñÈ°¼ºÈ­ÀÎ »óÅÂ¿¡¼­ ½ÃÀÛÇÏ¸é ÀÚ½Ä¿ÀºêÁ§Æ®À¸ ½ºÅ©¸³Æ®ÀÇ Awake, Start ÇÔ¼ö°¡ È£ÃâµÇÁö ¾ÊÀ½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½Ú½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ú½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ Awake, Start ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public static PlayerController instance;
 
@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MenuUI menuUI;
     [SerializeField] private PlayerSkillInput playerSkillInput;
 
-    #region ¿ÜºÎ
+    #region ï¿½Üºï¿½
     [SerializeField] public PlayerMovement playerMovement;
     [SerializeField] public MaskChange maskChange;
     [SerializeField] public HumanMaskSkill humanMaskSkill;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerState playerState;
     [SerializeField] private PlayerAnimation playerAnimation;
 
-    //µ¥ÀÌÅÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private PlayerCommonData commonData;
     private PlayerHumanMaskData humanData;
     private PlayerAnimalMaskData animalData;
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
    {
-        #region ½Ì±ÛÅæ
+        #region ï¿½Ì±ï¿½ï¿½ï¿½
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
         #endregion
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        #region ¼ÂÆÃ ÀÔ·Â
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 
         if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.MENU]))
         {
@@ -73,11 +73,11 @@ public class PlayerController : MonoBehaviour
 
         if (playerState.playerCurrentState == PlayerStateType.DEAD) return;
 
-        #region ÇÃ·¹ÀÌ¾î »óÅÂ
-        //¾Ö´Ï¸ÞÀÌ¼Ç »óÅÂ
+        #region ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         playerAnimation.UpdateAnimationState();
 
-        //ÀüÅõ»óÅÂ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (!humanMaskSkill.canUseDash ||
             !humanMaskSkill.canUseInkShape ||
             !animalMaskSkill.canUseDash ||
@@ -93,11 +93,11 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
-        #region ÄðÅ¸ÀÓ
+        #region ï¿½ï¿½Å¸ï¿½ï¿½
         maskChange.ChangeMaskCooldown();
         player.HitCooldown();
 
-        //¿¡·¯³ª´Â ÀÌÀ¯ ºñÈ°¼ºÈ­µÇ¾î¼­ ÀÛµ¿ÀÌ ¾ÈµÊ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½Ç¾î¼­ ï¿½Ûµï¿½ï¿½ï¿½ ï¿½Èµï¿½
         if (maskChange.CurrentMask == maskChange.HumanMask)
         {
             humanMaskSkill.InkFloorCooldown();
@@ -120,15 +120,15 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        #region Ä«¸Þ¶ó ÀÔ·Â
+        #region Ä«ï¿½Þ¶ï¿½ ï¿½Ô·ï¿½
         if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.LOCKONTARGET]))
         {
             CameraController.instance.LockOnTarget();
         }
         #endregion
 
-        #region ¹æÇâ ÀÔ·Â
-        //ÀÔ·Â °ª Á¶Àý
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
+        //ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         playerMovement.InputMovement();
         #endregion
 
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        #region Å½Áö
+        #region Å½ï¿½ï¿½
         ghostMaskSkill.DetectTargetToFinish();
         #endregion
 
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        #region ÇÃ·¹ÀÌ ÀÔ·Â
+        #region ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 
         if (player.IsPerformingHitAction)
         {
@@ -162,21 +162,11 @@ public class PlayerController : MonoBehaviour
 
                 if (!playerState.isPerfomingSklill) humanMaskSkill.NormalAttack();
             }
-            else if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.ATTACK_NORMAL]))
-            {
-                //playerSkillInput.StoreInput(PlayerStateType.HUMAN_INKSHAPE);
-                //if (!playerState.isPerfomingSklill) humanMaskSkill.InkShape();
-            }
             else if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.ATTACK_SPECIAL]))
             {
                 playerSkillInput.StoreInput(PlayerStateType.HUMAN_INKSHAPE);
                 if (!playerState.isPerfomingSklill) humanMaskSkill.InkShape();
             }
-            //else if (Input.GetKeyDown(inputData.secondSkill))
-            //{
-            //    playerSkillInput.StoreInput(PlayerStateType.HUMAN_INKFLOOR);
-            //    if (!playerState.isPerfomingSklill)  humanMaskSkill.InkFloor();
-            //}
             else if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.DASH]))
             {
                 playerSkillInput.StoreInput(PlayerStateType.DASH);
@@ -192,31 +182,15 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.ATTACK_NORMAL]))
             {
-                //if (playerState.playerCurrentSubState == PlayerSubStateType.ANIMAL_THIRDNORMALATTACK)
-                //{
-                //    Debug.Log("3Å¸");
-                //    playerSkillInput.StoreInput(PlayerStateType.ANIMAL_LEAPSTRIKE);
-                //}
-                //else
                 playerSkillInput.StoreInput(PlayerStateType.ANIMAL_NORMALATTACK);
 
                 if (!playerState.isPerfomingSklill) animalMaskSkill.NormalAttack();
-            }
-            else if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.ATTACK_NORMAL]))
-            {
-                //playerSkillInput.StoreInput(PlayerStateType.ANIMAL_LEAPSTRIKE);
-                //if (!playerState.isPerfomingSklill)  animalMaskSkill.LeapStrike();
             }
             else if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.ATTACK_SPECIAL]))
             {
                 playerSkillInput.StoreInput(PlayerStateType.ANIMAL_LEAPSTRIKE);
                 if (!playerState.isPerfomingSklill) animalMaskSkill.LeapStrike();
             }
-            //else if (Input.GetKeyDown(inputData.secondSkill))
-            //{
-            //    playerSkillInput.StoreInput(PlayerStateType.ANIMAL_ROAR);
-            //    if (!playerState.isPerfomingSklill) animalMaskSkill.Roar();
-            //}
             else if (Input.GetKeyDown(saveManager.InputKeys[KeyAction.DASH]))
             {
                 playerSkillInput.StoreInput(PlayerStateType.DASH);
@@ -234,11 +208,11 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        #region Player ¿ÀºêÁ§Æ®°¡ Ä³¸¯ÅÍ ¿ÀºêÁ§Æ® µû¶ó°¡±â
+        #region Player ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ó°¡±ï¿½
         player.FollowCharacterObject();
         #endregion
 
-        #region Ãß°¡ÀûÀÎ Áß·Â°ª
+        #region ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß·Â°ï¿½
         if (!CheatMode.instance.isFlyMode)
         {
             playerMovement.AddGravity();
@@ -251,7 +225,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        #region ½ºÅ³·Î ÀÎÇÑ ÀÌµ¿
+        #region ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         playerSkillMove.UpdateSkillMovement();
         #endregion
 
@@ -267,7 +241,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        #region È¸Àü, ÀÌµ¿
+        #region È¸ï¿½ï¿½, ï¿½Ìµï¿½
         if (!playerState.doNotRotate && !player.IsPerformingHitAction)
         {
             playerMovement.CharacterRotate();

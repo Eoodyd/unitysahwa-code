@@ -10,9 +10,7 @@ using UnityEngine;
 public enum SkillCooldown
 {
     INKSHAPE,
-    //INKFLOOR,
     LEAPSTRIKE,
-    //ROAR,
     FINISH,
     DASH
 }
@@ -55,16 +53,6 @@ public enum HitBoxType
     ANIMAL_LEAPSTRIKE
 }
 
-#endregion
-
-#region CameraType
-//public enum CameraType
-//{
-//    PLAYER_DEFAULT,
-//    HUMAN_FIRSTFINISH,
-//    HUMAN_FINISH,
-//    ANIMAL_FINISH,
-//}
 #endregion
 
 #region CameraShakeType
@@ -129,12 +117,12 @@ public enum PlayerSubStateType
     DEAD_FALL,
     HIT_DEFAULT,
 
-    //»ç¶÷Å»
+    //ï¿½ï¿½ï¿½Å»
     HUMAN_FIRSTNORMALATTACK,
     HUMAN_SECONDNORMALATTACK,
     HUMAN_THIRDNORMALATTACK,
 
-    //µ¿¹°Å»
+    //ï¿½ï¿½ï¿½ï¿½Å»
     ANIMAL_FIRSTNORMALATTACK,
     ANIMAL_SECONDNORMALATTACK,
     ANIMAL_THIRDNORMALATTACK,
@@ -157,8 +145,6 @@ public enum MoveDirection
     BACK,
     UP,
     DOWN,
-    //LEFT,
-    //RIGHT,
 }
 #endregion
 
@@ -169,7 +155,7 @@ public enum MoveDirection
 [System.Serializable]
 public struct PlayerBasicStatStruct
 {
-    [Header("½ºÅ³ ½ºÅÈ")]
+    [Header("ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½")]
     public float damage;
     public float cooldown;
     public float inkStack;
@@ -191,7 +177,7 @@ public struct FunctionStopStruct
 [System.Serializable]
 public struct RestrictStruct
 {
-    [Header("½ºÅ³ Çàµ¿ Á¦ÇÑ")]
+    [Header("ï¿½ï¿½Å³ ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½")]
 
     public float actRestrictWaitTime;
     public float actRestrictDuration;
@@ -239,7 +225,7 @@ public struct TimeScaleStruct
     public bool useFunction;
     [Range(0, 1)] public float timeScale;
     
-    [Header("useFrame Ã¼Å©: ´ÜÀ§¸¦ ÇÁ·¹ÀÓÀ¸·Î ÁøÇà, frame °ª¸¸ ¼³Á¤ÇÏ±â")]
+    [Header("useFrame Ã¼Å©: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, frame ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½")]
     public bool useFrame;
     public float waitTimeFrames;
     public float durationFrames;
@@ -263,7 +249,7 @@ public struct EffectStruct
     public float waitTime;
     public float duration;
 
-    [Header("untilFinish: ÀÌÆåÆ® ³¡³¯¶§±îÁö °è¼Ó \nfollowPosition: Æ÷Áö¼ÇÀ» °è¼Ó µû¶ó´Ù´Ô")]
+    [Header("untilFinish: ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ \nfollowPosition: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ù´ï¿½")]
     public bool untilFinish;
 
     [Space(10)]
@@ -274,8 +260,6 @@ public struct EffectStruct
     public bool followPosition;
     public float followWaitTime;
     public float followDuration;
-
-    //public void Initialize()
 }
 #endregion
 
@@ -286,7 +270,6 @@ public struct HitBoxStruct
     public bool useFunction;
     public bool showHitbox;
     public bool untilFinish;
-    //public bool followPosition;
 
     [Space(10)]
     public float waitTime;
@@ -294,12 +277,6 @@ public struct HitBoxStruct
 
     [Space(10)]
     public HitBoxType hitBoxType;
-
-    //[Space(10)]
-    //public int hitCount;
-    //public float hitInterval;
-
-    //public void Initialize()
 }
 #endregion
 
@@ -307,7 +284,7 @@ public struct HitBoxStruct
 [System.Serializable]
 public struct SoundStruct
 {
-    //"¿Àµð¿À ·£ÅÒ ÄÁÅ×ÀÌ³Ê" ¿¡¼ÂÀÖ±äÇÔ
+    //"ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½" ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
     public bool useFunction;
     public AudioClip[] audioClip;
     public bool loop;
@@ -320,15 +297,6 @@ public struct SoundStruct
     public float MaxDistance;
 
     public bool untilFinish;
-
-    //public void Initialize(AudioClip[] audioClip, bool loop, float volume, float pitch, float waitTime)
-    //{
-    //    this.audioClip = audioClip;
-    //    this.loop = loop;
-    //    this.volume = volume;
-    //    this.pitch = pitch;
-    //    this.waitTime = waitTime;
-    //}
 }
 
 #endregion
@@ -339,32 +307,29 @@ public struct CameraShakeStruct
 {
     public bool useFunction;
 
-    [Tooltip("cameraType: ±â´ÉÀÌ Àû¿ëµÇ´Â Ä«¸Þ¶ó")]
+    [Tooltip("cameraType: ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ Ä«ï¿½Þ¶ï¿½")]
     public CameraType cameraType;
-    [Tooltip("waitTime: waitTime ÀÌÈÄ¿¡ ±â´É ½ÃÀÛ")]
+    [Tooltip("waitTime: waitTime ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float waitTime;
     
     [Space(10)]
-    [Tooltip("shakeType: Ä«¸Þ¶ó ½¦ÀÌÅ© Á¾·ù")]
+    [Tooltip("shakeType: Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½")]
     public CameraShakeType shakeType;
-    [Tooltip("imulseVelocty: ½¦ÀÌÅ© ¼Óµµ")]
+    [Tooltip("imulseVelocty: ï¿½ï¿½ï¿½ï¿½Å© ï¿½Óµï¿½")]
     public Vector3 impulseVelocty;
-    [Tooltip("impulseDuration: ½¦ÀÌÅ© ½Ã°£")]
+    [Tooltip("impulseDuration: ï¿½ï¿½ï¿½ï¿½Å© ï¿½Ã°ï¿½")]
     public float impulseDuration;
     
     [Space(10)]
-    [Header("reactionÀº ½¦ÀÌÅ©¿¡ Ä«¸Þ¶ó°¡ ¹ÝÀÀÇÏ´Â °É ¸»ÇÕ´Ï´Ù")]
-    [Tooltip("reactionType: ½¦ÀÌÅ©¿¡ ¹ÝÀÀÇÏ´Â Å¸ÀÔ")]
+    [Header("reactionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Õ´Ï´ï¿½")]
+    [Tooltip("reactionType: ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¸ï¿½ï¿½")]
     public CameraReactionType reactionType;
-    //public float gain;
-    [Tooltip("amplitudeGain: °ªÀ» ³ôÀÌ¸é Ä«¸Þ¶ó Èçµé¸²ÀÇ °­µµ°¡ Áõ°¡")]
+    [Tooltip("amplitudeGain: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½é¸²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float amplitudeGain;
-    [Tooltip("frequencyGain: °ªÀ» ³ôÀÌ¸é Ä«¸Þ¶ó Èçµé¸²ÀÇ ¼Óµµ°¡ Áõ°¡")]
+    [Tooltip("frequencyGain: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½é¸²ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float frequencyGain;
-    [Tooltip("reactionDuration: ¹ÝÀÀÇÏ´Â ½Ã°£")]
-    public float reactionDuration; //Ä«¸Þ¶ó ±â´É ³»¿¡ durationÀÌ ÀÖÀ½
-
-    //public void Initialize(float cameraShakeStrength, float cameraShakeWaitTime, float cameraShakeDuration)
+    [Tooltip("reactionDuration: ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ã°ï¿½")]
+    public float reactionDuration; //Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ durationï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 #endregion
 
@@ -373,15 +338,15 @@ public struct CameraShakeStruct
 public struct CameraRecomposerStruct
 {
     public bool useFunction;
-    [Tooltip("waitTime: waitTime ÀÌÈÄ¿¡ ±â´É ½ÃÀÛ")]
+    [Tooltip("waitTime: waitTime ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float waitTime;
-    [Tooltip("duration: waitTimeÀÌ ³¡³ª°í duratio µ¿¾È ±â´É ½ÇÇà")]
+    [Tooltip("duration: waitTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ duratio ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float duration;
-    [Tooltip("ÁÜÇÏ´Â Á¤µµ")]
+    [Tooltip("ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float zoomScale;
-    [Tooltip("Ä«¸Þ¶ó°¡ Å¸°ÙÀ» µû¶ó°¡´Â Á¤µµ")]
+    [Tooltip("Ä«ï¿½Þ¶ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó°¡´ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float followAttachment;
-    [Tooltip("Ä«¸Þ¶ó°¡ Å¸°ÙÀ» ¹Ù¶óº¸´Â Á¤µµ")]
+    [Tooltip("Ä«ï¿½Þ¶ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶óº¸´ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float lookAtAttachment;
 }
 #endregion
@@ -390,13 +355,13 @@ public struct CameraRecomposerStruct
 [System.Serializable]
 public struct CameraZoomStruct
 {
-    [Header("isZoomInFirst Ã¼Å©: Zoom In ¸ÕÀú½ÃÀÛ")]
+    [Header("isZoomInFirst Ã¼Å©: Zoom In ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float isZoomInFirst;
     public float waitTime;
     public float firstDuration;
     public float secondDuration;
 
-    [Header("Ä«¸Þ¶ó Å¸°Ù ¼³Á¤ÇÏ°í positionOffsetÀ¸·Î ¼¼ºÎÁ¶Á¤")]
+    [Header("Ä«ï¿½Þ¶ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ positionOffsetï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public FunctionTarget cameraTarget;
     public float positionOffset;
 
@@ -452,15 +417,15 @@ public struct VignetteStruct
     [Range(0,1)] public float smoothness;
     public bool rounded;
 
-    //¹Ýº¹ÇØ¼­ »ç¿ëÇÒ °ÍÀÎ°¡
+    //ï¿½Ýºï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½
     public bool isLooping;
-    //¸îÈ¸ ¹Ýº¹ÇÒ °ÍÀÎ°¡
+    //ï¿½ï¿½È¸ ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½
     public int count;
-    //ÇÑ ÁÖ±â Ä¿ºê
+    //ï¿½ï¿½ ï¿½Ö±ï¿½ Ä¿ï¿½ï¿½
     public AnimationCurve oneTimeCurve;
-    //Áö¿¬½Ã°£
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
     public float waitTime;
-    //1È¸ ¼öÇà½Ã°£
+    //1È¸ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
     public float oneTimeDuration;
 }
 

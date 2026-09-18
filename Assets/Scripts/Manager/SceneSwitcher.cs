@@ -24,7 +24,7 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
     
-    //¼¼ÀÌºê ÁöÁ¡À¸·Î ºÒ·¯¿Ã ¶§ ÇÑ¹ø´õ ¼¼ÀÌºê µÇ´Â ±â´É ÀÏºÎ¸¦ ½ºÅµÇÏ±â À§ÇÔ
+    //ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ ï¿½ÏºÎ¸ï¿½ ï¿½ï¿½Åµï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bool skipRespawnSave;
     public bool SkipRespawnSave
     {
@@ -66,7 +66,7 @@ public class SceneSwitcher : MonoBehaviour
         DontDestroyOnLoad(this);
 
 
-        //TODO:UI ÄÑÁú¶§¸¸ ÀÛµ¿À» ÇØ¾ßÇÑ´Ù
+        //TODO:UI ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½Ñ´ï¿½
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             MenuUI.instance.ActivateLetterBox(true);
@@ -77,12 +77,6 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
-    //ºñÆÄ±« ¿ÀºêÁ§Æ®¶ó¼­ OnEnableÀº °ÔÀÓ ½ÇÇà ÈÄ 1¹ø¸¸ ½ÇÇà
-    //private void OnEnable()
-    //{
-    //    LoadingUI.instance.StartLoading();
-    //}
-
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         isSceneLoaded = true;
@@ -92,17 +86,17 @@ public class SceneSwitcher : MonoBehaviour
     {
         isSceneLoaded = false;
     }
-    public void SwitchScene(int index) //Æ®¸®°Å¸¦ ÅëÇØ ´ÙÀ½ ¾ÀÀ¸·Î ³Ñ¾î°¨
+    public void SwitchScene(int index) //Æ®ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¨
     {
         StartCoroutine(CoSwitchScene(index));
     }
 
     public IEnumerator CoSwitchScene(int index)
     {
-        //TODO: ÇÃ·¹ÀÌ¾î°¡ ÀÏÁ¤½Ã°£µ¿¾È Á¤ÁöÇÒ ÇÊ¿ä°¡ ÀÖ´Ù. -> bool °ªÀ¸·Î
-        //¾ÀÀ» ³Ñ³ªµé¾î¾ßÇÏ´Ï±î ºñÆÄ±« ¿ÀºêÁ§Æ®¿¡ ºÙ¾îÀÖ¾î¾ßÇÔ
+        //TODO: ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ä°¡ ï¿½Ö´ï¿½. -> bool ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ï±ï¿½ ï¿½ï¿½ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù¾ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
 
-        //ÇöÀç ¾ÀÀÇ ÃÖ½Åµ¥ÀÌÅÍ ÀÓ½ÃÀúÀå, currentIndexµµ Àü´ÞÀ» À§ÇØ ÀúÀå
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Åµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½, currentIndexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         float currentHP = Player.instance.currentHP;
         bool isHumanMask = MaskChange.instance.HumanMask.activeSelf;
         int currentIndex = SaveManager.instance.CurrentIndex;
@@ -118,7 +112,7 @@ public class SceneSwitcher : MonoBehaviour
 
         
 
-        //ÀçÇÒ´ç
+        //ï¿½ï¿½ï¿½Ò´ï¿½
         saveManager = SaveManager.instance;
         maskChange = MaskChange.instance;
 
@@ -131,7 +125,7 @@ public class SceneSwitcher : MonoBehaviour
             MenuUI.instance.MainMenu.SetActive(false);
         }
 
-        //ÀÎ°ÔÀÓ¿¡¼­ Ä¿¼­ ¼³Á¤
+        //ï¿½Î°ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (PlatformSwitcher.instance.IsPCPlatform)
         {
             Cursor.visible = false;
@@ -143,7 +137,7 @@ public class SceneSwitcher : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
         }
 
-        //ÀÌÀü ¾ÀÀÇ µ¥ÀÌÅÍ ·Îµå, Æ÷Áö¼Ç Àç¹èÄ¡
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¡
         Player.instance.currentHP = currentHP;
         HpHUD.instance.ChangeHPStack((int)currentHP);
         if (isHumanMask)
@@ -175,13 +169,13 @@ public class SceneSwitcher : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
-    public void LoadScene() //ºÒ·¯¿À±â¸¦ ÅëÇÑ ¾ÀÀüÈ¯(µ¥ÀÌÅÍ ¼ÂÆÃ)
+    public void LoadScene() //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¯(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     {
         StartCoroutine(CoLoadScene());
     }
     public IEnumerator CoLoadScene()
     {
-        //°æ·Î[currentIndex]¿¡ ÇØ´çÇÏ´Â µ¥ÀÌÅÍ ¾ò¾î¿À±â
+        //ï¿½ï¿½ï¿½[currentIndex]ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         saveManager.GetLoadData();
         
         //LoadingUI.instance.FadeOutInScreen(1, 1);
@@ -191,11 +185,11 @@ public class SceneSwitcher : MonoBehaviour
 
         if (saveManager.CurrentSceneIndex == 0)
         {
-            //¸ÞÀÎ¸Þ´º ºÒ·¯¿À´Â °Ô ¾Æ´Ï¶ó ¸ÞÀÎ¸Þ´º ±â´É ºñÈ°¼ºÈ­ ½ÃÅ´, Æ©Åä¸®¾ó Áö¿ªÀ» ºÒ·¯¿È. 
+            //ï¿½ï¿½ï¿½Î¸Þ´ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½Î¸Þ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½ï¿½Å´, Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½. 
             isNotPlayingMainMenu = true;
         }
 
-        //TODO: WaitForSecond¸¦ ÇÒ °æ¿ì ½Ã°£¿¡ ¿µÇâÀ» ¹ÞÀ½. ³Ê¹« Á¶ÀâÇÏ°Ô ÄÚµåÀÛ¼ºÇÔ
+        //TODO: WaitForSecondï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Úµï¿½ï¿½Û¼ï¿½ï¿½ï¿½
         yield return new WaitForSecondsRealtime (0.5f);
 
         SceneManager.LoadScene(saveManager.CurrentSceneIndex);
@@ -212,7 +206,7 @@ public class SceneSwitcher : MonoBehaviour
 
         Time.timeScale = 1;
 
-        //ÀÎ°ÔÀÓ¿¡¼­ Ä¿¼­ ¼³Á¤
+        //ï¿½Î°ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (PlatformSwitcher.instance.IsPCPlatform)
         {
             Cursor.visible = false;

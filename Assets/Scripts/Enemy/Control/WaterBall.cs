@@ -6,26 +6,26 @@ public class WaterBall : MonoBehaviour
 
     public float damage;
     public float lifeTime;
-    public float homingSpeed = 2f; // À¯µµ ¼Óµµ
-    public float homingDuration = 2f; // À¯µµ Áö¼Ó ½Ã°£
+    public float homingSpeed = 2f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+    public float homingDuration = 2f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     private Player player;
     private Rigidbody rigidbody;
-    private bool isHomingActive = true; // À¯µµ È°¼ºÈ­ »óÅÂ
-    private float homingTimer = 0f; // À¯µµ ½Ã°£À» °ü¸®ÇÒ Å¸ÀÌ¸Ó
+    private bool isHomingActive = true; // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+    private float homingTimer = 0f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½
 
     private void Start()
     {
         damage = enemyDataRange.f_autoAttackRangedDamage;
         player = GameObject.FindWithTag("PlayerScript").GetComponent<Player>();
         lifeTime = enemyDataRange.f_deleteTime;
-        Destroy(gameObject, lifeTime); // ÀÏÁ¤ ½Ã°£ ÈÄ »èÁ¦
+        Destroy(gameObject, lifeTime); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        // Time.deltaTimeÀ» »ç¿ëÇÏ¿© homingDurationÀÌ Áö³ª¸é À¯µµ ±â´ÉÀ» ºñÈ°¼ºÈ­
+        // Time.deltaTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ homingDurationï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         if (isHomingActive)
         {
             homingTimer += Time.deltaTime;
@@ -40,15 +40,15 @@ public class WaterBall : MonoBehaviour
     {
         if (isHomingActive && player != null && !player.CheckDie())
         {
-            // ÇÃ·¹ÀÌ¾î¿Í µ¿ÀÏÇÑ yÃàÀ» À¯ÁöÇÏ°í, xzÃà ¹æÇâÀ¸·Î À¯µµ
+            // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ yï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, xzï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Vector3 targetPosition = player.transform.position;
-            targetPosition.y = transform.position.y; // ¹ß»çÃ¼ÀÇ yÃà °íÁ¤
+            targetPosition.y = transform.position.y; // ï¿½ß»ï¿½Ã¼ï¿½ï¿½ yï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-            // XZÃàÀ¸·Î À¯µµ
+            // XZï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Vector3 directionToPlayer = (targetPosition - transform.position).normalized;
             Vector3 newDirection = Vector3.Lerp(rigidbody.velocity.normalized, directionToPlayer, homingSpeed * Time.fixedDeltaTime).normalized;
 
-            rigidbody.velocity = newDirection * rigidbody.velocity.magnitude; // ¼Ó·Â À¯ÁöÇÑ Ã¤·Î ¹æÇâ ¼öÁ¤
+            rigidbody.velocity = newDirection * rigidbody.velocity.magnitude; // ï¿½Ó·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
     }
 
@@ -69,37 +69,4 @@ public class WaterBall : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    //public EnemyDataRange enemyDataRange;
-
-    //public float damage;
-    //public float lifeTime;
-    //private Player player;
-
-
-    //private void Start()
-    //{
-    //    damage = enemyDataRange.f_autoAttackRangedDamage;
-    //    player = GameObject.FindWithTag("Player").GetComponent<Player>();
-    //    lifeTime = enemyDataRange.f_deleteTime;
-    //    Destroy(gameObject, lifeTime);
-    //}
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        if (player != null && !player.CheckDie())
-    //        {
-    //            var message = new DamageMessage();
-    //            message.amount = damage;
-    //            player.ApplyDamage(message);
-    //        }
-    //        Destroy(gameObject);
-    //    }
-    //    else if (other.tag == "Untagged" || other.tag != "Enemy") // Untagged¿Í Enemy°¡ ¾Æ´Ñ ¸ðµç ÅÂ±×¿¡ Àû¿ë
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
 }

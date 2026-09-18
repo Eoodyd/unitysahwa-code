@@ -17,75 +17,75 @@ public class WisuMainRe : Enemy
     private WisuAttackPatternB3 patternB3;
     private BoxCollider boxCollider;
 
-    [HideInInspector] public bool isPatternFinished = false; // ÆÐÅÏ ¿Ï·á ÇÃ·¡±×
-    [HideInInspector] public bool isControllerActive = false; // ¼öÁ¤ Á¦¾î±â ºÎ¼­Áü È®ÀÎ
-    [HideInInspector] public bool isGroggy = false; // ±×·Î±â »óÅÂ È®ÀÎ
-    [HideInInspector] public bool isSpawnPhaseFinished = false; // ¼ÒÈ¯ ÆÐÅÏ Á¾·á È®ÀÎ    
-    [HideInInspector] public bool isGroggyRoutineRunning = false; // ÄÚ·çÆ¾ ½ÇÇà ¿©ºÎ ÃßÀû º¯¼ö
-    [HideInInspector] public bool isInvincible = false;  // ¹«Àû»óÅÂ ¿©ºÎ
+    [HideInInspector] public bool isPatternFinished = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
+    [HideInInspector] public bool isControllerActive = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+    [HideInInspector] public bool isGroggy = false; // ï¿½×·Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+    [HideInInspector] public bool isSpawnPhaseFinished = false; // ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½    
+    [HideInInspector] public bool isGroggyRoutineRunning = false; // ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [HideInInspector] public bool isInvincible = false;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [HideInInspector] public float fullHP;
-    [HideInInspector] public float currentHpValue; // hp¹Ù ºÎµå·´°Ô ÇÏ±â À§ÇÑ º¯¼ö
+    [HideInInspector] public float currentHpValue; // hpï¿½ï¿½ ï¿½Îµå·´ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [HideInInspector] public bool isHPphase = false;
-    [HideInInspector] public int currentImageIndex = -1;   // ÇöÀç È°¼ºÈ­µÈ ÀÌ¹ÌÁö ÀÎµ¦½º
+    [HideInInspector] public int currentImageIndex = -1;   // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
-    #region º¸½º ½ºÅÝ
-    [Header("<<<<<< ±âº» ½ºÅÝ >>>>>>")]
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [Header("<<<<<< ï¿½âº» ï¿½ï¿½ï¿½ï¿½ >>>>>>")]
     public MainState mainstate;
 
-    [Header("<<<<<< ¸Ç¼Õ ±â¼ú °ø°Ý A1 >>>>>>")]
+    [Header("<<<<<< ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ A1 >>>>>>")]
     public Pattern_A1 pattern_A1;
 
-    [Header("<<<<<< ¸Ç¼Õ ±â¼ú °ø°Ý A2 >>>>>>")]
+    [Header("<<<<<< ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ A2 >>>>>>")]
     public Pattern_A2 pattern_A2;
 
-    [Header("<<<<<< ¸Ç¼Õ ±â¼ú °ø°Ý A3 >>>>>>")]
+    [Header("<<<<<< ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ A3 >>>>>>")]
     public Pattern_A3 pattern_A3;
 
-    [Header("<<<<<< ¹«±â °ø°Ý B1 >>>>>>")]
+    [Header("<<<<<< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ B1 >>>>>>")]
     public Pattern_B1 pattern_B1;
 
-    [Header("<<<<<< ¹«±â °ø°Ý B2 >>>>>>")]
+    [Header("<<<<<< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ B2 >>>>>>")]
     public Pattern_B2 pattern_B2;
 
-    [Header("<<<<<< ¹«±â °ø°Ý B3 >>>>>>")]
+    [Header("<<<<<< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ B3 >>>>>>")]
     public Pattern_B3 pattern_B3;
 
-    #region ¼ÒÈ¯ ÆÐÅÏ
-    [Header("<<<<<< ¼ÒÈ¯ ÆÐÅÏ >>>>>>")]
-    [Header("1´Ü°è ¼ÒÈ¯ ¸ó½ºÅÍ")]
+    #region ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+    [Header("<<<<<< ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ >>>>>>")]
+    [Header("1ï¿½Ü°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½")]
     public List<GameObject> phase1Enemies = new List<GameObject>();
-    [Header("1´Ü°è ¼ÒÈ¯ ¼ö")]
+    [Header("1ï¿½Ü°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½")]
     public List<int> phase1Counts = new List<int>();
-    [Header("1´Ü°è °¢ ¼ÒÈ¯ ÄðÅ¸ÀÓ")]
+    [Header("1ï¿½Ü°ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Å¸ï¿½ï¿½")]
     public List<float> spawn1CoolTime = new List<float>();
 
-    [Header("2´Ü°è ¼ÒÈ¯ ¸ó½ºÅÍ")]
+    [Header("2ï¿½Ü°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½")]
     public List<GameObject> phase2Enemies = new List<GameObject>();
-    [Header("2´Ü°è ¼ÒÈ¯ ¼ö")]
+    [Header("2ï¿½Ü°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½")]
     public List<int> phase2Counts = new List<int>();
-    [Header("2´Ü°è °¢ ¼ÒÈ¯ ÄðÅ¸ÀÓ")]
+    [Header("2ï¿½Ü°ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Å¸ï¿½ï¿½")]
     public List<float> spawn2CoolTime = new List<float>();
 
-    [Header("3´Ü°è ¼ÒÈ¯ ¸ó½ºÅÍ")]
+    [Header("3ï¿½Ü°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½")]
     public GameObject phase3Enemy;
-    [Header("3´Ü°è ¼ÒÈ¯ ÄðÅ¸ÀÓ")]
+    [Header("3ï¿½Ü°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Å¸ï¿½ï¿½")]
     public float spawn3CoolTime;
 
-    [Header("¼ÒÈ¯ À§Ä¡µé")]
+    [Header("ï¿½ï¿½È¯ ï¿½ï¿½Ä¡ï¿½ï¿½")]
     public List<Transform> spawnPoints;
 
-    [Header("°¢ ´Ü°è ÄðÅ¸ÀÓ")]
+    [Header("ï¿½ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½")]
     public float delayBetweenSpawnPhase;
 
     #endregion
 
-    #region ¹öÇÁ ÆÐÅÏ
-    [Header("<<<<<< ¹öÇÁ >>>>>>")]
-    [Header("1. ¹öÇÁ Ä¿Áö´Â ºñÀ²")]
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [Header("<<<<<< ï¿½ï¿½ï¿½ï¿½ >>>>>>")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float localScaleUp;
     #endregion
 
-    [Header("<<<<<< Ãß°¡ÀûÀ¸·Î ³Ö´Â °÷ >>>>>>")]
+    [Header("<<<<<< ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ >>>>>>")]
     public WisuSuppressionController suppressionController;
     public GameObject phase1Sword;
     public GameObject phase2Sword;
@@ -118,7 +118,7 @@ public class WisuMainRe : Enemy
     }
     private bState patternState;
 
-    // ¸¶Áö¸· ½ÇÇàµÈ ÆÐÅÏÀ» ÀúÀåÇÒ º¯¼ö
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bState lastExecutedPattern = bState.Idle;
     private Transform lookatTransform;
     #endregion
@@ -168,7 +168,7 @@ public class WisuMainRe : Enemy
 
 
 
-        //ÀÏÁ¤ ÀÌ»ó Ã¼·Â ±îÀÌ¸é ½Ã³×¸Ó½Å Àç»ý
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ã³×¸Ó½ï¿½ ï¿½ï¿½ï¿½
         if (mainstate.phase == 1 && fullHP < hp * mainstate.phase2Rate)
         {
             mainstate.phase++;
@@ -178,12 +178,6 @@ public class WisuMainRe : Enemy
             patternState = bState.SpawnPhase;
             StartCoroutine(BossStateManager());
         }
-        //else if (phase == 2 && fullHP < hp * phase3Rate || hpBarCount == 1)
-        //{
-        //    StopAllCoroutines();
-        //    isPatternFinished = true;
-        //    phase++;
-        //}
 
         if (isControllerActive)
         {
@@ -213,13 +207,11 @@ public class WisuMainRe : Enemy
 
         if (isPatternFinished)
         {
-            //º¸½º ÆÐÅÏ ¼±ÅÃ
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             isPatternFinished = false;
             bState nextPattern = GetRandomPattern(mainstate.phase);
             lastExecutedPattern = nextPattern;
             patternState = nextPattern;
-
-            //patternState = bState.AttackPatternB3;
 
             StartCoroutine(BossStateManager());
         }
@@ -254,7 +246,7 @@ public class WisuMainRe : Enemy
         StartCoroutine(BossGroggy());
     }
 
-    #region »óÅÂ °ü¸®
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public IEnumerator BossStateManager()
     {
         yield return new WaitForSeconds(mainstate.coolTime);
@@ -294,7 +286,7 @@ public class WisuMainRe : Enemy
     }
     #endregion
 
-    #region ÆÐÅÏ ½ÇÇà
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public void StartPatternA1()
     {
@@ -322,7 +314,7 @@ public class WisuMainRe : Enemy
     }
     #endregion
 
-    #region °ø°Ý ¹üÀ§ Ç¥½Ã
+    #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
     public void DisplayDangerZoneA1()
     {
 
@@ -358,11 +350,11 @@ public class WisuMainRe : Enemy
             };
         }
 
-        // ¸¶Áö¸· ½ÇÇàµÈ ÆÐÅÏÀ» Á¦¿ÜÇÑ ÆÐÅÏ ¸ñ·Ï »ý¼º
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         List<bState> availablePatterns = new List<bState>(randomPatterns);
         availablePatterns.Remove(lastExecutedPattern);
 
-        // ·£´ýÀ¸·Î »õ·Î¿î ÆÐÅÏ ¼±ÅÃ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         int randomIndex = Random.Range(0, availablePatterns.Count);
         return availablePatterns[randomIndex];
     }
@@ -418,30 +410,30 @@ public class WisuMainRe : Enemy
     {
         int imageIndex = index + 1;
 
-        if (imageIndex == 0) // index°¡ 0ÀÌ¸é ¸ðµç ÀÌ¹ÌÁö¸¦ ºñÈ°¼ºÈ­
+        if (imageIndex == 0) // indexï¿½ï¿½ 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         {
             HideAllImages();
             return;
         }
 
-        // ¸®½ºÆ® ¹üÀ§ È®ÀÎ ÈÄ Æ¯Á¤ ÀÌ¹ÌÁö È°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         if (imageIndex > 0 && imageIndex <= mainstate.bossPatternImages.Count)
         {
-            // »õ·Î¿î ÀÌ¹ÌÁö È°¼ºÈ­
+            // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
             currentImageIndex = imageIndex - 1;
             mainstate.bossPatternImages[currentImageIndex].gameObject.SetActive(true);
 
-            // ÀÏÁ¤ ½Ã°£ ÈÄ ÇØ´ç ÀÌ¹ÌÁö¸¦ ºñÈ°¼ºÈ­
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
             StartCoroutine(HideImageAfterDuration(mainstate.displayDuration));
         }
     }
 
     private IEnumerator HideImageAfterDuration(float duration)
     {
-        // ÁöÁ¤µÈ ½Ã°£¸¸Å­ ´ë±â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(duration);
 
-        // ¸ðµç ÀÌ¹ÌÁö¸¦ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         HideAllImages();
     }
 
@@ -458,10 +450,10 @@ public class WisuMainRe : Enemy
     }
 
 
-    #region µ¥¹ÌÁö ¹ÞÀ»¶§
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public override bool ApplyDamage(DamageMessage damageMessage)
     {
-        //TODO: [´ë¿ø] Á×À» ¶§ µé¾î¿À¸é ¹ö±× ¹ß»ý
+        //TODO: [ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
         if (fullHP <= 0 || phaseHPs[0] <= 0.5f)
         {
             return false;
@@ -474,24 +466,15 @@ public class WisuMainRe : Enemy
         fullHP--;
         phaseHPs[phaseHPs.Count-1] -= damageMessage.amount;
         lastDamagedTime = Time.time;
-        //audioSourceHit.PlaySoundEffect(0);
 
-        
-        //TODO: [´ë¿ø] HP°¡ 0¿¡ µµ´ÞÇßÀ» ¶§ ¹Ù·Î Á×À½Ã³¸®
-        //phaseHPs[phaseHPs.Count - 1]´Â floatÀÓ 0¿¡ °¡±î¿öÁö´Ù°¡ ´ÙÀ½ ÀÎµ¦½º·Î ³Ñ¾î°¡°í 0¿¡ °¡±î¿öÁø °ªÀº ¿ø»óº¹±¸µÊ -> ±×·¡¼­ Ã¼·Â HUD Á¦´ë·Î ¹Ý¿µÀÌ ¾ÈµÊ
+        //TODO: [ï¿½ï¿½ï¿½] HPï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
+        //phaseHPs[phaseHPs.Count - 1]ï¿½ï¿½ floatï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½óº¹±ï¿½ï¿½ï¿½ -> ï¿½×·ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ HUD ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¿ï¿½ï¿½ï¿½ ï¿½Èµï¿½
         if (fullHP <= 0 || phaseHPs[0] <= 0.5f)
         {
             ClearBossHPBar();
             return true;
         }
 
-
-        //if (phaseHPs[phaseHPs.Count - 1] < 1)
-        //{
-        //    ClearBossHPBar();
-        //}
-
-        
         if (hpBarCount > 0 && damageMessage.amount != 0)
         {
             if (calliSystem != null)
@@ -521,18 +504,18 @@ public class WisuMainRe : Enemy
     }
     #endregion
 
-    #region Ã³Çü ´çÇÒ¶§
+    #region Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ò¶ï¿½
     public override void Execution()
     {
         if (paintOverMax && !isDead && isGroggy)
         {
-            //todo Ã³Çü ´çÇÏ´Â ¸ð¼Ç°ú »ç¿îµå
+            //todo Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½
             ClearHPBar();
         }
     }
     #endregion
 
-    #region »ç¸ÁÃ³¸®
+    #region ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
     public override void DieAction()
     {
         Debug.Log("Wisu Die");
@@ -546,392 +529,375 @@ public class WisuMainRe : Enemy
             return;
         }
         isDead = true;
-        //audioSourceDie.PlaySoundEffect(0);
         phaseHPs.Clear();
         stackUI.SetActive(false);
-
-        //if (isKillTrigger)
-        //{
-        //    while (delayTimes.Count < DeathEvent.Count)
-        //    {
-        //        delayTimes.Add(0f);
-        //    }
-        //    for (int i = 0; i < DeathEvent.Count; i++)
-        //    {
-        //        if (DeathEvent[i] != null)
-        //        {
-        //            StartCoroutine(ExecuteEventWithDelay(DeathEvent[i], delayTimes[i]));
-        //        }
-        //    }
-        //}
 
         UIEffect.instance.StartCoroutine(UIEffect.instance.ShowBossDefeatedScreen());
     }
     public void DestroyBoss()
     {
-        //Destroy(gameObject);
     }
     #endregion
 }
 
 
-#region Å¬·¡½º
+#region Å¬ï¿½ï¿½ï¿½ï¿½
 
 #region main
 [System.Serializable]
 public class MainState
 {
-    [Header("1. ±×·Î±â ½Ã°£")]
+    [Header("1. ï¿½×·Î±ï¿½ ï¿½Ã°ï¿½")]
     public float groggyTime;
 
-    [Header("2. 2ÆäÀÌÁî Ã¼·ÂºñÀ²")]
+    [Header("2. 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½Âºï¿½ï¿½ï¿½")]
     public float phase2Rate;
 
-    [Header("3. 3ÆäÀÌÁî Ã¼·ÂºñÀ²")]
+    [Header("3. 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½Âºï¿½ï¿½ï¿½")]
     public float phase3Rate;
 
-    [Header("4. ÆÐÅÏ °£ ÄðÅ¸ÀÓ")]
+    [Header("4. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½")]
     public float coolTime;
 
-    [Header("5. °æ°í ÀÌ¹ÌÁö")]
+    [Header("5. ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½")]
     public List<Image> bossPatternImages;
 
-    [Header("6. °æ°í ÀÌ¹ÌÁö Ç¥½Ã ½Ã°£")]
+    [Header("6. ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float displayDuration;
 
-    //ÆäÀÌÁî ´Ü°è
-    [Header("ÆäÀÌÁî ´Ü°è")]
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½")]
     public float phase;
 }
 #endregion
 
-#region ¸Ç¼Õ °ø°Ý_A1
+#region ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½_A1
 [System.Serializable]
 public class Pattern_A1
 {
-    [Header("1. ºÒ²É ¹ß»çÃ¼ ÇÁ¸®ÆÕ")]
+    [Header("1. ï¿½Ò²ï¿½ ï¿½ß»ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public List<GameObject> A1_prefabs;
 
-    [Header("2. ¹ß»çÇÏ´Â °÷")]
+    [Header("2. ï¿½ß»ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½")]
     public List<Transform> A1_points;
 
-    [Header("3. ¹ß»ç °£°Ý")]
+    [Header("3. ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<float> A1_intervals;
 
-    [Header("4. ±âº» ¹ß»ç °£°Ý")]
+    [Header("4. ï¿½âº» ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float A1_defaultInterval;
 
-    [Header("5. ¸ðµç °ø°Ý ¿Ï·áÇÏ°í ´ë±â½Ã°£")]
+    [Header("5. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float A1_waitingTime;
 }
 #endregion
 
-#region ¸Ç¼Õ °ø°Ý_A2
+#region ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½_A2
 [System.Serializable]
 public class Pattern_A2
 {
-    [Header("1. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("1. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public List<GameObject> A2_prefabs;
 
-    [Header("2. »ý¼ºµÇ´Â °÷")]
+    [Header("2. ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½")]
     public List<Transform> A2_points;
 
-    [Header("3. ¹ß»ç °£°Ý")]
+    [Header("3. ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<float> A2_intervals;
 
-    [Header("4. ±âº» ¹ß»ç °£°Ý")]
+    [Header("4. ï¿½âº» ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float A2_defaultInterval;
 
-    [Header("5. ¸ðµç °ø°Ý ¿Ï·áÇÏ°í ´ë±â½Ã°£")]
+    [Header("5. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float A2_waitingTime;
 }
 #endregion
 
-#region ¸Ç¼Õ °ø°Ý_A3
+#region ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½_A3
 [System.Serializable]
 public class Pattern_A3
 {
-    [Header(" ±¸¿ª 1 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 1 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> A3_area1;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject A3_area1_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float A3_area1_Interval;
 
-    [Header(" ±¸¿ª 2 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 2 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> A3_area2;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject A3_area2_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float A3_area2_Interval;
 
-    [Header(" ±¸¿ª 3 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 3 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> A3_area3;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject A3_area3_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float A3_area3_Interval;
 
-    [Header(" ±¸¿ª 4 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 4 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> A3_area4;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject A3_area4_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float A3_area4_Interval;
 
-    [Header(" ±¸¿ª 5 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 5 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> A3_area5;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject A3_area5_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float A3_area5_Interval;
 
 
-    [Header("¸ðµç °ø°Ý ¿Ï·áÇÏ°í ´ë±â½Ã°£")]
+    [Header("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float A3_waitingTime;
 
 }
 #endregion
 
-#region ¹«±â °ø°Ý_B1
+#region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½_B1
 [System.Serializable]
 public class Pattern_B1
 {
-    [Header(" ±¸¿ª 1 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 1 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B1_area1;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B1_area1_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B1_area1_Interval;
 
-    [Header(" ±¸¿ª 2 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 2 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B1_area2;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B1_area2_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B1_area2_Interval;
 
-    [Header(" ±¸¿ª 3 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 3 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B1_area3;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B1_area3_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B1_area3_Interval;
 
-    [Header(" ±¸¿ª 4 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 4 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B1_area4;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B1_area4_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B1_area4_Interval;
 
-    [Header(" ±¸¿ª 5 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 5 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B1_area5;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B1_area5_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B1_area5_Interval;
 
-    [Header("¸ðµç °ø°Ý ¿Ï·áÇÏ°í ´ë±â½Ã°£")]
+    [Header("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float B1_waitingTime;
 }
 #endregion
 
-#region ¹«±â °ø°Ý_B2
+#region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½_B2
 [System.Serializable]
 public class Pattern_B2
 {
-    [Header(" ±¸¿ª 1 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 1 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area1;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area1_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area1_Interval;
 
-    [Header(" ±¸¿ª 2 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 2 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area2;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area2_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area2_Interval;
 
-    [Header(" ±¸¿ª 3 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 3 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area3;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area3_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area3_Interval;
 
-    [Header(" ±¸¿ª 4 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 4 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area4;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area4_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area4_Interval;
 
 
-    [Header(" ±¸¿ª 5 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 5 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area5;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area5_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area5_Interval;
 
-    [Header(" ±¸¿ª 6 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 6 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area6;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area6_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area6_Interval;
 
-    [Header(" ±¸¿ª 7 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 7 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area7;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area7_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area7_Interval;
 
-    [Header(" ±¸¿ª 8 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 8 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B2_area8;
 
-    [Header("2. °­È­ ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½ï¿½È­ ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B2_area8_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B2_area8_Interval;
 
-    [Header("¸ðµç °ø°Ý ¿Ï·áÇÏ°í ´ë±â½Ã°£")]
+    [Header("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float B2_waitingTime;
 }
 #endregion
 
-#region ¹«±â °ø°Ý_B3
+#region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½_B3
 [System.Serializable]
 public class Pattern_B3
 {
-    [Header(" ±¸¿ª 1 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 1 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B3_area1;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B3_area1_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B3_area1_Interval;
 
-    [Header(" ±¸¿ª 2 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 2 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B3_area2;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B3_area2_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B3_area2_Interval;
 
-    [Header(" ±¸¿ª 3 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 3 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B3_area3;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B3_area3_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B3_area3_Interval;
 
-    [Header(" ±¸¿ª 4 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 4 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B3_area4;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B3_area4_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B3_area4_Interval;
 
-    [Header(" ±¸¿ª 5 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 5 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B3_area5;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B3_area5_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B3_area5_Interval;
 
-    [Header("¸ðµç °ø°Ý ¿Ï·áÇÏ°í ´ë±â½Ã°£")]
+    [Header("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float B3_waitingTime;
 
-    [Header(" ±¸¿ª 6 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 6 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B3_area6;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B3_area6_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B3_area6_Interval;
 
-    [Header(" ±¸¿ª 7 ")]
-    [Header("1. ±¸¿ª ¼³Á¤")]
+    [Header(" ï¿½ï¿½ï¿½ï¿½ 7 ")]
+    [Header("1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public List<Transform> B3_area7;
 
-    [Header("2. ºÒ±âµÕ ÇÁ¸®ÆÕ")]
+    [Header("2. ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject B3_area7_prefab;
 
-    [Header("3. »ý¼º ´ë±â ½Ã°£")]
+    [Header("3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float B3_area7_Interval;
 }
 #endregion

@@ -11,7 +11,7 @@ public partial class Player : MonoBehaviour, IDamageable
 {
     public static Player instance;
 
-    #region ¿ÜºÎ
+    #region ï¿½Üºï¿½
     [SerializeField] private PlayerController playerController;
     [SerializeField] private MaskChange maskChange;
     public HpHUD hpHUD;
@@ -29,18 +29,18 @@ public partial class Player : MonoBehaviour, IDamageable
     [SerializeField] private LoadingUI loadingUI;
     [SerializeField] private UIEffect UIEffect;
 
-    //µ¥ÀÌÅÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private PlayerCommonData commonData;
     #endregion
 
-    //ÇöÀçÃ¼·Â
+    //ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½
     public float currentHP;
 
-    //ÇÇ°Ý
+    //ï¿½Ç°ï¿½
     private float hitStartTime;
     [SerializeField] private bool canUseHitAction;
     
-    //TODO: ¾îÂ¼¸é RestrictPlayer¶û Áßº¹ ±â´ÉÇÒ¼öµµ
+    //TODO: ï¿½ï¿½Â¼ï¿½ï¿½ RestrictPlayerï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½ï¿½
     private bool isPerformingHitAction = false;
     public bool IsPerformingHitAction
     {
@@ -52,7 +52,7 @@ public partial class Player : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        #region ½Ì±ÛÅæ
+        #region ï¿½Ì±ï¿½ï¿½ï¿½
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
         #endregion
@@ -67,7 +67,7 @@ public partial class Player : MonoBehaviour, IDamageable
 
     public void SetUp()
     {
-        //ÀÌÀü¾ÀÀÇ Ã¼·Â°¡Á®¿À±â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½Â°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         currentHP = commonData.maxHp;
         canUseHitAction = true;
@@ -87,11 +87,11 @@ public partial class Player : MonoBehaviour, IDamageable
         this.gameObject.transform.rotation = maskChange.CurrentMask.transform.rotation;
     }
 
-    //¿ÜºÎ¿¡¼­ ApplyDamage ÇÔ¼ö¸¦ ½ÇÇàÇÔ.
+    //ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ ApplyDamage ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
     public bool ApplyDamage(DamageMessage damageMessage)
     {
-        #region ¸®ÅÏ Á¶°Ç
-        //ÇÃ·¹ÀÌ¾î°¡ Á×Àº »óÅÂ, µ¥¹ÌÁö¾ç = 0, ¸®¾×¼Ç ÄðÅ¸ÀÓ, ¹«Àû»óÅÂ -> ¸®ÅÏ
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = 0, ï¿½ï¿½ï¿½×¼ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½
         if ((playerState.playerCurrentState == PlayerStateType.DEAD) 
             || (damageMessage.amount <= 0) 
             || !canUseHitAction
@@ -145,7 +145,7 @@ public partial class Player : MonoBehaviour, IDamageable
     }
     #endregion
 
-    #region ¹öÆ°
+    #region ï¿½ï¿½Æ°
     public void Loading()
     {
         loadingUI.StartCoroutine(loadingUI.Loading());
@@ -154,7 +154,7 @@ public partial class Player : MonoBehaviour, IDamageable
 
 }
 
-#region PlayerDamageReaction(½ºÅ©¸³Æ® ºÐ¸®½ÃÅ°±â)
+#region PlayerDamageReaction(ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½Ð¸ï¿½ï¿½ï¿½Å°ï¿½ï¿½)
 public partial class Player : MonoBehaviour, IDamageable
 {
     IEnumerator HitAction()
@@ -173,14 +173,14 @@ public partial class Player : MonoBehaviour, IDamageable
 
         maskChange.CurrentRigidbody.velocity = Vector3.zero;
 
-        //½´ÆÛ¾Æ¸Ó°¡ ¾Æ´Ï¸é ¸ÂÀ¸¸é¼­ Çàµ¿Á¦¾à
+        //ï¿½ï¿½ï¿½Û¾Æ¸Ó°ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½é¼­ ï¿½àµ¿ï¿½ï¿½ï¿½ï¿½
         if (maskChange.AnimalMask) maskChange.CurrentAnimator.CrossFade(playerAnimation.Animal_Hit, 0);
         if (maskChange.HumanMask) maskChange.CurrentAnimator.CrossFade(playerAnimation.Human_Hit, 0);
 
 
         hitStartTime = Time.time;
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeSoundOnce = false;
         #endregion
 
@@ -205,11 +205,11 @@ public partial class Player : MonoBehaviour, IDamageable
             #endregion
 
             #region Restriction
-            //¼öÁ¤ÀÌ ÇÊ¿äÇÔ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½
             //playerState.RestrictPlayer(commonData.hitRestrict, hitStartTime);
             #endregion
 
-            #region ¼Ò¸®
+            #region ï¿½Ò¸ï¿½
             if (!activeSoundOnce)
             {
                 playerSound.Initialize();
@@ -242,8 +242,8 @@ public partial class Player : MonoBehaviour, IDamageable
 
     public IEnumerator CoDieAction()
     {
-        //PlayerCurrentSubState¿¡ µû¶ó ÀÏ¹Ý Á×À½ÀÎÁö, ³«»çÀÎÁö ±¸º°ÇÏ±â 
-        //ÄÚ·çÆ¾À¸·Î Çü¼º
+        //PlayerCurrentSubStateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ 
+        //ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         if (playerState.playerCurrentState != PlayerStateType.DEAD)
         {
@@ -260,24 +260,18 @@ public partial class Player : MonoBehaviour, IDamageable
 
                 yield return new WaitForSeconds(1f);
 
-                //³«»ç ÀÌÀü¿¡ ÀúÀåÇÑ µ¥ÀÌÅÍ ºÒ·¯¿À±â
-                //¼¼ÀÌºê Æ÷ÀÎÆ®¿¡¼­ ÀúÀåÇÒ °æ¿ì ÀÎµ¦½º +1
-                //ºÒ·¯¿À±â¸¦ ÇÒ °æ¿ì
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
+                //ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ +1
+                //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ ï¿½ï¿½ï¿½
                 saveManager.MoveToPreviousIndex();
                 saveManager.LoadSlotData();
 
-                //hp°¨¼Ò ÈÄ ´Ù½Ã ÀúÀå
+                //hpï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 currentHP -= 3;
                 hpHUD.ChangeHPStack((int)currentHP);
                 saveManager.SaveSloatData();
                 saveManager.MoveToNextIndex();
 
-                ////CameraUIEffect
-                //if (!fadeInOnce)
-                //{
-                //    cameraUIEffect.StartCoroutine(cameraUIEffect.ShowFadeInOutScreen(true));
-                //    fadeInOnce = true;
-                //}
                 yield return new WaitForSeconds(1f);
 
                 UIEffect.ShowFadeScreen(true, 1f);
@@ -289,30 +283,30 @@ public partial class Player : MonoBehaviour, IDamageable
                 yield break;
             }
 
-            //5º¸´Ù ÀÛÀ¸¸é Á×À½ ÆÇÁ¤À¸·Î ³Ñ¾î°¨
+            //5ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¨
             currentHP -= 3;
             hpHUD.ChangeHPStack((int)currentHP);
         }
 
 
-        //HP 0 À¸·Î »ç¸ÁÇÒ ¶§
+        //HP 0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (playerState.playerCurrentSubState == PlayerSubStateType.DEAD_HPZERO || currentHP <= 0)
         {
-            //Ã¼·Â 0
+            //Ã¼ï¿½ï¿½ 0
             currentHP = 0;
             hpHUD.ChangeHPStack((int)currentHP);
 
             MenuUI.instance.DisablePlayerControl(true);
 
-            //¹°¸®
+            //ï¿½ï¿½ï¿½ï¿½
             maskChange.CurrentRigidbody.velocity = Vector3.zero;
             UIEffect.instance.ShowPlayerHUDFadeEffect();
 
-            //¾Ö´Ï¸ÞÀÌ¼Ç
+            //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
             if (maskChange.AnimalMask) maskChange.CurrentAnimator.CrossFade(playerAnimation.Animal_Die, 0);
             if (maskChange.HumanMask) maskChange.CurrentAnimator.CrossFade(playerAnimation.Human_Die, 0);
 
-            //¼Ò¸®
+            //ï¿½Ò¸ï¿½
             playerSound.SetPlayerSound(commonData.dieSound, Player.instance.transform.position, Time.time);
             playerSound.SetPlayerSound(commonData.afterDeadSound, Player.instance.transform.position, Time.time);
 
@@ -328,10 +322,10 @@ public partial class Player : MonoBehaviour, IDamageable
             SceneManager.LoadScene(0);
         }
 
-        //³«»çÇßÀ» ¶§
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     }
 
-    //Á×¾úÀ» ¶§ÀÇ ±â´Éµé 
+    //ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Éµï¿½ 
     public bool CheckDie()
     {
         return playerState.playerCurrentState == PlayerStateType.DEAD;

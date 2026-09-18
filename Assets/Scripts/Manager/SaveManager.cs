@@ -37,25 +37,25 @@ public enum SceneName
 
 public enum AreaName
 {
-    Area_00, //´ö±¼ ¿· »û±æ
-    Area_01, //´ö±¼ ÀÔ±¸ 1
+    Area_00, //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    Area_01, //ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½ 1
 
-    Area_10, //´ö±¼ ÀÔ±¸ 2
-    Area_11, //Çö¹« Áß¾Ó±æ
+    Area_10, //ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½ 2
+    Area_11, //ï¿½ï¿½ï¿½ï¿½ ï¿½ß¾Ó±ï¿½
 
-    Area_20, //¼­ÂÊÀ¸·Î °¡´Â±æ
-    Area_21, //À§¼öÀÇ ´Ù¸® 1
-    Area_22, //À§¼öÀÇ ´Ù¸® 2
-    Area_23, //À§¼öÀÇ ´Ù¸® 3
-    Area_24, //À§¼öÀÇ ´Ù¸® 4
+    Area_20, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â±ï¿½
+    Area_21, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 1
+    Area_22, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 2
+    Area_23, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 3
+    Area_24, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ 4
 
-    Area_30, //¹ìÀÇ Á¤¿ø 1
-    Area_31, //¹ìÀÇ Á¤¿ø 2
-    Area_32, //¹ìÀÇ Á¤¿ø 3
-    Area_33, //¹ìÀÇ Á¤¿ø 4
-    Area_34, //¹ìÀÇ Á¤¿ø 5
+    Area_30, //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1
+    Area_31, //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2
+    Area_32, //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3
+    Area_33, //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 4
+    Area_34, //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 5
 
-    Area_40 //À§¼öÀÇ ¹æ
+    Area_40 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 }
 
 public class SaveManager : MonoBehaviour
@@ -127,8 +127,8 @@ public class SaveManager : MonoBehaviour
     }
 
 
-    [SerializeField] private List<GameObject> lights; // Light ¿ÀºêÁ§Æ®¸¦ Æ÷ÇÔÇÏ´Â ¸®½ºÆ®·Î º¯°æ
-    [SerializeField] private List<GameObject> postProcessVolumes; // PostProcessVolumeÀÌ Æ÷ÇÔµÈ ºó ¿ÀºêÁ§Æ® ¸®½ºÆ®·Î º¯°æ
+    [SerializeField] private List<GameObject> lights; // Light ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private List<GameObject> postProcessVolumes; // PostProcessVolumeï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     #endregion
 
     #region Position
@@ -190,8 +190,6 @@ public class SaveManager : MonoBehaviour
     public Dictionary<KeyAction, KeyCode> InputKeys { get { return inputKeys; } }
 
     private KeyCode[] defaultKeys = new KeyCode[]
-    //{KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.None,KeyCode.Escape };
-
     { KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D,
     KeyCode.LeftShift, KeyCode.X,
     KeyCode.Mouse0, KeyCode.Q, KeyCode.F, KeyCode.Mouse1,
@@ -200,24 +198,24 @@ public class SaveManager : MonoBehaviour
     //Mouse 
 
     private string mouseSettingFilePath;
-    public float mouseSpeedWithXAxis { get; private set; } //ÁÂ¿ì
-    public float mouseSpeedWithYAxis { get; private set; } //»óÇÏ
+    public float mouseSpeedWithXAxis { get; private set; } //ï¿½Â¿ï¿½
+    public float mouseSpeedWithYAxis { get; private set; } //ï¿½ï¿½ï¿½ï¿½
     #endregion
 
     private void Awake()
     {
-        #region ½Ì±ÛÅæ
+        #region ï¿½Ì±ï¿½ï¿½ï¿½
         if (instance == null) instance = this;
         else if (instance != this) Destroy(this.gameObject);
         #endregion
 
-        //filePath¸¶´Ù ÀúÀå°æ·Î ¿¬°á
+        //filePathï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < filePath.Length; i++)
         {
             filePath[i] = Path.Combine(Application.persistentDataPath, $"CharacterSlotData{i}");
         }
 
-        //¼Ò¸®ÆÄÀÏ °æ·Î °áÇÕ. ÀúÀåµÈ µ¥ÀÌÅÍ, ¾Æ´Ï¸é µðÆúÆ® º¼·ý°ª ºÒ·¯¿À±â
+        //ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
         soundSettingFilePath = Path.Combine(Application.persistentDataPath, "SoundSettingData");
         if (!File.Exists(soundSettingFilePath))
         {
@@ -226,7 +224,7 @@ public class SaveManager : MonoBehaviour
         }
         LoadSoundData();
 
-        //Å°¼ÂÆÃ °æ·Î °áÇÕ. ÀúÀåµÈ µ¥ÀÌÅÍ, ¾Æ´Ï¸é µðÆúÆ® Å° ºÒ·¯¿À±â
+        //Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å° ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
         inputKeySettingFilePath = Path.Combine(Application.persistentDataPath, "InputKeySettingData");
         if (!File.Exists(inputKeySettingFilePath))
         {
@@ -235,7 +233,7 @@ public class SaveManager : MonoBehaviour
         }
         LoadInputKeyData();
 
-        //¸¶¿ì½º °æ·Î °áÇÕ. ÀúÀåµÈ µ¥ÀÌÅÍ, ¾Æ´Ï¸é µðÆúÆ® º¼·ý°ª ºÒ·¯¿À±â
+        //ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
         mouseSettingFilePath = Path.Combine(Application.persistentDataPath, "MouseSettingData");
         if (!File.Exists(mouseSettingFilePath))
         {
@@ -248,7 +246,7 @@ public class SaveManager : MonoBehaviour
     {
         player = PlayerController.instance.player;
 
-        //½ÃÀÛ½Ã ÀúÀåµÈ µ¥ÀÌÅÍ ½½·Ô¿¡ ±â·Ï
+        //ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½
         menuUI.ResetSlot();
         for (int i = 0; i < filePath.Length; i++)
         {
@@ -256,16 +254,14 @@ public class SaveManager : MonoBehaviour
         }
         menuUI.SortSlots();
 
-        //¾À ¹Ù²ð¶§ °è¼Ó 0À¸·Î °¥¼ø¾øÀ½
-        //currentIndex = 0;
         selectedIndex = null;
     }
 
     #region PlayerState Data
-    //´ÙÀ½ ÀúÀå °æ·Î·Î ³Ñ±â´Â ÇÔ¼ö(currentIndex°¡ )
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î·ï¿½ ï¿½Ñ±ï¿½ï¿½ ï¿½Ô¼ï¿½(currentIndexï¿½ï¿½ )
     public void MoveToNextIndex()
     {
-        //ÀúÀå ÆÄÀÏÀÌ ÇÏ³ªµµ ¾øÀ¸¸é ¹ÝÈ¯
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         bool useFunction = false;
         for (int i = 0; i < filePath.Length; i++)
         {
@@ -284,7 +280,7 @@ public class SaveManager : MonoBehaviour
 
     public void MoveToPreviousIndex()
     {
-        //ÀúÀå ÆÄÀÏÀÌ ÇÏ³ªµµ ¾øÀ¸¸é ¹ÝÈ¯
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         bool useFunction = false;
         for (int i = 0; i < filePath.Length; i++)
         {
@@ -303,40 +299,19 @@ public class SaveManager : MonoBehaviour
 
     public void SelectIndex(int index)
     {
-        //¹®Á¦°¡ ÀÖ´Ù¸é ¼±ÅÃÇÏ°í Ãë¼ÒÇßÀ»¶§ currentIndex°¡ ±×´ë·Î ³²À½
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ currentIndexï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         selectedIndex = index;
-
-        //currentIndex = index;
-        //currentFilePath = filePath[currentIndex];
     }
 
-    //selectedIndex¸¦ currentIndex·Î È®Á¤ÁöÀ½
+    //selectedIndexï¿½ï¿½ currentIndexï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void SetCurrentIndex()
     {
         CurrentIndex = selectedIndex.Value;
     }
 
-    //public bool HasSaveRecord()
-    //{
-    //    if (!File.Exists(currentFilePath))
-    //    {
-    //        return false;
-    //    }
-    //    using (StreamReader reader = new StreamReader(currentFilePath))
-    //    {
-    //        string line;
-    //        if ((line = reader.ReadLine()) == null)
-    //        {
-    //            return false;
-    //        }
-    //    }
-
-    //    return true;
-    //}
-
-    // CSV ÆÄÀÏ¿¡ Ä³¸¯ÅÍ Á¤º¸¸¦ ÀúÀå, ´ÙÀ½ ½½·ÔÀ¸·Î ³Ñ¾î°¨
+    // CSV ï¿½ï¿½ï¿½Ï¿ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¨
     public void SaveSloatData()
-    {//currentIndex, ³¯Â¥, À§Ä¡, Å»»óÅÂ, Á¶¸í, Æ÷½ºÆ® ÇÁ·Î¼¼½Ì ÀúÀå ÈÄ ´ÙÀ½ currentIndex·Î ³Ñ±è
+    {//currentIndex, ï¿½ï¿½Â¥, ï¿½ï¿½Ä¡, Å»ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ currentIndexï¿½ï¿½ ï¿½Ñ±ï¿½
         float health = player.currentHP;
         int maskType = maskChange.HumanMask.activeSelf ? 1 : 0;
         string currentTime = null;
@@ -348,7 +323,7 @@ public class SaveManager : MonoBehaviour
             writer.WriteLine("CurrentIndex");
             writer.WriteLine($"{CurrentIndex}");
             
-            // ½Ã°£(ÃÊ´ÜÀ§)
+            // ï¿½Ã°ï¿½(ï¿½Ê´ï¿½ï¿½ï¿½)
             writer.WriteLine("Time");
             currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             writer.WriteLine($"{currentTime}");
@@ -361,37 +336,37 @@ public class SaveManager : MonoBehaviour
             writer.WriteLine("AreaIndex");
             writer.WriteLine($"{currentAreaIndex}");
 
-            // Ä³¸¯ÅÍ Å»»óÅÂ
+            // Ä³ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½
             writer.WriteLine("MaskType");
             int isHumanMask = maskChange.HumanMask.activeSelf ? 1 : 0;
             writer.WriteLine($"{isHumanMask}");
 
-            // Ä³¸¯ÅÍ À§Ä¡
+            // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
             writer.WriteLine("CharacterPosition");
             writer.WriteLine($"{CurrentPosition.x},{CurrentPosition.y},{CurrentPosition.z}");
 
-            // Ã¼·Â
+            // Ã¼ï¿½ï¿½
             writer.WriteLine("Health");
             writer.WriteLine($"{health}");
 
-            // Á¶¸í È°¼ºÈ­ À¯¹«
+            // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
             writer.WriteLine("LightObject,Enabled");
             foreach (var light in lights)
             {
-                int isEnabled = light.activeSelf ? 1 : 0; // È°¼ºÈ­ »óÅÂ¸¦ 1 ¶Ç´Â 0À¸·Î ÀúÀå
+                int isEnabled = light.activeSelf ? 1 : 0; // È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¸ï¿½ 1 ï¿½Ç´ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 writer.WriteLine($"{light.name},{isEnabled}");
             }
 
-            // Æ÷½ºÆ® ÇÁ·Î¼¼½Ì È°¼ºÈ­ À¯¹«
+            // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
             writer.WriteLine("PostProcessingObject,Enabled");
             foreach (var postProcessVolume in postProcessVolumes)
             {
-                int isEnabled = postProcessVolume.activeSelf ? 1 : 0; // È°¼ºÈ­ »óÅÂ¸¦ 1 ¶Ç´Â 0À¸·Î ÀúÀå
+                int isEnabled = postProcessVolume.activeSelf ? 1 : 0; // È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½Â¸ï¿½ 1 ï¿½Ç´ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 writer.WriteLine($"{postProcessVolume.name},{isEnabled}");
             }
         }
 
-        //ÇöÀç ½½·Ô¿¡ ±â·Ï
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½
         menuUI.RecordSlot(CurrentIndex, currentSceneIndex, currentAreaIndex, currentTime);
     }
     public void LoadSlotData()
@@ -405,16 +380,16 @@ public class SaveManager : MonoBehaviour
         {
             string line;
 
-            //º¯¼ö°¡ ¿©·¯ °³ÀÏ ¶§
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             bool isLightSection = false;
             bool isPostProcessingSection = false;
 
-            //ÀÐ´Â°Ô ³¡³¯ ¶§±îÁö ¹Ýº¹
+            //ï¿½Ð´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
 
-                //¼ø¼­
+                //ï¿½ï¿½ï¿½ï¿½
                 if (values[0] == "CurrentIndex")
                 {
                     line = reader.ReadLine();
@@ -456,7 +431,7 @@ public class SaveManager : MonoBehaviour
                     }
                 }
 
-                // Ä³¸¯ÅÍ À§Ä¡¿Í Ã¼·Â ºÒ·¯¿À±â
+                // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (values[0] == "CharacterPosition")
                 {
                     line = reader.ReadLine();
@@ -473,7 +448,7 @@ public class SaveManager : MonoBehaviour
                     HpHUD.instance.ChangeHPStack((int)player.currentHP);
                 }
                 
-                // ¶óÀÌÆ® ¿ÀºêÁ§Æ® È°¼ºÈ­ »óÅÂ ºÒ·¯¿À±â
+                // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 else if (values[0] == "LightObject")
                 {
                     isLightSection = true;
@@ -490,7 +465,7 @@ public class SaveManager : MonoBehaviour
                         }
                     }
                 }
-                // Æ÷½ºÆ® ÇÁ·Î¼¼½Ì ¿ÀºêÁ§Æ® È°¼ºÈ­ »óÅÂ ºÒ·¯¿À±â
+                // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 else if (values[0] == "PostProcessingObject")
                 {
                     isPostProcessingSection = true;
@@ -511,16 +486,16 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    //ÇöÀçÀÇ µ¥ÀÌÅÍ¸¦ ¾ò´Â°Ô ¾Æ´Ô!
-    //currentIndex °æ·ÎÀÇ ¾À, Áö¿ª, ÇÃ·¹ÀÌ¾î À§Ä¡ µ¥ÀÌÅÍ °¡Á®¿À±â 
-    //current~ º¯¼ö¿¡ ÇÒ´ç
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½Â°ï¿½ ï¿½Æ´ï¿½!
+    //currentIndex ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+    //current~ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
     public void GetLoadData()
     {
         using (StreamReader reader = new StreamReader(filePath[CurrentIndex]))
         {
             string line;
 
-            //ÀÐ´Â°Ô ³¡³¯ ¶§±îÁö ¹Ýº¹
+            //ï¿½Ð´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
@@ -555,7 +530,7 @@ public class SaveManager : MonoBehaviour
                     isHumanMask = (int.Parse(values[0]) == 1);
                 }
 
-                // Ä³¸¯ÅÍ À§Ä¡¿Í Ã¼·Â ºÒ·¯¿À±â
+                // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (values[0] == "CharacterPosition")
                 {
                     line = reader.ReadLine();
@@ -576,13 +551,13 @@ public class SaveManager : MonoBehaviour
 
     public void ResetPlayerPosition()
     {
-        //¾Àº°·Î saveManagerÀÇ Ã¹¹øÂ° ÀÚ½Ä¿ÀºêÁ§Æ®ÀÇ À§Ä¡¿¡ ÇÃ·¹ÀÌ¾î ¹èÄ¡
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ saveManagerï¿½ï¿½ Ã¹ï¿½ï¿½Â° ï¿½Ú½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Ä¡
         startPosition = transform.GetChild(0).transform;
         maskChange.CurrentMask.transform.position = startPosition.position;
         maskChange.CurrentMask.transform.rotation= startPosition.rotation;
     }
     public void ResetData()
-    {//ÀúÀåµÈ ÆÄÀÏ, ½½·Ô ÀüºÎ ¸®¼Â
+    {//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         for (int i = 0; i < filePath.Length; i++)
         {
@@ -598,16 +573,16 @@ public class SaveManager : MonoBehaviour
         CurrentIndex = 0;
     }
 
-    //ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ ½½·Ô¿¡ ±â·Ï. 
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½. 
     public void WriteSlotDate(int playStateIndex)
     {
-        //ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ¾ø´Ù¸é return;
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ return;
         if (!File.Exists(filePath[playStateIndex]))
         {
             return;
         }
 
-        //ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ÀÖ´Ù¸é ±â·Ï
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½
         using (StreamReader reader = new StreamReader(filePath[playStateIndex]))
         {
             string line;
@@ -620,7 +595,7 @@ public class SaveManager : MonoBehaviour
             {
                 var values = line.Split(',');
 
-                //±â·ÏµÈ ½Ã°£À» Ã£¾Æ¼­ ½½·ÔUI¿¡ ±â·Ï
+                //ï¿½ï¿½Ïµï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½ ï¿½ï¿½ï¿½
                 if (values[0] == "Time")
                 {
                     line = reader.ReadLine();
@@ -642,8 +617,8 @@ public class SaveManager : MonoBehaviour
                     currentAreaIndex = values[0];
                 }
             }
-            //"ÀÚµ¿ ÀúÀå" ÀÌ¶ó°í Àû¾îÁÖ±â
-            //½ºÀ§Ä¡½ÄÀ¸·Î
+            //"ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½" ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+            //ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
             menuUI.RecordSlot(playStateIndex, int.Parse( currentSceneIndex), int.Parse( currentAreaIndex), currentTime);
         }
@@ -652,7 +627,7 @@ public class SaveManager : MonoBehaviour
 
     #region Volume
     public void SaveSoundData()
-    {//¼Ò¸®, ´ÜÃàÅ° µî È¯°æÀûÀÎ ¿ä¼Ò µ¥ÀÌÅÍ ÀúÀå
+    {//ï¿½Ò¸ï¿½, ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         using (StreamWriter writer = new StreamWriter(soundSettingFilePath))
         {
@@ -680,12 +655,12 @@ public class SaveManager : MonoBehaviour
         {
             string line;
 
-            //ÀÐ´Â°Ô ³¡³¯ ¶§±îÁö ¹Ýº¹
+            //ï¿½Ð´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
 
-                //¸¶½ºÅÍ, BGM, SFX º¼·ý ºÒ·¯¿À±â
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, BGM, SFX ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (values[0] == "Volume")
                 {
                     line = reader.ReadLine();
@@ -702,7 +677,7 @@ public class SaveManager : MonoBehaviour
 
     #region InputKey
     public void SaveInputKeyData()
-    {//¼öÁ¤µÈ inputKeys¸¦ ÆÄÀÏ¿¡ ÀúÀå
+    {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ inputKeysï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
         using (StreamWriter writer = new StreamWriter(inputKeySettingFilePath))
         {
             writer.WriteLine("KeyAction,KeyCode");
@@ -714,14 +689,14 @@ public class SaveManager : MonoBehaviour
     }
 
     public void     ChangeKeysSetting(KeyCode[] keycode)
-    {//inputKeys º¯¼ö¿¡ °ªÀ» ÇÒ´ç
+    {//inputKeys ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
 
         for (int i = 0; i < (int)KeyAction.KEYCOUNT; i++)
         {
             KeyAction keyAction = (KeyAction)i;
 
             if (!inputKeys.ContainsKey(keyAction))
-            {//inputKeys°¡ ÇØ´ç key¸¦ °¡Áö°í ÀÖÁö ¾Ê´Ù¸é 
+            {//inputKeysï¿½ï¿½ ï¿½Ø´ï¿½ keyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ 
                 inputKeys.Add(keyAction, keycode[i]);
             }
             else
@@ -732,7 +707,7 @@ public class SaveManager : MonoBehaviour
     }
 
     public void ChangeKeySetting(int index, KeyCode keycode)
-    {//inputKeys º¯¼ö¿¡ °ªÀ» ÇÒ´ç
+    {//inputKeys ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
 
         if (!inputKeys.ContainsKey((KeyAction)index))
         {
@@ -746,7 +721,7 @@ public class SaveManager : MonoBehaviour
 
 
     public void LoadInputKeyData()
-    {//ºÒ·¯¿Ã ÆÄÀÏÀÌ ¾ø´Ù¸é inputKeys´Â µðÆúÆ®Å°°¡ µÈ´Ù.
+    {//ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ inputKeysï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®Å°ï¿½ï¿½ ï¿½È´ï¿½.
 
         if (!File.Exists(inputKeySettingFilePath))
         {
@@ -758,13 +733,13 @@ public class SaveManager : MonoBehaviour
             string line;
             bool isKeyActionSection = false;
 
-            //ÀÐ´Â°Ô ³¡³¯ ¶§±îÁö ¹Ýº¹
+            //ï¿½Ð´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½
             while ((line = reader.ReadLine()) != null)
             {
-                //values¿¡ ','·Î ºÐ¸®½ÃÄÑ¼­ ¹®ÀÚ¿­ ÀúÀå
+                //valuesï¿½ï¿½ ','ï¿½ï¿½ ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½Ñ¼ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½
                 var values = line.Split(',');
 
-                //KeyAction ºÎºÐºÎÅÍ ½ÃÀÛ
+                //KeyAction ï¿½ÎºÐºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if (values[0] == "KeyAction")
                 {
                     isKeyActionSection = true;
@@ -786,7 +761,7 @@ public class SaveManager : MonoBehaviour
 
     #region Mouse
     public void SaveMouseData()
-    {//¼Ò¸®, ´ÜÃàÅ° µî È¯°æÀûÀÎ ¿ä¼Ò µ¥ÀÌÅÍ ÀúÀå
+    {//ï¿½Ò¸ï¿½, ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         using (StreamWriter writer = new StreamWriter(mouseSettingFilePath))
         {
@@ -811,12 +786,12 @@ public class SaveManager : MonoBehaviour
         {
             string line;
 
-            //ÀÐ´Â°Ô ³¡³¯ ¶§±îÁö ¹Ýº¹
+            //ï¿½Ð´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
 
-                //¸¶½ºÅÍ, BGM, SFX º¼·ý ºÒ·¯¿À±â
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, BGM, SFX ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
                 if (values[0] == "Mouse")
                 {
                     line = reader.ReadLine();

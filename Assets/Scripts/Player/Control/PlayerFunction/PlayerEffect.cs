@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class PlayerEffect : MonoBehaviour
 {
-    [Header("µ¥ÀÌÅÍ ¼öÁ¤")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private PlayerHumanMaskData humanData;
 
     [Space(20)]
-    [Header("ÀÌÆåÆ® ¿ÀºêÁ§Æ®")]
-    //[SerializeField] private GameObject[] humanFirstNormalAttackEffect;
-    //[SerializeField] private GameObject[] humanSecondNormalAttackEffect;
-    //[SerializeField] private GameObject[] humanThirdNormalAttackEffect;
-    //[SerializeField] private GameObject[] humanInkshapeEffect;
-    //[SerializeField] private GameObject[] humanInkFloorEffect;
-    
-    //[Space(10)]
-    //[SerializeField] private GameObject[] animalNormalAttackEffect;
-    //[SerializeField] private GameObject[] animalLeapStrikeEffect;
-    //[SerializeField] private GameObject[] animalRoarEffect;
-
+    [Header("ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®")]
     [Space(10)]
     [SerializeField] private GameObject[] inkHitEffect;
     public GameObject[] InkHitEffect
@@ -29,48 +18,6 @@ public class PlayerEffect : MonoBehaviour
             return inkHitEffect;
         }
     }
-
-
-    //[Space(20)]
-    //[Header("ÀÌÆåÆ® Æ÷Áö¼Ç")]
-    //[SerializeField] private Transform playerPosition;
-    //public Transform PlayerPosition
-    //{
-    //    get
-    //    {
-    //        return playerPosition; 
-    //    }
-    //}
-
-    //[SerializeField] private Transform humanWeaponPosition;
-    //public Transform HumanWeaponPosition
-    //{
-    //    get
-    //    {
-    //        return humanWeaponPosition;
-    //    }
-    //}
-
-    //[SerializeField] private Transform animalRightHandPosition;
-    //public Transform AnimalRightHandPosition
-    //{
-    //    get
-    //    {
-    //        return animalRightHandPosition;
-    //    }
-    //}
-
-    //[SerializeField] private Transform animalLeftHandPosition;
-    //public Transform AnimalLeftHandPosition
-    //{
-    //    get
-    //    {
-    //        return animalLeftHandPosition;
-    //    }
-    //}
-
-    //ÀÌÆåÆ® ÄÚ·çÆ¾ ¸ØÃß±â(untilFinish == true Á¦¿Ü)
-
 
     [SerializeField] private GameObject[] MaskEffect;
 
@@ -90,7 +37,7 @@ public class PlayerEffect : MonoBehaviour
         stopEffectCoroutine = true;
     }
 
-    //Vector3 effectPosition ·Î ¹ÞÀ¸´Ï±î º¤ÅÍ °ª¿¡¼­ º¯µ¿Àº ¾øÀ½
+    //Vector3 effectPosition ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public IEnumerator TogglePlayerHitEffect(EffectStruct effectStruct, GameObject[] effects, Vector3 hitPosition)
     {
         #region UseFuction
@@ -103,8 +50,8 @@ public class PlayerEffect : MonoBehaviour
         float coroutineStartTime = Time.time;
         stopEffectCoroutine = false;
 
-        //ºñÈ°¼ºÈ­ ¿ÀºêÁ§Æ® ÇÏ³ª °í¸£±â
-        //ÇÁ¸®ÆÕ »ý¼ºÀ¸·Î ±³Ã¼ÇØ¾ßÇÒµí >>> ¿ÀºêÁ§Æ® Ç®¸µ
+        //ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ø¾ï¿½ï¿½Òµï¿½ >>> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½
         GameObject skillEffect = null;
 
         for (int i = 0; i < effects.Length; i++)
@@ -125,18 +72,18 @@ public class PlayerEffect : MonoBehaviour
             yield break;
         }
 
-        //ÀÌÆåÆ® È°¼ºÈ­
+        //ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool activeEffectOnce = false;
         #endregion
 
         while (true)
         {
-            //effect.followTarget == true -> ÀÌÆåÆ®°¡ Å¸°ÙÀ» °è¼Ó µû¶ó´Ù´Ô
-            //effect.followTarget == false -> ÇÑ¹ø ½ÇÇà, ÀÌÈÄ followTarget = false
+            //effect.followTarget == true -> ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ù´ï¿½
+            //effect.followTarget == false -> ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ followTarget = false
             
-            //effectStruct.untilFinish == true -> ½ºÅ³ÀÌ ³¡³ªµµ Áö¼Ó½Ã°£±îÁö ÀÌÆåÆ® È°¼ºÈ­
+            //effectStruct.untilFinish == true -> ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
             if (stopEffectCoroutine)
             {
                 if (!effectStruct.untilFinish)
@@ -150,21 +97,21 @@ public class PlayerEffect : MonoBehaviour
             float followStartTime = coroutineStartTime + effectStruct.followWaitTime;
             bool following = effectStruct.followPosition && (Time.time >= followStartTime && Time.time <= followStartTime + effectStruct.followDuration);
             
-            //Áö¼Ó½Ã°£ ÀÌÈÄ¿¡ ºñÈ°¼ºÈ­
+            //ï¿½ï¿½ï¿½Ó½Ã°ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
             if (Time.time >= effectStartTime + effectStruct.duration)
             {
                 skillEffect.SetActive(false);
                 yield break;
             }
 
-            //Áö¿¬½Ã°£ ÈÄ ÀÌÆåÆ® È°¼ºÈ­
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
             else if  (Time.time >= effectStartTime)
             {
                 if (!activeEffectOnce || following)
                 {
                     skillEffect.transform.localScale = effectStruct.scale;
 
-                    //È÷Æ®ÁöÁ¡¿¡¼­ ÇÃ·¹ÀÌ¾î Á¤¸é¹æÇâ ±âÁØ offset °¡´ÉÇÏ°Ô
+                    //ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ offset ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
                     skillEffect.transform.position =
                         hitPosition + Player.instance.transform.forward * effectStruct.position.x +
                         Player.instance.transform.up * effectStruct.position.y + 
@@ -184,7 +131,7 @@ public class PlayerEffect : MonoBehaviour
         }
     }
 
-    //ÀÌÆåÆ® À§Ä¡ º¯µ¿¿¡µµ ´ëÃ³°¡´É(Ãâ½ÃÇÏ°í ¹Ù²ã¾ßÇÔ)
+    //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ï¿½)
     public IEnumerator TogglePlayerEffect(EffectStruct effectStruct, GameObject[] effects, GameObject positionObject)
     {
         if (!effectStruct.useFunction)
@@ -196,7 +143,7 @@ public class PlayerEffect : MonoBehaviour
 
         stopEffectCoroutine = false;
 
-        //ºñÈ°¼ºÈ­ ¿ÀºêÁ§Æ® ÇÏ³ª °í¸£±â
+        //ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         GameObject skillEffect = null;
         for (int i = 0; i < effects.Length; i++)
         {
@@ -216,15 +163,15 @@ public class PlayerEffect : MonoBehaviour
             yield break;
         }
 
-        //ÀÌÆåÆ® È°¼ºÈ­
+        //ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
 
-        #region while º¯¼ö
+        #region while ï¿½ï¿½ï¿½ï¿½
         bool followPosition = true;
         bool activeTransformOnce = false;
 
         bool activeEffectOnce = false;
 
-        //·ÎÄÃÆ÷Áö¼Ç¿¡ °è¼Ó ´õÇØÁö´Â ¹®Á¦ ¹ß»ý
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
         positionObject.transform.localPosition += effectStruct.position;
         positionObject.transform.localRotation = Quaternion.Euler(effectStruct.rotation.x, effectStruct.rotation.y, effectStruct.rotation.z);
         #endregion
@@ -246,7 +193,7 @@ public class PlayerEffect : MonoBehaviour
                 yield break;
             }
 
-            //Áö¼Ó½Ã°£ Áö³ª¸é ÄÚ·çÆ¾ ÁßÁö
+            //ï¿½ï¿½ï¿½Ó½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½
             else if (Time.time >= coroutineStartTime + effectStruct.waitTime)
             {
                 if (!activeEffectOnce || 
@@ -258,7 +205,7 @@ public class PlayerEffect : MonoBehaviour
                     positionObject.transform.localPosition = effectStruct.position;
                     skillEffect.transform.position = positionObject.transform.position;
 
-                    //ÀÌÆåÆ® È¸ÀüÀº À§Ä¡¸¦ ³ªÅ¸³»´Â ¿ÀºêÁ§Æ®ÀÇ È¸ÀüÁÂÇ¥¿¡¼­
+                    //ï¿½ï¿½ï¿½ï¿½Æ® È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½
                     //Vector3 totalRotation = positionObject.transform.rotation.eulerAngles + effectStruct.rotaion;
                     //skillEffect.transform.rotation = Quaternion.Euler(totalRotation.x, totalRotation.y, totalRotation.z);
                     positionObject.transform.localRotation= Quaternion.Euler(effectStruct.rotation.x, effectStruct.rotation.y, effectStruct.rotation.z);
@@ -287,8 +234,8 @@ public class PlayerEffect : MonoBehaviour
         stopEffectCoroutine = false;
 
         #region Select Inactive Effect
-        //ºñÈ°¼ºÈ­ ¿ÀºêÁ§Æ® ÇÏ³ª °í¸£±â
-        //ÇÁ¸®ÆÕ »ý¼ºÀ¸·Î ±³Ã¼ÇØ¾ßÇÒµí >>> ¿ÀºêÁ§Æ® Ç®¸µ
+        //ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ø¾ï¿½ï¿½Òµï¿½ >>> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½
         GameObject skillEffect = null;
         for (int i = 0; i < effects.Length; i++)
         {
@@ -303,7 +250,7 @@ public class PlayerEffect : MonoBehaviour
             }
         }
 
-        //ÀÌÆåÆ®°¡ ´Ù ÄÑÁ®ÀÖÀ¸¸é ÄÚ·çÆ¾ Ãë¼Ò
+        //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½
         if (skillEffect == null)
         {
             yield break;
@@ -314,9 +261,9 @@ public class PlayerEffect : MonoBehaviour
 
         while (true)
         {
-            //effect.followTarget == true -> ÀÌÆåÆ®°¡ Å¸°ÙÀ» °è¼Ó µû¶ó´Ù´Ô
-            //effect.followTarget == false -> ÇÑ¹ø ½ÇÇà, ÀÌÈÄ followTarget = false
-            //effectStruct.untilFinish == true -> ½ºÅ³ÀÌ ³¡³ªµµ Áö¼Ó½Ã°£±îÁö ÀÌÆåÆ® È°¼ºÈ­
+            //effect.followTarget == true -> ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ù´ï¿½
+            //effect.followTarget == false -> ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ followTarget = false
+            //effectStruct.untilFinish == true -> ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
 
             if (stopEffectCoroutine)
             {
@@ -331,21 +278,21 @@ public class PlayerEffect : MonoBehaviour
             float followStartTime = coroutineStartTime + effectStruct.followWaitTime;
             bool following = effectStruct.followPosition && (Time.time >= followStartTime && Time.time <= followStartTime + effectStruct.followDuration);
 
-            //Áö¼Ó½Ã°£ ÀÌÈÄ¿¡ ºñÈ°¼ºÈ­
+            //ï¿½ï¿½ï¿½Ó½Ã°ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
             if (Time.time >= effectStartTime + effectStruct.duration)
             {
                 skillEffect.SetActive(false);
                 yield break;
             }
 
-            //Áö¿¬½Ã°£ ÈÄ ÀÌÆåÆ® È°¼ºÈ­
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
             else if (Time.time >= effectStartTime)
             {
                 if (!activeEffectOnce || following)
                 {
                     skillEffect.transform.localScale = effectStruct.scale;
 
-                    //È÷Æ®ÁöÁ¡¿¡¼­ ÇÃ·¹ÀÌ¾î Á¤¸é¹æÇâ ±âÁØ offset °¡´ÉÇÏ°Ô
+                    //ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ offset ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
                     skillEffect.transform.position = effectPosition;
                     skillEffect.SetActive(true);
 

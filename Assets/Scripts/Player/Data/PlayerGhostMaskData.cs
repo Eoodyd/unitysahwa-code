@@ -8,152 +8,144 @@ using UnityEngine;
 
 public partial class PlayerGhostMaskData : ScriptableObject
 {
-    [Header("°ø¿ë")]
-    [Header("±Í½ÅÅ» ½ºÅ³ ÄðÅ¸ÀÓ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
+    [Header("ï¿½Í½ï¿½Å» ï¿½ï¿½Å³ ï¿½ï¿½Å¸ï¿½ï¿½")]
     public float cooldown = 20;
-    [Header("Ã³Çü Å¸°Ù Å½Áö ¹üÀ§")]
+    [Header("Ã³ï¿½ï¿½ Å¸ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float detectRange=20;
-    [Header("Ã³Çü °¡´É °¢µµ")]
+    [Header("Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public float viewAngle=100;
-    [Header("Ã³Çü ½ºÅ³ ¹üÀ§")]
+    [Header("Ã³ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½")]
     public float skillRange=20;
 }
 
 public partial class PlayerGhostMaskData : ScriptableObject
 {
     [Space(20)]
-    [Header("»ç¶÷Å» Ã³Çü")]
-    [Tooltip("³´À¸·Î º¯°æ½Ã°£")]
+    [Header("ï¿½ï¿½ï¿½Å» Ã³ï¿½ï¿½")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float humanSetGhostWeaponTime;
-    [Tooltip("¿ø·¡ ¹«±â·Î º¯°æ½Ã°£")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float humanSetOriginalWeaponTime;
-    [Tooltip("Àû »ç¸ÁÆÇÁ¤ ½Ã°£")]
+    [Tooltip("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float humanKillTargetTime;
 
     [Space(10)]
-    [Tooltip("¹°¸® ÀÌµ¿")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½")]
     public SkillMoveStruct[] humanSkillMove;
-    [Tooltip("Çàµ¿ Á¦ÇÑ")]
+    [Tooltip("ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½")]
     public RestrictStruct humanRestrict;
-    [Tooltip("¾Ö´Ï¸ÞÀÌ¼Ç ¼Óµµ")]
+    [Tooltip("ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Óµï¿½")]
     public animationSpeedStruct[] huamnHitGroundAnimationSpeed;
     public animationSpeedStruct[] humanSwingAnimationSpeed;
 
     [Space(10)]
-    [Tooltip("ÄÆ ÀÌÆåÆ®")]
+    [Tooltip("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®")]
     public EffectStruct humanCutEffect;
-    [Tooltip("µ¼ ÀÌÆåÆ®")]
+    [Tooltip("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®")]
     public EffectStruct humanDomeEffect;
     
     [Space(10)]
-    [Tooltip("½ºÅ³ »ç¿îµå")]
+    [Tooltip("ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½")]
     public SoundStruct humanHitGroundSound;
     public SoundStruct humanSwingSound;
     public SoundStruct humanAfterSwingSound;
 
     [Space(10)]
-    [Header("Ä«¸Þ¶ó ½¦ÀÌÅ©")]
+    [Header("Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©")]
     public CameraShakeStruct humanFinishSwingCameraShake;
     public CameraShakeStruct humanFinishHitGroundCameraShake;
 
     [Space(10)]
-    [Header("Å¸ÀÓ½ºÄÉÀÏ")]
+    [Header("Å¸ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public TimeScaleStruct humanFinishTimeScale;
-
-    //[Header("S½ºÅ³ - Å¸°ÝÆÇÁ¤")]
-    //[Tooltip("Å¸°Ý ÀÌÆåÆ®")]
-    //public EffectStruct inkFloorHitEffect;
-    //[Tooltip("Å¸°Ý »ç¿îµå")]
-    //public SoundStruct inkFloorHitSound;
-    //[Tooltip("Ä«¸Þ¶ó ½¦ÀÌÅ©")]
-    //public CameraShakeStruct inkFloorHitCameraShake;
 }
 
 public partial class PlayerGhostMaskData : ScriptableObject
 {
     [Space(20)]
-    [Header("µ¿¹°Å» Ã³Çü")]
-    [Tooltip("³´À¸·Î º¯°æ½Ã°£")]
+    [Header("ï¿½ï¿½ï¿½ï¿½Å» Ã³ï¿½ï¿½")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float animalSetGhostWeaponTime;
-    [Tooltip("¿ø·¡ ¹«±â·Î º¯°æ½Ã°£")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½")]
     public float animalSetOriginalWeaponTime;
-    [Tooltip("Àû »ç¸ÁÆÇÁ¤ ½Ã°£")]
+    [Tooltip("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½")]
     public float animalKillTargetTime;
 
 
     [Space(10)]
-    [Tooltip("¹°¸® ÀÌµ¿")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½")]
     public SkillMoveStruct[] animalSkillMove;
-    [Tooltip("Çàµ¿ Á¦ÇÑ")]
+    [Tooltip("ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½")]
     public RestrictStruct animalRestrict;
-    [Tooltip("¾Ö´Ï¸ÞÀÌ¼Ç ¼Óµµ")]
+    [Tooltip("ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Óµï¿½")]
     public animationSpeedStruct[] animalSweapAnimationSpeed;
     public animationSpeedStruct[] animalSwingAnimationSpeed;
 
 
     [Space(10)]
-    [Tooltip("ÄÆ ÀÌÆåÆ®")]
+    [Tooltip("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®")]
     public EffectStruct animalCutEffect;
-    [Tooltip("µ¼ ÀÌÆåÆ®")]
+    [Tooltip("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®")]
     public EffectStruct animalDomeEffect;
     
     [Space(10)]
-    [Tooltip("½ºÅ³ »ç¿îµå")]
+    [Tooltip("ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½")]
     public SoundStruct animalSweapSound;
     public SoundStruct animalSwingSound;
     public SoundStruct animalAfterSwingSound;
     
     [Space(10)]
-    [Header("Ä«¸Þ¶ó ½¦ÀÌÅ©")]
+    [Header("Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½Å©")]
     public CameraShakeStruct animalFinishSweapCameraShake;
     public CameraShakeStruct animalFinishSwingCameraShake;
 
     [Space(10)]
-    [Header("Å¸ÀÓ½ºÄÉÀÏ")]
+    [Header("Å¸ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public TimeScaleStruct animalFinishTimeScale;
 
 }
 
 public partial class PlayerGhostMaskData : ScriptableObject
 {
-    #region ½Ì±ÛÅæ
-    //Áö¿¬»ý¼º ½Ì±ÛÅæ: ½Ì±ÛÅæ ¿ÀºêÁ§Æ®¿¡ Á¢±ÙÇÏ´Â ¼ø°£¿¡ ¿ÀºêÁ§Æ®°¡ ¾ø´Ù¸é ¸¸µé¾îÁÜ
+    #region ï¿½Ì±ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½: ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     private const string SettingFileDirectory = "Assets/Resources";
     private const string SettingFilePath = "Assets/Resources/PlayerGhostMaskData.asset";
-    //¸®¼Ò½º´Â µÇµµ·Ï »ç¿ëX, Àü¿ªÀ¸·Î »ç¿ëµÇ´Â °ÍÀº Å« ¹®Á¦ ¾ø´Ù°í ÇÔ
-    //Resources Æú´õ°¡ ¾ø´ÂÁö È®ÀÎ, ¾øÀ¸¸é »ý¼º
+    //ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½X, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½ï¿½
+    //Resources ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private static PlayerGhostMaskData instance;
     public static PlayerGhostMaskData Instance
     {
         get
         {
-            if (instance != null) //instance°¡ Á¸ÀçÇÑ´Ù¸é °¡Á®¿À±â
+            if (instance != null) //instanceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
                 return instance;
             }
 
-            //¾ø´Ù¸é 
+            //ï¿½ï¿½ï¿½Ù¸ï¿½ 
             instance = Resources.Load<PlayerGhostMaskData>("PlayerGhostMaskData");
 
-            //¿¡µðÅÍ Å¸ÀÓ¿¡¼­ ÀÚµ¿À¸·Î ¹Ì¸® »ý¼ºµÇµµ·Ï, ·±Å¸ÀÓ¿¡ ¹«Á¶°Ç ÀÖ¾î¾ßÇÔ.
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½, ï¿½ï¿½Å¸ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½.
 #if UNITY_EDITOR
 
             if (instance == null)
             {
-                if (!AssetDatabase.IsValidFolder(SettingFileDirectory))//ÇØ´ç ÆÄÀÏÀÌ À¯È¿ÇÑÁö
+                if (!AssetDatabase.IsValidFolder(SettingFileDirectory))//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½
                 {
-                    AssetDatabase.CreateFolder("Assets", "Resources"); //¾Æ´Ï¶ó¸é Assets ¾Æ·¡¿¡ Resources Æú´õ »ý¼º
+                    AssetDatabase.CreateFolder("Assets", "Resources"); //ï¿½Æ´Ï¶ï¿½ï¿½ Assets ï¿½Æ·ï¿½ï¿½ï¿½ Resources ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 }
 
-                //¾î¶² ÀÌÀ¯·Î ÆÄÀÏÀÌ ¾È°¡Á®¿Ô´Ù¸é ÇÏµåÇÏ°Ô °¡Á®¿À±â
+                //ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ï¿½Ô´Ù¸ï¿½ ï¿½Ïµï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 instance = AssetDatabase.LoadAssetAtPath<PlayerGhostMaskData>(SettingFilePath);
 
-                if (instance == null) //±×·³¿¡µµ ¾È°¡Á®¿ÍÁø´Ù¸é ¾ø´Ù´Â °Í. »õ·Î ¸¸µé¾îÁÖ±â
+                if (instance == null) //ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
                 {
-                    instance = CreateInstance<PlayerGhostMaskData>(); //ÀÌ·¸°Ô »ý¼ºÇÏ¸é ¸Þ¸ð¸®¿¡¸¸ Á¸Àç. ÆÄÀÏ ¿¡¼ÂÀ¸·Î ÀúÀåÀÌ ¾ÈµÊ
-                    AssetDatabase.CreateAsset(instance, SettingFilePath); //¹æ±Ý »ý¼ºµÈ ¿ÀºêÁ§Æ®¸¦ À¯´ÏÆ¼¿¡¼ÂÀ¸·Î »ý¼º, ÀúÀåÇÒ ¼ö ÀÖ°Ô
+                    instance = CreateInstance<PlayerGhostMaskData>(); //ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Þ¸ð¸®¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
+                    AssetDatabase.CreateAsset(instance, SettingFilePath); //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½
                 }
 
             }
